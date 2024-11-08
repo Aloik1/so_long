@@ -16,7 +16,10 @@ FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 SRC = $(SRC_DIR)/so_long.c $(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/map.c $(SRC_DIR)/window_and_mlx.c \
 	$(SRC_DIR)/path_checks.c $(SRC_DIR)/map_checks.c \
-	$(SRC_DIR)/many_frees.c $(SRC_DIR)/flood_check.c
+	$(SRC_DIR)/many_frees.c $(SRC_DIR)/flood_check.c \
+	$(SRC_DIR)/map_drawing.c $(SRC_DIR)/player.c \
+	$(SRC_DIR)/movement.c $(SRC_DIR)/redraw.c \
+	$(SRC_DIR)/camera.c \
 
 OBJ = $(SRC:.c=.o)
 
