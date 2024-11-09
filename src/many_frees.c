@@ -12,10 +12,11 @@
 
 #include "../includes/so_long.h"
 
-void free_map(t_map *map) 
+void	free_map(t_map *map) 
 {
-    int i = 0;
+    int i;
 
+    i = 0;
     if (map) 
     {
         if (map->map_grid)
@@ -27,8 +28,22 @@ void free_map(t_map *map)
             }
             free(map->map_grid);
         }
+	i = 0;
+	if (map->collectible)
+	{
+		while (map->collectible->positions[i])
+		{
+			free(map->collectible->positions[i]);
+			i++;
+		}
+		free(map->collectible->positions);
+		free(map->collectible);
+	}
+	if (map->exit)
+		free(map->exit);
         free(map);
     }
+    return ;
 }
 
 t_player_position	return_null_player(void)

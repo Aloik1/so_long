@@ -101,11 +101,10 @@ int	main(int argc, char **argv)
 	game->window = window;
 	// check for key presses
 	mlx_key_hook(window->win, movement, game);
+	
 	// start the loop
 	mlx_loop(window->mlx);
 	// Free resources before exiting
-	free(player);
-	free_map(map);
 	return (0);
 }
 

@@ -102,7 +102,7 @@ static void	move_right(t_player *player, t_map *map)
 	}
 }
 
-int	movement(int keycode, t_game *game)
+int	movement(int keycode, t_game *game, t_textures *textures)
 {
 	if (!game || !game->player || !game->map) 
 	{
@@ -136,14 +136,19 @@ int	movement(int keycode, t_game *game)
 		return (-1);
 	}
 	// Debugging: Check pointers before redrawing
-	ft_printf("Checking pointers before redraw:\n");
-	ft_printf("Game pointer: %p\n", (void *)game);
-	ft_printf("Window pointer: %p\n", (void *)game->window);
-	ft_printf("Map pointer: %p\n", (void *)game->map);
-	ft_printf("Player pointer: %p\n", (void *)game->player);
 
 	ft_printf("Attempting to redraw everything\n");
 	ft_printf("Player position after movement: (%d, %d)\n", game->player->position.x, game->player->position.y);
-	redraw_everything(game);
+	if (collect_collectible(game, game->player))
+	{
+		redraw_everything(game);
+		open_exit(game->map, game->player, game, textures);
+	}
+	else
+	{
+		ft_printf("Not enough collectibles to open the exit\n");
+		redraw_everything(game);
+		open_exit(game->map, game->player, game, textures);
+	}
 	return (0);
 }

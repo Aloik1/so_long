@@ -107,6 +107,7 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 	ft_printf("Drawing collectibles with camera at (%d, %d)\n", camera->x, camera->y);
 
 	i = camera->y;
+	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 1));
 	while (i < camera->y + camera->height && i < map->rows)
 	{
 		j = camera->x;
@@ -114,14 +115,19 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 		{
 			if (map->map_grid[i][j] == 'C')
 			{
-				pixel_x = (j - camera->x) * TILE_SIZE;
-				pixel_y = (i - camera->y) * TILE_SIZE;
+				pixel_x = (j - camera->x) * TILE_SIZE + 24;
+				pixel_y = (i - camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
+				map->collectible->positions[collectible_count] = (int *)malloc(sizeof(int) * 3);
+				map->collectible->positions[collectible_count][0] = j;
+				map->collectible->positions[collectible_count][1] = i;
+				map->collectible->positions[collectible_count][2] = 0;
 				collectible_count++;
 			}
 			j++;
 		}
 		i++;
+		map->collectible->positions[collectible_count] = NULL;
 	}
 }
 
@@ -135,12 +141,20 @@ int	draw_map(t_map *map, t_window *window, t_camera *camera)
 		ft_printf("Error: Could not allocate memory for textures.\n");
 		return (0);
 	}
+	map->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
+	if (!map->collectible)
+	{
+		ft_printf("Error: Could not allocate memory for collectible position.\n");
+		return (0);
+	}
 	draw_floor(map, window, textures, camera);
 	ft_printf("Floor texture loaded: %p\n", textures->floor_img);
 	draw_wall(map, window, textures, camera);
 	ft_printf("Wall texture loaded: %p\n", textures->wall_top_img);
 	draw_collectibles(map, window, textures, camera);
 	ft_printf("Collectibles loaded\n");
+	draw_exit(map, window, textures, camera);
+	ft_printf("Exit loaded\n");
 	free(textures);
 	return (1);
 }

@@ -86,7 +86,12 @@ int	read_map(char *file, t_map **map)
 	(*map)->collectibles = 0;
 	(*map)->exits = 0;
 	(*map)->players = 0;
-	
+	(*map)->exit = (t_exit_position *)malloc(sizeof(t_exit_position));
+	if (!(*map)->exit)
+	{
+		ft_printf("Error: Could not allocate memory for exit position.\n");
+		return (0);
+	}
 	// Debug print to check the file path
 	ft_printf("Attempting to open file: %s\n", file);
 

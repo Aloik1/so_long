@@ -41,6 +41,19 @@ typedef struct s_window
 	int		win_height;
 }	t_window;
 
+typedef struct s_collectible_position
+{
+	int		x; // column
+	int		y; // row
+	int		**positions;
+}	t_collectible_position;
+
+typedef struct s_exit_position
+{
+	int		x; // column
+	int		y; // row
+}	t_exit_position;
+
 typedef struct s_map
 {
 	int		rows;
@@ -49,6 +62,8 @@ typedef struct s_map
 	int		exits;
 	int		players;
 	char		**map_grid;
+	t_collectible_position	*collectible;
+	t_exit_position		*exit;
 }	t_map;
 
 typedef struct s_player_position
@@ -69,21 +84,6 @@ typedef struct s_player
 	int		speed;
 	int		direction;
 }	t_player;
-
-
-
-typedef struct s_collectible_position
-{
-	int		x; // column
-	int		y; // row
-	int		**positions;
-}	t_collectible_position;
-
-typedef struct s_exit_position
-{
-	int		x; // column
-	int		y; // row
-}	t_exit_position;
 
 typedef struct s_flood_grid
 {
@@ -169,9 +169,13 @@ int			map_checks(t_map *map);
 int			draw_map(t_map *map, t_window *window, t_camera *camera);
 int			init_player(t_map *map, t_window *window, t_player *player);
 int			draw_player(t_window *window, t_player *player, t_camera *camera);
-int			movement(int keycode, t_game *game);
+int			movement(int keycode, t_game *game, t_textures *textures);
 void			redraw_everything(t_game *game);
 void			update_camera(t_camera *camera, t_player *player, t_map *map);
 void			camera_init(t_camera *camera, t_player *player, t_map *map);
+int			collect_collectible(t_game *game, t_player *player);
+void			open_exit(t_map *map, t_player *player, t_game *game, t_textures *textures);
+void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *camera);
+void			clean_exit(t_game *game, t_textures *textures);
 
 #endif
