@@ -45,6 +45,7 @@ typedef struct s_collectible_position
 {
 	int		x; // column
 	int		y; // row
+	int		collectibles_visible;
 	int		**positions;
 }	t_collectible_position;
 

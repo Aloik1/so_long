@@ -48,10 +48,14 @@ static int	check_and_delete_collectible(t_game *game, t_player *player)
 	}
 	ft_printf("Collectible positions pointer: %p\n", (void *)game->map->collectible->positions);
 	ft_printf("Starting collectible check...\n");
-	while (game->map->collectible->positions[i]) 
+	while (i < game->map->collectible->collectibles_visible) 
 	{
 		ft_printf("Checking collectible at index %d\n", i);
-
+		if (!game->map->collectible->positions[i])
+		{
+			ft_printf("Error: Null pointer detected in check_and_delete_collectible\n");
+			return 0;
+		}
 		if (game->map->collectible->positions[i][0] == player->position.x &&
 			game->map->collectible->positions[i][1] == player->position.y) 
 		{

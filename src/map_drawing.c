@@ -118,8 +118,16 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 		}
 		i++;
 	}
+	map->collectible->collectibles_visible = collectible_count;
+	ft_printf("collectible count is: %d\n", collectible_count);
 	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 2));
+	if (!map->collectible->positions)
+	{
+		ft_printf("Error: Could not allocate memory for collectible positions.\n");
+		return ;
+	}
 	i = camera->y;
+	collectible_count = 0;
 	while (i < camera->y + camera->height && i < map->rows)
 	{
 		j = camera->x;
@@ -130,17 +138,25 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 				pixel_x = (j - camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
-				map->collectible->positions[collectible_count] = (int *)malloc(sizeof(int) * 3);
+				map->collectible->positions[collectible_count] = malloc(sizeof(int) * 2);
+				if (!map->collectible->positions[collectible_count])
+				{
+					ft_printf("Error: Could not allocate memory for collectible positions.\n");
+					return ;
+				}
 				map->collectible->positions[collectible_count][0] = j;
 				map->collectible->positions[collectible_count][1] = i;
 				//map->collectible->positions[collectible_count][2] = 0;
+				ft_printf("collectible position: %d, %d\n", map->collectible->positions[collectible_count][0], map->collectible->positions[collectible_count][1]);
 				collectible_count++;
 			}
 			j++;
 		}
 		i++;
 		map->collectible->positions[collectible_count] = NULL;
+		
 	}
+	ft_printf("collectible positions allocated\n");
 }
 
 int	draw_map(t_map *map, t_window *window, t_camera *camera)
