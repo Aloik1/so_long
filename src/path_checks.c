@@ -64,18 +64,10 @@ static t_player_position	get_player_position(t_map *map)
 	return (return_null_player());
 }
 
-static int	count_collectibles(t_map *map, t_collectible_position *collectibles, int pos_count, int i, int j)
+static int	count_collectibles(t_map *map, int pos_count, int i, int j)
 {
 	if (map->map_grid[i][j] == 'C')
 	{
-		collectibles->positions[pos_count] = malloc(sizeof(int) * 2);
-		if (!collectibles->positions[pos_count])
-		{
-			return_null_and_free_collectibles(*collectibles);
-			return (-1);
-		}
-		collectibles->positions[pos_count][0] = j;
-		collectibles->positions[pos_count][1] = i;
 		pos_count++;
 	}
 	return (pos_count);
@@ -102,7 +94,7 @@ static t_collectible_position	get_collectibles_position(t_map *map)
 	{
 		while (j < map->cols)
 		{
-			pos_count = count_collectibles(map, &collectibles, pos_count, i, j);
+			pos_count = count_collectibles(map, pos_count, i, j);
 			j++;
 		}
 		j = 0;

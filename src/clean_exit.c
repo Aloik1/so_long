@@ -37,7 +37,7 @@ void	free_textures(t_game *game)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_right_img);
 	if (game->textures->exit_img)
 		mlx_destroy_image(game->window->mlx, game->textures->exit_img);
-	if (game->player->player_texture)
+	if (game->textures->player_img)
 		mlx_destroy_image(game->window->mlx, game->player->player_texture);
 }
 
@@ -47,13 +47,12 @@ void clean_exit(t_game *game)
 		exit(1);
 	if (game->map)
 		free_map(game->map);
+	free_textures(game);
 	if (game->player)
 	{
-		if (game->player->player_texture)
-			mlx_destroy_image(game->window->mlx, game->player->player_texture);
 		free(game->player);
 	}
-	free_textures(game);
+	
 	if (game->camera)
 	{
 		free(game->camera);

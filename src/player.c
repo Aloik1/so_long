@@ -37,7 +37,7 @@ static void	player_position(t_player *player, t_map *map)
 	}
 }
 
-int	init_player(t_map *map, t_window *window, t_player *player, t_textures *textures)
+int	init_player(t_map *map, t_player *player, t_textures *textures)
 {
 	
 	player->speed = 1;
@@ -45,12 +45,6 @@ int	init_player(t_map *map, t_window *window, t_player *player, t_textures *text
 	player->collectibles_collected = 0;
 
 	// Load player texture
-	player->player_texture = mlx_xpm_file_to_image(window->mlx, "assets/textures/character/character_basic.xpm", &player->width, &player->height);
-	if (!player->player_texture)
-	{
-		ft_printf("Error: Could not load player texture.\n");
-		return 0;
-	}
 	player_position(player, map);
 	ft_printf("Player position: %d, %d\n", player->position.x, player->position.y);
 	// Set player dimensions

@@ -97,6 +97,16 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 
 	ft_printf("Drawing collectibles with camera at (%d, %d)\n", camera->x, camera->y);
 
+	i = 0;
+	if (map->collectible->positions)
+	{
+		while (map->collectible->positions[i])
+		{
+			free(map->collectible->positions[i]);
+			i++;
+		}
+		free(map->collectible->positions);
+	}
 	i = camera->y;
 	while (i < camera->y + camera->height && i < map->rows)
 	{
@@ -111,7 +121,7 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 	}
 	map->collectible->collectibles_visible = collectible_count;
 	ft_printf("collectible count is: %d\n", collectible_count);
-	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 2));
+	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 1));
 	if (!map->collectible->positions)
 	{
 		ft_printf("Error: Could not allocate memory for collectible positions.\n");
@@ -129,7 +139,8 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 				pixel_x = (j - camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
-				map->collectible->positions[collectible_count] = malloc(sizeof(int) * 3);
+				
+				map->collectible->positions[collectible_count] = malloc(sizeof(int) * 2);
 				if (!map->collectible->positions[collectible_count])
 				{
 					ft_printf("Error: Could not allocate memory for collectible positions.\n");
@@ -154,12 +165,6 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 
 int	draw_map(t_map *map, t_window *window, t_camera *camera, t_textures *textures)
 {
-	map->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
-	if (!map->collectible)
-	{
-		ft_printf("Error: Could not allocate memory for collectible position.\n");
-		return (0);
-	}
 	ft_printf("----------------Drawing floor...-----------------\n");
 	draw_floor(map, window, textures, camera);
 	ft_printf("Floor texture loaded: %p\n", textures->floor_img);

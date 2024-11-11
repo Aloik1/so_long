@@ -87,7 +87,9 @@ int	read_map(char *file, t_map **map)
 	(*map)->exits = 0;
 	(*map)->players = 0;
 	(*map)->exit = (t_exit_position *)malloc(sizeof(t_exit_position));
-	if (!(*map)->exit)
+	(*map)->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
+	(*map)->collectible->positions = NULL;
+	if (!(*map)->exit || !(*map)->collectible)
 	{
 		ft_printf("Error: Could not allocate memory for exit position.\n");
 		return (0);
