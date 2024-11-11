@@ -102,9 +102,13 @@ static void	move_right(t_player *player, t_map *map)
 	}
 }
 
-int	movement(int keycode, t_game *game, t_textures *textures)
+int	movement(int keycode, t_game *game)
 {
-	if (!game || !game->player || !game->map) 
+	ft_printf("---------------Movement---------------\n");
+	ft_printf("Wall texture: %p\n", game->textures->wall_top_img);
+	ft_printf("Floor texture: %p\n", game->textures->floor_img);
+	ft_printf("Collectible texture: %p\n", game->textures->collectible_1_img);
+	if (!game || !game->player || !game->map || !game->textures) 
 	{
 		ft_printf("Error: Null pointer detected in movement\n");
 		return (-1);
@@ -141,14 +145,20 @@ int	movement(int keycode, t_game *game, t_textures *textures)
 	ft_printf("Player position after movement: (%d, %d)\n", game->player->position.x, game->player->position.y);
 	if (collect_collectible(game, game->player))
 	{
-		redraw_everything(game);
-		open_exit(game->map, game->player, game, textures);
+		ft_printf("---------------Redrawing everything---------------\n");
+		ft_printf("Textures: %p\n", game->textures);
+		redraw_everything(game, game->textures);
+		open_exit(game->map, game->player, game, game->textures);
 	}
 	else
 	{
-		ft_printf("Not enough collectibles to open the exit\n");
-		redraw_everything(game);
-		open_exit(game->map, game->player, game, textures);
+		ft_printf("---------------Redrawing everything---------------\n");
+		ft_printf("Textures: %p\n", game->textures);
+		ft_printf("textures->collectible_1_img: %p\n", game->textures->collectible_1_img);
+		ft_printf("textures->wall_top_img: %p\n", game->textures->wall_top_img);
+		ft_printf("textures->floor_img: %p\n", game->textures->floor_img);
+		redraw_everything(game, game->textures);
+		open_exit(game->map, game->player, game, game->textures);
 	}
 	return (0);
 }

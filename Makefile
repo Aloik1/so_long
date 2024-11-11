@@ -21,7 +21,8 @@ SRC = $(SRC_DIR)/so_long.c 		$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/movement.c 		$(SRC_DIR)/redraw.c \
 	$(SRC_DIR)/camera.c 		$(SRC_DIR)/collection.c \
 	$(SRC_DIR)/exit.c 		$(SRC_DIR)/clean_exit.c \
-
+	$(SRC_DIR)/texture_initialize.c \
+	
 OBJ = $(SRC:.c=.o)
 
 all: $(LIBFT) $(MINILIBX) $(FT_PRINTF) $(NAME)

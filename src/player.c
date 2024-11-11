@@ -12,8 +12,6 @@
 
 #include "../includes/so_long.h"
 
-extern t_textures	textures;
-
 static void	player_position(t_player *player, t_map *map)
 {
 	int		i;
@@ -39,7 +37,7 @@ static void	player_position(t_player *player, t_map *map)
 	}
 }
 
-int	init_player(t_map *map, t_window *window, t_player *player)
+int	init_player(t_map *map, t_window *window, t_player *player, t_textures *textures)
 {
 	
 	player->speed = 1;
@@ -56,8 +54,8 @@ int	init_player(t_map *map, t_window *window, t_player *player)
 	player_position(player, map);
 	ft_printf("Player position: %d, %d\n", player->position.x, player->position.y);
 	// Set player dimensions
-	textures.player_width = player->width;
-	textures.player_height = player->height;
+	textures->player_width = player->width;
+	textures->player_height = player->height;
 	return 1;
 }
 

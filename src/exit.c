@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:44:58 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/09 19:57:34 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/11 19:32:08 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	open_exit(t_map *map, t_player *player, t_game *game, t_textures *textures)
 		&& player->position.y == map->exit->y)
 	{
 		ft_printf("You win!\n");
-		clean_exit(game, textures);
+		clean_exit(game, &textures);
 		exit(0);
 	}
 	if (player->collectibles_collected != map->collectibles)

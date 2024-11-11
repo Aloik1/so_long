@@ -151,11 +151,9 @@ typedef struct 		s_game
 	t_window	*window;
 	t_player	*player;
 	t_camera	*camera;
+	t_textures	*textures;
 }	t_game;
 
-
-// global variables
-extern t_textures	textures;
 // function prototypes
 int			basic_check(int argc, char **argv);
 int			read_map(char *file, t_map **map);
@@ -167,16 +165,16 @@ t_collectible_position	return_null_and_free_collectibles(t_collectible_position 
 t_exit_position		return_null_exit(void);
 int			path_checks(t_map *map);
 int			map_checks(t_map *map);
-int			draw_map(t_map *map, t_window *window, t_camera *camera);
-int			init_player(t_map *map, t_window *window, t_player *player);
+int			draw_map(t_map *map, t_window *window, t_camera *camera, t_textures *textures);
+int			init_player(t_map *map, t_window *window, t_player *player, t_textures *textures);
 int			draw_player(t_window *window, t_player *player, t_camera *camera);
-int			movement(int keycode, t_game *game, t_textures *textures);
-void			redraw_everything(t_game *game);
+int			movement(int keycode, t_game *game);
+void			redraw_everything(t_game *game, t_textures *textures);
 void			update_camera(t_camera *camera, t_player *player, t_map *map);
 void			camera_init(t_camera *camera, t_player *player, t_map *map);
 int			collect_collectible(t_game *game, t_player *player);
 void			open_exit(t_map *map, t_player *player, t_game *game, t_textures *textures);
 void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *camera);
-void			clean_exit(t_game *game, t_textures *textures);
-
+void			clean_exit(t_game *game, t_textures **textures);
+int			texture_initialize(t_textures *textures, void *mlx);
 #endif
