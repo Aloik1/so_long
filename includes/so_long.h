@@ -173,8 +173,8 @@ void			redraw_everything(t_game *game, t_textures *textures);
 void			update_camera(t_camera *camera, t_player *player, t_map *map);
 void			camera_init(t_camera *camera, t_player *player, t_map *map);
 int			collect_collectible(t_game *game, t_player *player);
-void			open_exit(t_map *map, t_player *player, t_game *game, t_textures *textures);
+void			open_exit(t_map *map, t_player *player, t_game *game);
 void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *camera);
-void			clean_exit(t_game *game, t_textures **textures);
+void			clean_exit(t_game *game);
 int			texture_initialize(t_textures *textures, void *mlx);
 #endif

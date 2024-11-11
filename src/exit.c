@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:44:58 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/11 19:32:08 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/11 22:04:35 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *cam
 	}
 }
 
-void	open_exit(t_map *map, t_player *player, t_game *game, t_textures *textures)
+void	open_exit(t_map *map, t_player *player, t_game *game)
 {
 	ft_printf("Checking if exit is open...\n");
 	ft_printf("Collectibles collected: %d\n", player->collectibles_collected);
@@ -60,7 +60,7 @@ void	open_exit(t_map *map, t_player *player, t_game *game, t_textures *textures)
 		&& player->position.y == map->exit->y)
 	{
 		ft_printf("You win!\n");
-		clean_exit(game, &textures);
+		clean_exit(game);
 		exit(0);
 	}
 	if (player->collectibles_collected != map->collectibles)

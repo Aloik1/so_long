@@ -13,35 +13,35 @@
 #include "../includes/so_long.h"
 
 
-void	free_textures(t_textures **textures, void *mlx)
+void	free_textures(t_game *game)
 {
-	if ((*textures)->collectible_1_img)
-		mlx_destroy_image(mlx, (*textures)->collectible_1_img);
-	if ((*textures)->collectible_2_img)
-		mlx_destroy_image(mlx, (*textures)->collectible_2_img);
-	if ((*textures)->collectible_3_img)
-		mlx_destroy_image(mlx, (*textures)->collectible_3_img);
-	if ((*textures)->collectible_4_img)
-		mlx_destroy_image(mlx, (*textures)->collectible_4_img);
-	if ((*textures)->collectible_5_img)
-		mlx_destroy_image(mlx, (*textures)->collectible_5_img);
-	if ((*textures)->floor_img)
-		mlx_destroy_image(mlx, (*textures)->floor_img);
-	if ((*textures)->wall_top_img)
-		mlx_destroy_image(mlx, (*textures)->wall_top_img);
-	if ((*textures)->wall_bottom_img)
-		mlx_destroy_image(mlx, (*textures)->wall_bottom_img);
-	if ((*textures)->wall_left_img)
-		mlx_destroy_image(mlx, (*textures)->wall_left_img);
-	if ((*textures)->wall_right_img)
-		mlx_destroy_image(mlx, (*textures)->wall_right_img);
-	if ((*textures)->exit_img)
-		mlx_destroy_image(mlx, (*textures)->exit_img);
-	if ((*textures)->player_img)
-		mlx_destroy_image(mlx, (*textures)->player_img);
+	if (game->textures->collectible_1_img)
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_1_img);
+	// if (game->textures->collectible_2_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_2_img);
+	// if (game->textures->collectible_3_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_3_img);
+	// if (game->textures->collectible_4_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_4_img);
+	// if (game->textures->collectible_5_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_5_img);
+	if (game->textures->floor_img)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_img);
+	if (game->textures->wall_top_img)
+		mlx_destroy_image(game->window->mlx, game->textures->wall_top_img);
+	// if (game->textures->wall_bottom_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_bottom_img);
+	// if (game->textures->wall_left_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_left_img);
+	// if (game->textures->wall_right_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_right_img);
+	if (game->textures->exit_img)
+		mlx_destroy_image(game->window->mlx, game->textures->exit_img);
+	if (game->player->player_texture)
+		mlx_destroy_image(game->window->mlx, game->player->player_texture);
 }
 
-void clean_exit(t_game *game, t_textures **textures)
+void clean_exit(t_game *game)
 {
 	if (!game)
 		exit(1);
@@ -53,7 +53,7 @@ void clean_exit(t_game *game, t_textures **textures)
 			mlx_destroy_image(game->window->mlx, game->player->player_texture);
 		free(game->player);
 	}
-	free_textures(textures, game->window->mlx);
+	free_textures(game);
 	if (game->camera)
 	{
 		free(game->camera);

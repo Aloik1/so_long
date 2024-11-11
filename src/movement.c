@@ -148,17 +148,13 @@ int	movement(int keycode, t_game *game)
 		ft_printf("---------------Redrawing everything---------------\n");
 		ft_printf("Textures: %p\n", game->textures);
 		redraw_everything(game, game->textures);
-		open_exit(game->map, game->player, game, game->textures);
+		open_exit(game->map, game->player, game);
 	}
 	else
 	{
 		ft_printf("---------------Redrawing everything---------------\n");
-		ft_printf("Textures: %p\n", game->textures);
-		ft_printf("textures->collectible_1_img: %p\n", game->textures->collectible_1_img);
-		ft_printf("textures->wall_top_img: %p\n", game->textures->wall_top_img);
-		ft_printf("textures->floor_img: %p\n", game->textures->floor_img);
 		redraw_everything(game, game->textures);
-		open_exit(game->map, game->player, game, game->textures);
+		open_exit(game->map, game->player, game);
 	}
 	return (0);
 }
