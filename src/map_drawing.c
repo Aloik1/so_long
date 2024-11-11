@@ -107,7 +107,19 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 	ft_printf("Drawing collectibles with camera at (%d, %d)\n", camera->x, camera->y);
 
 	i = camera->y;
-	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 1));
+	while (i < camera->y + camera->height && i < map->rows)
+	{
+		j = camera->x;
+		while (j < camera->x + camera->width && j < map->cols)
+		{
+			if (map->map_grid[i][j] == 'C')
+				collectible_count++;
+			j++;
+		}
+		i++;
+	}
+	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 2));
+	i = camera->y;
 	while (i < camera->y + camera->height && i < map->rows)
 	{
 		j = camera->x;
@@ -121,7 +133,7 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 				map->collectible->positions[collectible_count] = (int *)malloc(sizeof(int) * 3);
 				map->collectible->positions[collectible_count][0] = j;
 				map->collectible->positions[collectible_count][1] = i;
-				map->collectible->positions[collectible_count][2] = 0;
+				//map->collectible->positions[collectible_count][2] = 0;
 				collectible_count++;
 			}
 			j++;
