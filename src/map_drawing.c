@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static void	draw_floor(t_map *map, t_window *window, t_textures *textures, t_camera *camera)
+static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_camera *camera)
 {
 	int	i;
 	int	j;
@@ -27,13 +27,13 @@ static void	draw_floor(t_map *map, t_window *window, t_textures *textures, t_cam
 	}
 
 	i = camera->y;
-	while (i < camera->y + camera->height && i < map->rows)
+	while (i < camera->y + camera->height && i < game->map->rows)
 	{
 		j = camera->x;
-		while (j < camera->x + camera->width && j < map->cols)
+		while (j < camera->x + camera->width && j < game->map->cols)
 		{
-			if (map->map_grid[i][j] == '0' || map->map_grid[i][j] == 'P'
-				|| map->map_grid[i][j] == 'E' || map->map_grid[i][j] == 'C')
+			if (game->map->map_grid[i][j] == '0' || game->map->map_grid[i][j] == 'P'
+				|| game->map->map_grid[i][j] == 'E' || game->map->map_grid[i][j] == 'C')
 			{
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
@@ -77,7 +77,7 @@ static void	draw_wall(t_map *map, t_window *window, t_textures *textures, t_came
 		i++;
 	}
 }
-static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures, t_camera *camera)
+static void	draw_collectibles(t_game *game, t_window *window, t_textures *textures, t_camera *camera)
 {
 	int	i;
 	int	j;
@@ -96,86 +96,87 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 	}
 
 	ft_printf("Drawing collectibles with camera at (%d, %d)\n", camera->x, camera->y);
-
-	i = 0;
-	if (map->collectible->positions)
-	{
-		while (map->collectible->positions[i])
-		{
-			free(map->collectible->positions[i]);
-			i++;
-		}
-		free(map->collectible->positions);
-	}
+	ft_printf("pointer to fill %p\n", game->map->collectible->positions[collectible_count]);
+	// i = 0;
+	// if (map->collectible->positions)
+	// {
+	// 	while (map->collectible->positions[i])
+	// 	{
+	// 		free(map->collectible->positions[i]);
+	// 		i++;
+	// 	}
+	// 	free(map->collectible->positions);
+	// }
 	i = camera->y;
-	while (i < camera->y + camera->height && i < map->rows)
+	while (i < camera->y + camera->height && i < game->map->rows)
 	{
 		j = camera->x;
-		while (j < camera->x + camera->width && j < map->cols)
+		while (j < camera->x + camera->width && j < game->map->cols)
 		{
-			if (map->map_grid[i][j] == 'C')
+			if (game->map->map_grid[i][j] == 'C')
 				collectible_count++;
 			j++;
 		}
 		i++;
 	}
-	map->collectible->collectibles_visible = collectible_count;
+	game->map->collectible->collectibles_visible = collectible_count;
 	ft_printf("collectible count is: %d\n", collectible_count);
-	map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 1));
-	if (!map->collectible->positions)
-	{
-		ft_printf("Error: Could not allocate memory for collectible positions.\n");
-		return ;
-	}
+	// map->collectible->positions = (int **)malloc(sizeof(int *) * (collectible_count + 1));
+	// if (!map->collectible->positions)
+	// {
+	// 	ft_printf("Error: Could not allocate memory for collectible positions.\n");
+	// 	return ;
+	// }
 	i = camera->y;
 	collectible_count = 0;
-	while (i < camera->y + camera->height && i < map->rows)
+	while (i < camera->y + camera->height && i < game->map->rows)
 	{
 		j = camera->x;
-		while (j < camera->x + camera->width && j < map->cols)
+		while (j < camera->x + camera->width && j < game->map->cols)
 		{
-			if (map->map_grid[i][j] == 'C')
+			if (game->map->map_grid[i][j] == 'C')
 			{
 				pixel_x = (j - camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
 				// if (map->collectible->positions[collectible_count] != NULL)
 				// 	free(map->collectible->positions[collectible_count]);
-				map->collectible->positions[collectible_count] = malloc(sizeof(int) * 2);
-				if (!map->collectible->positions[collectible_count])
-				{
-					ft_printf("Error: Could not allocate memory for collectible positions.\n");
-					return ;
-				}
-				map->collectible->positions[collectible_count][0] = j;
-				map->collectible->positions[collectible_count][1] = i;
-				ft_printf("collectible position: %d, %d\n", map->collectible->positions[collectible_count][0], map->collectible->positions[collectible_count][1]);
+				// map->collectible->positions[collectible_count] = malloc(sizeof(int) * 2);
+				// if (!map->collectible->positions[collectible_count])
+				// {
+				// 	ft_printf("Error: Could not allocate memory for collectible positions.\n");
+				// 	return ;
+				// }
+				ft_printf("collectible count is: %d\n", collectible_count);
+				ft_printf("pointer to fill %p\n", game->map->collectible->positions[collectible_count]);
+				game->map->collectible->positions[collectible_count][0] = j;
+				game->map->collectible->positions[collectible_count][1] = i;
+				ft_printf("collectible position: %d, %d\n", game->map->collectible->positions[collectible_count][0], game->map->collectible->positions[collectible_count][1]);
 				ft_printf("textures->collectible_1_img: %p\n", textures->collectible_1_img);
 				collectible_count++;
 			}
 			j++;
 		}
 		i++;
-		map->collectible->positions[collectible_count] = NULL;
-		
 	}
+	//game->map->collectible->positions[collectible_count] = NULL;
 	ft_printf("textures->collectible_1_img: %p\n", textures->collectible_1_img);
 	ft_printf("collectible positions allocated\n");
 }
 
-int	draw_map(t_map *map, t_window *window, t_camera *camera, t_textures *textures)
+int	draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textures)
 {
 	ft_printf("----------------Drawing floor...-----------------\n");
-	draw_floor(map, window, textures, camera);
+	draw_floor(game, window, textures, camera);
 	ft_printf("Floor texture loaded: %p\n", textures->floor_img);
 	ft_printf("----------------Drawing wall...-----------------\n");
-	draw_wall(map, window, textures, camera);
+	draw_wall(game->map, window, textures, camera);
 	ft_printf("Wall texture loaded: %p\n", textures->wall_top_img);
 	ft_printf("----------------Drawing collectibles...-----------------\n");
-	draw_collectibles(map, window, textures, camera);
+	draw_collectibles(game, window, textures, camera);
 	ft_printf("Collectibles loaded\n");
 	ft_printf("----------------Drawing exit...-----------------\n");
-	draw_exit(map, window, textures, camera);
+	draw_exit(game->map, window, textures, camera);
 	ft_printf("Exit loaded\n");
 	return (1);
 }

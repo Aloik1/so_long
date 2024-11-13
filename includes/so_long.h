@@ -156,16 +156,16 @@ typedef struct 		s_game
 
 // function prototypes
 int			basic_check(int argc, char **argv);
-int			read_map(char *file, t_map **map);
+int			read_map(char *file, t_game *game);
 int			window_and_mlx(t_window **window);
 int			flood_check(t_map *map, t_player_position player_position);
 void			free_map(t_map *map);
 t_player_position	return_null_player(void);
 t_collectible_position	return_null_and_free_collectibles(t_collectible_position collectibles);
 t_exit_position		return_null_exit(void);
-int			path_checks(t_map *map);
+int			path_checks(t_game *game);
 int			map_checks(t_map *map);
-int			draw_map(t_map *map, t_window *window, t_camera *camera, t_textures *textures);
+int			draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textures);
 int			init_player(t_map *map, t_player *player, t_textures *textures);
 int			draw_player(t_window *window, t_player *player, t_camera *camera);
 int			movement(int keycode, t_game *game);

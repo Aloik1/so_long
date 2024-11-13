@@ -31,12 +31,16 @@ void	free_map(t_map *map)
 	i = 0;
 	if (map->collectible)
 	{
-		while (map->collectible->positions[i])
+		while (map->collectible->positions[i] != NULL)
 		{
+			
 			free(map->collectible->positions[i]);
+			ft_printf("Freed index %d\n", i);
 			i++;
 		}
-		free(map->collectible->positions[i]);
+		ft_printf("I is %d\n", i);
+		//ft_printf("Freeing index %d\n", j);
+		//free(map->collectible->positions[i]);
 		free(map->collectible->positions);
 		free(map->collectible);
 	}

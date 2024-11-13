@@ -17,14 +17,29 @@ static void	modify_positions(t_map *map, int i)
 	int	j;
 
 	j = i;
+	ft_printf("i is %d\n", i);
 	if (!map->collectible->positions)
 		return ;
-	while (map->collectible->positions[j + 1])
+	if (!(map->collectibles == 1))
 	{
-		map->collectible->positions[j] = map->collectible->positions[j + 1];
-		j++;
+		while (j < map->collectibles - 1)
+		{
+			// ft_printf("pointer to copy from: %p\n", map->collectible->positions[j + 1]);
+			map->collectible->positions[j] = map->collectible->positions[j + 1];
+			ft_printf("Copied\n");
+			j++;
+		}
+		i = 0;
+		while (map->collectible->positions[i])
+		{
+			ft_printf("index %i positions: %d %d\n", i, map->collectible->positions[i][0], map->collectible->positions[i][1]);
+			i++;
+		}
+		ft_printf("Freeing index %d\n", j);
+		ft_printf("position to free is %j positions: %d %d\n", i, map->collectible->positions[j][0], map->collectible->positions[j][1]);
+		map->collectible->positions[j][0] = '0';
+		map->collectible->positions[j][1] = '0';
 	}
-	map->collectible->positions[j] = NULL;
 	return ;
 }
 
@@ -63,7 +78,8 @@ static int	check_and_delete_collectible(t_game *game, t_player *player)
 			modify_positions(game->map, i);
 			player->collectibles_collected++;
 			game->map->collectibles--;
-			ft_printf("Collectible deleted! Remaining: %d\n", player->collectibles_collected);
+			
+			ft_printf("Collectible deleted! Remaining: %d\n", game->map->collectibles);
 			delete_collectible_from_map(game->map, &player->position);
 			return (1);
 		}

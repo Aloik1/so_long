@@ -89,22 +89,22 @@ static int	get_collectibles_position(t_map *map)
 	return (pos_count);
 }
 
-int	path_checks(t_map *map)
+int	path_checks(t_game *game)
 {
 	t_player_position	player_position;
 	int			collectibles;
 	t_exit_position		exit_position;
 
-	player_position = get_player_position(map);
-	collectibles = get_collectibles_position(map);
-	exit_position = get_exit_position(map);
+	player_position = get_player_position(game->map);
+	collectibles = get_collectibles_position(game->map);
+	exit_position = get_exit_position(game->map);
 	if (player_position.x == -1 || player_position.y == -1)
 		return (0);
 	if (collectibles == 0)
 		return (0);
 	if (exit_position.x == -1 || exit_position.y == -1)
 		return (0);
-	if (!flood_check(map, player_position))
+	if (!flood_check(game->map, player_position))
 		return (0);
 	return (1);
 }
