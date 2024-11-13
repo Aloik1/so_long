@@ -139,7 +139,8 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 				pixel_x = (j - camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
-				
+				// if (map->collectible->positions[collectible_count] != NULL)
+				// 	free(map->collectible->positions[collectible_count]);
 				map->collectible->positions[collectible_count] = malloc(sizeof(int) * 2);
 				if (!map->collectible->positions[collectible_count])
 				{
@@ -148,7 +149,6 @@ static void	draw_collectibles(t_map *map, t_window *window, t_textures *textures
 				}
 				map->collectible->positions[collectible_count][0] = j;
 				map->collectible->positions[collectible_count][1] = i;
-				// map->collectible->positions[collectible_count][2] = 0;
 				ft_printf("collectible position: %d, %d\n", map->collectible->positions[collectible_count][0], map->collectible->positions[collectible_count][1]);
 				ft_printf("textures->collectible_1_img: %p\n", textures->collectible_1_img);
 				collectible_count++;

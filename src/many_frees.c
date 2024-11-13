@@ -36,6 +36,7 @@ void	free_map(t_map *map)
 			free(map->collectible->positions[i]);
 			i++;
 		}
+		free(map->collectible->positions[i]);
 		free(map->collectible->positions);
 		free(map->collectible);
 	}

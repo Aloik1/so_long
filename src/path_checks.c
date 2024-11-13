@@ -64,18 +64,8 @@ static t_player_position	get_player_position(t_map *map)
 	return (return_null_player());
 }
 
-static int	count_collectibles(t_map *map, int pos_count, int i, int j)
+static int	get_collectibles_position(t_map *map)
 {
-	if (map->map_grid[i][j] == 'C')
-	{
-		pos_count++;
-	}
-	return (pos_count);
-}
-
-static t_collectible_position	get_collectibles_position(t_map *map)
-{
-	t_collectible_position	collectibles;
 	int			i;
 	int			j;
 	int			pos_count;
@@ -83,30 +73,26 @@ static t_collectible_position	get_collectibles_position(t_map *map)
 	i = 0;
 	j = 0;
 	pos_count = 0;
-	collectibles.positions = NULL;
-	collectibles.positions = malloc(sizeof(int *) * map->collectibles);
-	if (!collectibles.positions)
-	{
-		return_null_and_free_collectibles(collectibles);
-		return (collectibles);
-	}
 	while (i < map->rows)
 	{
 		while (j < map->cols)
 		{
-			pos_count = count_collectibles(map, pos_count, i, j);
+			if (map->map_grid[i][j] == 'C')
+			{
+				pos_count++;
+			}
 			j++;
 		}
 		j = 0;
 		i++;
 	}
-	return (collectibles);
+	return (pos_count);
 }
 
 int	path_checks(t_map *map)
 {
 	t_player_position	player_position;
-	t_collectible_position	collectibles;
+	int			collectibles;
 	t_exit_position		exit_position;
 
 	player_position = get_player_position(map);
@@ -114,7 +100,7 @@ int	path_checks(t_map *map)
 	exit_position = get_exit_position(map);
 	if (player_position.x == -1 || player_position.y == -1)
 		return (0);
-	if (collectibles.positions == NULL)
+	if (collectibles == 0)
 		return (0);
 	if (exit_position.x == -1 || exit_position.y == -1)
 		return (0);
