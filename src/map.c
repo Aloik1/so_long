@@ -129,7 +129,7 @@ int	read_map(char *file, t_game *game)
 	}
 	ft_printf("i is %d\n", i);
 	ft_printf("Null terminating\n");
-	game->map->collectible->positions[i] = malloc(sizeof(int) * 2);
+	// game->map->collectible->positions[i] = malloc(sizeof(int) * 2);
 	game->map->collectible->positions[i] = NULL;
 	//game->map->collectible->positions[i] = NULL;
 	close(fd);
