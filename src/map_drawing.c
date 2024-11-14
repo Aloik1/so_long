@@ -139,14 +139,6 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 				pixel_x = (j - camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
-				// if (map->collectible->positions[collectible_count] != NULL)
-				// 	free(map->collectible->positions[collectible_count]);
-				// map->collectible->positions[collectible_count] = malloc(sizeof(int) * 2);
-				// if (!map->collectible->positions[collectible_count])
-				// {
-				// 	ft_printf("Error: Could not allocate memory for collectible positions.\n");
-				// 	return ;
-				// }
 				ft_printf("collectible count is: %d\n", collectible_count);
 				ft_printf("pointer to fill %p\n", game->map->collectible->positions[collectible_count]);
 				game->map->collectible->positions[collectible_count][0] = j;

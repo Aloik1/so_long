@@ -1,8 +1,8 @@
 /* XPM */
 static char * Unarmed_Idle_full_xpm[] = {
 "15 25 11 1",
-" 	c None",
-".	c #552D24",
+" 	c #6FC0A0",
+".	c #transparent",
 "+	c #BE865F",
 "@	c #E1B26E",
 "#	c #F6CA74",
