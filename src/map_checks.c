@@ -67,7 +67,7 @@ static int	map_checks_horizontal_edges(t_map *map)
 	i = 0;
 	while (map->map_grid[i])
 	{
-		if (map->map_grid[i][0] != '1' || map->map_grid[i][map->cols - 2] != '1')
+		if (map->map_grid[i][0] != '1' || map->map_grid[i][map->cols - 1] != '1')
 		{
 			ft_printerror("Error: Sides are not walls\n");
 			return (0);

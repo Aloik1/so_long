@@ -31,13 +31,15 @@ void	free_map(t_map *map)
 	i = 0;
 	if (map->collectible)
 	{
-		while (map->collectible->positions[i] != NULL)
+		//ft_printf("collectibles collected is %d\n");
+		while (map->collectible->positions[i + 1])
 		{
 			
 			free(map->collectible->positions[i]);
 			ft_printf("Freed index %d\n", i);
 			i++;
 		}
+		free(map->collectible->positions[i]);
 		ft_printf("I is %d\n", i);
 		//ft_printf("Freeing index %d\n", j);
 		//free(map->collectible->positions[i]);

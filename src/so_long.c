@@ -32,87 +32,62 @@ int	main(int argc, char **argv)
 	}
 	if (!basic_check(argc, argv))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
 	if (!read_map(argv[1], game))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
 	if (!path_checks(game))
 	{
 		ft_printerror("Error: Invalid path, can't reach all collectibles or exit\n");
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
 	// create the window
 	if (!window_and_mlx(&window))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
 	// initialize the textures
 	if (!texture_initialize(game, window->mlx))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
-	ft_printf("------------Textures initialized-------------\n");
 	// Initialize the camera
 	game->camera = (t_camera *)malloc(sizeof(t_camera));
 	if (!game->camera)
 	{
 		ft_printerror("Error: Could not allocate memory for camera\n");
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
 
 	// init the player
 	if (!init_player(game->map, game->player, game->textures))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
-	ft_printf("Player initialized\n");
 	// initialize the camera
 	camera_init(game->camera, game->player, game->map);
 	
 	// draw the map
-	ft_printf("Drawing the map...\n");
-	ft_printf("position pointer for collectibles: %p\n", game->map->collectible->positions[0]);
-	//ft_printf("position pointer for collectibles: %p\n", game->map->collectible->positions[1]);
-	if (!draw_map(game, window, game->camera, game->textures)) // Pass the camera
+	if (!draw_map(game, window, game->camera, game->textures))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
-	ft_printf("-----------Map drawn.-------------\n");
 	// draw the player
 	if (!draw_player(window, game->player, game->camera))
 	{
-		// free(player);
 		free(game);
-		// free(textures);
 		return (1);
 	}
-	ft_printf("-----------Player drawn-------------\n");
 	game->window = window;
 	// check for key presses
 	mlx_key_hook(window->win, movement, game);

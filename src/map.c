@@ -45,6 +45,7 @@ static int	memory_check_map(t_map *map)
 static int	map_reader(t_map *map, int fd, char *line)
 {
 	int		i;
+	int		j;
 	size_t	len;
 
 	i = 0;
@@ -55,7 +56,15 @@ static int	map_reader(t_map *map, int fd, char *line)
 			line[len - 1] = '\0';
 		map->map_grid[i] = line;
 		if (ft_strchr(line, 'C'))
-			map->collectibles++;
+		{
+			j = 0;
+			while (line[j])
+			{
+				if (line[j] == 'C')
+					map->collectibles++;
+				j++;
+			}
+		}
 		if (ft_strchr(line, 'E'))
 			map->exits++;
 		if (ft_strchr(line, 'P'))
@@ -86,7 +95,6 @@ int	read_map(char *file, t_game *game)
 	i = 0;	
 	line = NULL;
 	// Allocate memory for the map
-	// map= (t_map *)malloc(sizeof(t_map));
 	if (!memory_check_map(game->map))
 		return (0);
 	// initialize the map
