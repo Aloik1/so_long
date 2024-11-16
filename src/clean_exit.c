@@ -25,8 +25,38 @@ void	free_textures(t_game *game)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_4_img);
 	// if (game->textures->collectible_5_img)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_5_img);
-	if (game->textures->floor_img)
-		mlx_destroy_image(game->window->mlx, game->textures->floor_img);
+	if (game->textures->floor_all_open)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_all_open);
+	if (game->textures->floor_top_bot)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_top_bot);
+	if (game->textures->floor_left_right)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_left_right);
+	if (game->textures->floor_top_open)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_top_open);
+	if (game->textures->floor_bot_open)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_bot_open);
+	if (game->textures->floor_left_open)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_left_open);
+	if (game->textures->floor_right_open)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_right_open);
+	if (game->textures->floor_top_right_corner)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_top_right_corner);
+	if (game->textures->floor_top_left_corner)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_top_left_corner);
+	if (game->textures->floor_bot_left_corner)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_bot_left_corner);
+	if (game->textures->floor_bot_right_corner)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_bot_right_corner);
+	if (game->textures->floor_top_closed)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_top_closed);
+	if (game->textures->floor_bot_closed)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_bot_closed);
+	if (game->textures->floor_left_closed)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_left_closed);
+	if (game->textures->floor_right_closed)
+		mlx_destroy_image(game->window->mlx, game->textures->floor_right_closed);
+
+
 	if (game->textures->wall_top_img)
 		mlx_destroy_image(game->window->mlx, game->textures->wall_top_img);
 	// if (game->textures->wall_bottom_img)

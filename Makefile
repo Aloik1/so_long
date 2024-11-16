@@ -1,6 +1,6 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror ##-g -fsanitize=address##
 MINILIBX_FLAGS = -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm
 INCLUDES = -I./includes
 
@@ -21,7 +21,7 @@ SRC = $(SRC_DIR)/so_long.c 		$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/movement.c 		$(SRC_DIR)/redraw.c \
 	$(SRC_DIR)/camera.c 		$(SRC_DIR)/collection.c \
 	$(SRC_DIR)/exit.c 		$(SRC_DIR)/clean_exit.c \
-	$(SRC_DIR)/texture_initialize.c \
+	$(SRC_DIR)/texture_initialize.c	$(SRC_DIR)/choose_texture.c \
 	
 OBJ = $(SRC:.c=.o)
 

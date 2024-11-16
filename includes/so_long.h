@@ -63,6 +63,7 @@ typedef struct s_map
 	int		exits;
 	int		players;
 	char		**map_grid;
+	// char		**map_aux;
 	t_collectible_position	*collectible;
 	t_exit_position		*exit;
 }	t_map;
@@ -100,6 +101,22 @@ typedef struct s_flood_grid
 typedef struct s_textures
 {
 	void	*floor_img;
+	void	*floor_all_open;
+	void	*floor_top_bot;
+	void	*floor_left_right;
+	void	*floor_top_open;
+	void	*floor_bot_open;
+	void	*floor_left_open;
+	void	*floor_right_open;
+	void	*floor_top_right_corner;
+	void	*floor_top_left_corner;
+	void	*floor_bot_right_corner;
+	void	*floor_bot_left_corner;
+	void	*floor_top_closed;
+	void	*floor_bot_closed;
+	void	*floor_left_closed;
+	void	*floor_right_closed;
+
 	void	*wall_top_img;
 	void	*wall_bottom_img;
 	void	*wall_left_img;
@@ -177,4 +194,6 @@ int			open_exit(t_map *map, t_player *player, t_game *game);
 void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *camera);
 void			clean_exit(t_game *game);
 int			texture_initialize(t_game *game, void *mlx);
+void			*choose_floor(t_game *game, int j, int i);
+
 #endif

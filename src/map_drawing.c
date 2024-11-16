@@ -18,9 +18,11 @@ static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_c
 	int	j;
 	int	pixel_x;
 	int	pixel_y;
+	void	*texture_to_draw;
 
+	texture_to_draw = NULL;
 	ft_printf("Drawing floor with camera at (%d, %d)\n", camera->x, camera->y);
-	if (!textures->floor_img || !textures)
+	if (!textures)
 	{
 		ft_printf("Error: Could not load floor texture.\n");
 		return ;
@@ -35,10 +37,12 @@ static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_c
 			if (game->map->map_grid[i][j] == '0' || game->map->map_grid[i][j] == 'P'
 				|| game->map->map_grid[i][j] == 'E' || game->map->map_grid[i][j] == 'C')
 			{
+				ft_printf("------------Position is %d, %d-------\n", j, i);
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
-				ft_printf("floor_image: %p\n", textures->floor_img);
-				mlx_put_image_to_window(window->mlx, window->win, textures->floor_img, pixel_x, pixel_y);
+				texture_to_draw = choose_floor(game, j, i);
+				ft_printf("floor_image: %p\n", texture_to_draw);
+				mlx_put_image_to_window(window->mlx, window->win, texture_to_draw, pixel_x, pixel_y);
 			}
 			j++;
 		}

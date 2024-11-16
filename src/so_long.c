@@ -46,19 +46,24 @@ int	main(int argc, char **argv)
 		free(game);
 		return (1);
 	}
+	ft_printf("all checks done\n");
 	// create the window
 	if (!window_and_mlx(&window))
 	{
 		free(game);
+		ft_printf("Couldn't load window\n");
 		return (1);
 	}
+	ft_printf("Initialized window\n");
 	// initialize the textures
 	if (!texture_initialize(game, window->mlx))
 	{
+		ft_printf("couldn't load textures\n");
 		free(game);
 		return (1);
 	}
 	// Initialize the camera
+	ft_printf("Initialized textures\n");
 	game->camera = (t_camera *)malloc(sizeof(t_camera));
 	if (!game->camera)
 	{
