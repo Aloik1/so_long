@@ -47,7 +47,6 @@ void	redraw_everything(t_game *game, t_textures *textures)
 	ft_printf("Redrawing game state...\n");
 	ft_printf("Floor texture: %p\n", textures->floor_img);
 	ft_printf("Wall texture: %p\n", textures->wall_top_img);
-	ft_printf("Collectible texture: %p\n", textures->collectible_1_img);
 
 	mlx_clear_window(game->window->mlx, game->window->win);
 	ft_printf("Cleared window\n");

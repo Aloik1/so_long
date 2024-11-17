@@ -158,15 +158,15 @@ typedef struct s_textures
 	void	*wall_right_img;
 
 	t_collectible_1		*collectible_1;
-	t_collectible_1		*collectible_2;
-	t_collectible_1		*collectible_3;
-	t_collectible_1		*collectible_4;
-	t_collectible_1		*collectible_5;
-	void	*collectible_1_img;
-	void	*collectible_2_img;
-	void	*collectible_3_img;
-	void	*collectible_4_img;
-	void	*collectible_5_img;
+	t_collectible_2		*collectible_2;
+	t_collectible_3		*collectible_3;
+	t_collectible_4		*collectible_4;
+	t_collectible_5		*collectible_5;
+	void	*collectible_animation_1;
+	void	*collectible_animation_2;
+	void	*collectible_animation_3;
+	void	*collectible_animation_4;
+	void	*collectible_animation_5;
 	void	*exit_img;
 
 	void	*player_img;
@@ -266,5 +266,18 @@ void			aux_map_creation(t_game *game);
 int			player_texture_initialize(t_game *game, void *mlx);
 void			*choose_player_texture(t_game *game);
 int			more_collectible_textures(t_game *game, void *mlx);
+int			collectible_textures_initialize(t_game *game, void *mlx);
+int			more_collectible_textures(t_game *game, void *mlx);
+int			initialize_5_collectibles(t_game *game);
+int			initialize_4_collectibles(t_game *game);
+int			initialize_3_collectibles(t_game *game);
+int			initialize_2_collectibles(t_game *game);
+void			collectible_position_adder(t_game *game);
+void			*texture_chooser(t_game *game, int i, int j);
+void			*collectible_1_chooser(t_game *game);
+void			*collectible_2_chooser(t_game *game);
+void			*collectible_3_chooser(t_game *game);
+void			*collectible_4_chooser(t_game *game);
+void			*collectible_5_chooser(t_game *game);
 
 #endif

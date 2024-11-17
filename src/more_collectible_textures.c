@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:32:42 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/17 20:42:46 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/17 22:01:47 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,29 @@
 
 static int	three_collectibles(t_game *game, void *mlx)
 {
-	game->textures->collectible_1 = (t_collectible_1 *)malloc(sizeof(t_collectible_1));
-	game->textures->collectible_2 = (t_collectible_2 *)malloc(sizeof(t_collectible_2));
-	game->textures->collectible_3 = (t_collectible_3 *)malloc(sizeof(t_collectible_3));
-	game->textures->collectible_1->count = 0;
-	game->textures->collectible_2->count = 0;
-	game->textures->collectible_3->count = 0;
+	if (!initialize_3_collectibles(game))
+		return (0);
 	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
+	if (!game->textures->collectible_1->collectible_img)
 		return (0);
 	game->textures->collectible_2->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
+	if (!game->textures->collectible_2->collectible_img)
 		return (0);
 	game->textures->collectible_3->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
+	if (!game->textures->collectible_3->collectible_img)
 		return (0);
 	return (1);
 }
 
 static int	two_collectibles(t_game *game, void *mlx)
 {
-	game->textures->collectible_1 = (t_collectible_1 *)malloc(sizeof(t_collectible_1));
-	game->textures->collectible_2 = (t_collectible_2 *)malloc(sizeof(t_collectible_2));
-	game->textures->collectible_1->count = 0;
-	game->textures->collectible_2->count = 0;
+	if (!initialize_2_collectibles(game))
+		return (0);
 	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
+	if (!game->textures->collectible_1->collectible_img)
 		return (0);
 	game->textures->collectible_2->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
+	if (!game->textures->collectible_2->collectible_img)
 		return (0);
 	return (1);
 }
@@ -50,9 +44,14 @@ static int	two_collectibles(t_game *game, void *mlx)
 static int	one_collectible(t_game *game, void *mlx)
 {
 	game->textures->collectible_1 = (t_collectible_1 *)malloc(sizeof(t_collectible_1));
+	if(!game->textures->collectible_1)
+		return (0);
+	game->textures->collectible_1->position = (int *)malloc(sizeof(int *));
+	if(!game->textures->collectible_1->position)
+		return (0);
 	game->textures->collectible_1->count = 0;
 	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
+	if (!game->textures->collectible_1->collectible_img)
 		return (0);
 	return (1);
 }

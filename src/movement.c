@@ -107,7 +107,6 @@ int	movement(int keycode, t_game *game)
 	ft_printf("---------------Movement---------------\n");
 	ft_printf("Wall texture: %p\n", game->textures->wall_top_img);
 	ft_printf("Floor texture: %p\n", game->textures->floor_img);
-	ft_printf("Collectible texture: %p\n", game->textures->collectible_1_img);
 	game->movement->key_pressed = 0;
 	if (!game || !game->player || !game->map || !game->textures) 
 	{

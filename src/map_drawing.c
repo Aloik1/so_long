@@ -88,6 +88,8 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 	int	pixel_y;
 
 	collectible_count = 0;
+	pixel_x = 0;
+	pixel_y = 0;
 	i = 0;
 	
 	if (!textures->collectible_1 /*|| !textures->collectible_2_img || !textures->collectible_3_img 
@@ -122,9 +124,10 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 		{
 			if (game->map->map_grid[i][j] == 'C')
 			{
-				pixel_x = (j - camera->x) * TILE_SIZE + 24;
-				pixel_y = (i - camera->y) * TILE_SIZE + 24;
-				mlx_put_image_to_window(window->mlx, window->win, textures->collectible_1_img, pixel_x, pixel_y);
+				pixel_x = (j - game->camera->x) * TILE_SIZE + 24;
+				pixel_y = (i - game->camera->y) * TILE_SIZE;
+				ft_printf("So far so good\n");
+				mlx_put_image_to_window(window->mlx, window->win, texture_chooser(game, i, j), pixel_x, pixel_y);
 				game->map->collectible->positions[collectible_count][0] = j;
 				game->map->collectible->positions[collectible_count][1] = i;
 				collectible_count++;
@@ -133,7 +136,6 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 		}
 		i++;
 	}
-	ft_printf("textures->collectible_1_img: %p\n", textures->collectible_1_img);
 	ft_printf("collectible positions allocated\n");
 }
 

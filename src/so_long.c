@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	ft_printf("all checks done\n");
+
 	// create the window
 	if (!window_and_mlx(&window))
 	{
@@ -71,7 +72,6 @@ int	main(int argc, char **argv)
 		free(game);
 		return (1);
 	}
-
 	// init the player
 	if (!init_player(game->map, game->player, game->textures))
 	{

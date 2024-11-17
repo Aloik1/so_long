@@ -84,19 +84,17 @@ int	texture_initialize(t_game *game, void *mlx)
 {
 	if (!floor_textures(game, mlx))
 		return (0);
-	ft_printf("floore textures are done\n");
+	ft_printf("Floors textures are done\n");
 	game->textures->wall_top_img = mlx_xpm_file_to_image(mlx, "assets/textures/walls/forest_wall_main.xpm", &game->textures->wall_top_width, &game->textures->wall_top_height);
 	if (!game->textures->wall_top_img)
 	{
 		ft_printf("Error: Could not load wall top texture.\n");
 		return (0);
 	}
-	game->textures->collectible_1_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1_img)
-	{
-		ft_printf("Error: Could not load collectible 1 texture.\n");
+	ft_printf("Walls textures are done\n");
+	if (!collectible_textures_initialize(game, mlx))
 		return (0);
-	}
+	ft_printf("Collectible textures are done\n");
 	game->textures->exit_img = mlx_xpm_file_to_image(mlx, "assets/textures/exit/exit.xpm", &game->textures->exit_width, &game->textures->exit_height);
 	if (!game->textures->exit_img)
 	{

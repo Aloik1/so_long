@@ -15,8 +15,8 @@
 
 void	free_textures(t_game *game)
 {
-	if (game->textures->collectible_1_img)
-		mlx_destroy_image(game->window->mlx, game->textures->collectible_1_img);
+	// if (game->textures->collectible_1_img)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_1_img);
 	// if (game->textures->collectible_2_img)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->collectible_2_img);
 	// if (game->textures->collectible_3_img)
