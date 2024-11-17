@@ -108,6 +108,7 @@ int	movement(int keycode, t_game *game)
 	ft_printf("Wall texture: %p\n", game->textures->wall_top_img);
 	ft_printf("Floor texture: %p\n", game->textures->floor_img);
 	ft_printf("Collectible texture: %p\n", game->textures->collectible_1_img);
+	game->movement->key_pressed = 0;
 	if (!game || !game->player || !game->map || !game->textures) 
 	{
 		ft_printf("Error: Null pointer detected in movement\n");
@@ -118,21 +119,25 @@ int	movement(int keycode, t_game *game)
 	{
 		ft_printf("W key pressed\n");
 		move_up(game->player, game->map);
+		game->movement->key_pressed = 119;
 	}
 	else if (keycode == KEY_A)
 	{
 		ft_printf("A key pressed\n");
 		move_left(game->player, game->map);
+		game->movement->key_pressed = 97;
 	}
 	else if (keycode == KEY_S)
 	{
 		ft_printf("S key pressed\n");
 		move_down(game->player, game->map);
+		game->movement->key_pressed = 115;
 	}
 	else if (keycode == KEY_D)
 	{
 		ft_printf("D key pressed\n");
 		move_right(game->player, game->map);
+		game->movement->key_pressed = 100;
 	}
 	else
 	{

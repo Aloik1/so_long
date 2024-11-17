@@ -98,6 +98,41 @@ typedef struct s_flood_grid
 	int	cols;
 }	t_flood_grid;
 
+typedef struct s_collectible_1
+{
+	int	count;
+	int	*position;
+	void	*collectible_img;
+}	t_collectible_1;
+
+typedef struct s_collectible_2
+{
+	int	count;
+	int	*position;
+	void	*collectible_img;
+}	t_collectible_2;
+
+typedef struct s_collectible_3
+{
+	int	count;
+	int	*position;
+	void	*collectible_img;
+}	t_collectible_3;
+
+typedef struct s_collectible_4
+{
+	int	count;
+	int	*position;
+	void	*collectible_img;
+}	t_collectible_4;
+
+typedef struct s_collectible_5
+{
+	int	count;
+	int	*position;
+	void	*collectible_img;
+}	t_collectible_5;
+
 typedef struct s_textures
 {
 	void	*floor_img;
@@ -121,13 +156,34 @@ typedef struct s_textures
 	void	*wall_bottom_img;
 	void	*wall_left_img;
 	void	*wall_right_img;
+
+	t_collectible_1		*collectible_1;
+	t_collectible_1		*collectible_2;
+	t_collectible_1		*collectible_3;
+	t_collectible_1		*collectible_4;
+	t_collectible_1		*collectible_5;
 	void	*collectible_1_img;
 	void	*collectible_2_img;
 	void	*collectible_3_img;
 	void	*collectible_4_img;
 	void	*collectible_5_img;
 	void	*exit_img;
+
 	void	*player_img;
+	void	*player_up_1;
+	void	*player_up_2;
+	void	*player_up_3;
+	void	*player_down_1;
+	void	*player_down_2;
+	void	*player_down_3;
+	void	*player_left_1;
+	void	*player_left_2;
+	void	*player_left_3;
+	void	*player_right_1;
+	void	*player_right_2;
+	void	*player_right_3;
+
+
 	int		collectible_1_width;
 	int		collectible_1_height;
 	int		collectible_2_width;
@@ -154,6 +210,15 @@ typedef struct s_textures
 	int		player_height;
 }	t_textures;
 
+typedef struct s_movement
+{
+	int	move_up;
+	int	move_down;
+	int	move_right;
+	int	move_left;
+	int	key_pressed;
+}	t_movement;
+
 typedef struct s_camera
 {
 	int		x;
@@ -169,6 +234,8 @@ typedef struct 		s_game
 	t_player	*player;
 	t_camera	*camera;
 	t_textures	*textures;
+	t_movement	*movement;
+
 }	t_game;
 
 // function prototypes
@@ -196,5 +263,8 @@ void			clean_exit(t_game *game);
 int			texture_initialize(t_game *game, void *mlx);
 void			*choose_floor(t_game *game, int j, int i);
 void			aux_map_creation(t_game *game);
+int			player_texture_initialize(t_game *game, void *mlx);
+void			*choose_player_texture(t_game *game);
+int			more_collectible_textures(t_game *game, void *mlx);
 
 #endif

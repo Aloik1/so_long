@@ -103,12 +103,8 @@ int	texture_initialize(t_game *game, void *mlx)
 		ft_printf("Error: Could not load exit texture.\n");
 		return (0);
 	}
-	game->player->player_texture = mlx_xpm_file_to_image(mlx, "assets/textures/character/character_basic.xpm", &game->player->width, &game->player->height);
-	if (!game->player->player_texture)
-	{
-		ft_printf("Error: Could not load player texture.\n");
-		return 0;
-	}
+	if (!player_texture_initialize(game, mlx))
+		return (0);
 	return (1);
 }
 

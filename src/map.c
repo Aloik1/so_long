@@ -106,6 +106,12 @@ int	read_map(char *file, t_game *game)
 	game->map->exit = (t_exit_position *)malloc(sizeof(t_exit_position));
 	game->map->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
 	game->map->map_aux = NULL;
+	game->movement = (t_movement *)malloc(sizeof(t_movement));
+	game->movement->move_down = 0;
+	game->movement->move_up = 0;
+	game->movement->move_left = 0;
+	game->movement->move_right = 0;
+	game->movement->key_pressed = 0;
 	
 	if (!game->map->exit || !game->map->collectible)
 	{
