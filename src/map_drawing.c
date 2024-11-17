@@ -34,13 +34,13 @@ static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_c
 		j = camera->x;
 		while (j < camera->x + camera->width && j < game->map->cols)
 		{
-			if (game->map->map_grid[i][j] == '0' || game->map->map_grid[i][j] == 'P'
-				|| game->map->map_grid[i][j] == 'E' || game->map->map_grid[i][j] == 'C')
+			if (game->map->map_grid[i][j] != '1'/*== '0' || game->map->map_grid[i][j] == 'P'
+				|| game->map->map_grid[i][j] == 'E' || game->map->map_grid[i][j] == 'C'*/)
 			{
 				ft_printf("------------Position is %d, %d-------\n", j, i);
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
-				texture_to_draw = choose_floor(game, j, i);
+				texture_to_draw = choose_floor(game, i, j);
 				ft_printf("floor_image: %p\n", texture_to_draw);
 				mlx_put_image_to_window(window->mlx, window->win, texture_to_draw, pixel_x, pixel_y);
 			}

@@ -63,7 +63,7 @@ typedef struct s_map
 	int		exits;
 	int		players;
 	char		**map_grid;
-	// char		**map_aux;
+	char		**map_aux;
 	t_collectible_position	*collectible;
 	t_exit_position		*exit;
 }	t_map;
@@ -195,5 +195,6 @@ void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *c
 void			clean_exit(t_game *game);
 int			texture_initialize(t_game *game, void *mlx);
 void			*choose_floor(t_game *game, int j, int i);
+void			aux_map_creation(t_game *game);
 
 #endif

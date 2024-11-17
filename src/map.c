@@ -105,6 +105,7 @@ int	read_map(char *file, t_game *game)
 	game->map->players = 0;
 	game->map->exit = (t_exit_position *)malloc(sizeof(t_exit_position));
 	game->map->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
+	game->map->map_aux = NULL;
 	
 	if (!game->map->exit || !game->map->collectible)
 	{

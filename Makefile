@@ -22,6 +22,7 @@ SRC = $(SRC_DIR)/so_long.c 		$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/camera.c 		$(SRC_DIR)/collection.c \
 	$(SRC_DIR)/exit.c 		$(SRC_DIR)/clean_exit.c \
 	$(SRC_DIR)/texture_initialize.c	$(SRC_DIR)/choose_texture.c \
+	$(SRC_DIR)/utils.c \
 	
 OBJ = $(SRC:.c=.o)
 
