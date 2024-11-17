@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 22:03:11 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/18 00:10:35 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/18 00:47:03 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*texture_chooser(t_game *game, int i, int j)
 	void	*texture_to_return;
 	
 	texture_to_return = NULL;
-	
-	
 	if (i == game->textures->collectible_1->position[0] 
 		&& j == game->textures->collectible_1->position[1])
 	{

@@ -69,19 +69,19 @@ static int	get_collectibles_position(t_map *map)
 	int			i;
 	int			j;
 	int			position_add;
-	int			pos_count;
+	//int			pos_count;
 
 	i = 0;
 	j = 0;
 	position_add = 0;
-	pos_count = 0;
+	//pos_count = 0;
 	while (i < map->rows)
 	{
 		while (j < map->cols)
 		{
 			if (map->map_grid[i][j] == 'C')
 			{
-				pos_count++;
+				//pos_count++;
 				map->collectible->positions[position_add][0] = i;
 				map->collectible->positions[position_add][1] = j;
 				position_add++;
@@ -91,7 +91,7 @@ static int	get_collectibles_position(t_map *map)
 		j = 0;
 		i++;
 	}
-	return (pos_count);
+	return (position_add);
 }
 
 int	path_checks(t_game *game)
