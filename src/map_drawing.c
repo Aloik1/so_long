@@ -128,9 +128,10 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 				pixel_x = (j - game->camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - game->camera->y) * TILE_SIZE;
 				ft_printf("So far so good\n");
-				game->map->collectible->positions[collectible_count][0] = j;
-				game->map->collectible->positions[collectible_count][1] = i;
-				mlx_put_image_to_window(window->mlx, window->win, texture_chooser(game, j, i), pixel_x, pixel_y);
+				ft_printf("i is %d and j is %d\n", i, j);
+				// game->map->collectible->positions[collectible_count][0] = j;
+				// game->map->collectible->positions[collectible_count][1] = i;
+				mlx_put_image_to_window(window->mlx, window->win, texture_chooser(game, i, j), pixel_x, pixel_y);
 				
 				collectible_count++;
 			}

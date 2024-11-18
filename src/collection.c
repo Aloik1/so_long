@@ -22,19 +22,6 @@ static void	modify_positions(t_map *map, int i)
 		return ;
 	if (!(map->collectibles == 1))
 	{
-		// while (j < map->collectibles - 1)
-		// {
-		// 	// ft_printf("pointer to copy from: %p\n", map->collectible->positions[j + 1]);
-		// 	map->collectible->positions[j] = map->collectible->positions[j + 1];
-		// 	ft_printf("Copied\n");
-		// 	j++;
-		// }
-		// i = 0;
-		// while (map->collectible->positions[i])
-		// {
-		// 	ft_printf("index %i positions: %d %d\n", i, map->collectible->positions[i][0], map->collectible->positions[i][1]);
-		// 	i++;
-		// }
 		map->collectible->positions[j][0] = '0';
 		map->collectible->positions[j][1] = '0';
 	}
@@ -128,9 +115,6 @@ static int	check_and_delete_collectible(t_game *game, t_player *player)
 			delete_collectible_from_map(game,/* game->map,*/ &player->position);
 			modify_positions(game->map, i);
 			player->collectibles_collected++;
-			
-			
-			
 			return (1);
 		}
 		i++;
