@@ -101,6 +101,7 @@ typedef struct s_flood_grid
 typedef struct s_collectible_1
 {
 	int	count;
+	int	number;
 	int	*position;
 	void	*collectible_img;
 }	t_collectible_1;
@@ -108,6 +109,7 @@ typedef struct s_collectible_1
 typedef struct s_collectible_2
 {
 	int	count;
+	int	number;
 	int	*position;
 	void	*collectible_img;
 }	t_collectible_2;
@@ -115,6 +117,7 @@ typedef struct s_collectible_2
 typedef struct s_collectible_3
 {
 	int	count;
+	int	number;
 	int	*position;
 	void	*collectible_img;
 }	t_collectible_3;
@@ -122,6 +125,7 @@ typedef struct s_collectible_3
 typedef struct s_collectible_4
 {
 	int	count;
+	int	number;
 	int	*position;
 	void	*collectible_img;
 }	t_collectible_4;
@@ -129,6 +133,7 @@ typedef struct s_collectible_4
 typedef struct s_collectible_5
 {
 	int	count;
+	int	number;
 	int	*position;
 	void	*collectible_img;
 }	t_collectible_5;

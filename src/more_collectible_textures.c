@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:32:42 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/17 22:01:47 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/18 19:26:32 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static int	one_collectible(t_game *game, void *mlx)
 	if(!game->textures->collectible_1->position)
 		return (0);
 	game->textures->collectible_1->count = 0;
+	game->textures->collectible_1->number = 1;
 	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	if (!game->textures->collectible_1->collectible_img)
 		return (0);

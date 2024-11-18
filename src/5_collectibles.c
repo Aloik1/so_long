@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 21:07:55 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/17 21:40:34 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/18 19:17:56 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ static void	initialize_5_counts(t_game *game)
 	game->textures->collectible_3->count = 0;
 	game->textures->collectible_4->count = 0;
 	game->textures->collectible_5->count = 0;
+	game->textures->collectible_1->number = 1;
+	game->textures->collectible_2->number = 2;
+	game->textures->collectible_3->number = 3;
+	game->textures->collectible_4->number = 4;
+	game->textures->collectible_5->number = 5;
+
 	return ;
 }
 

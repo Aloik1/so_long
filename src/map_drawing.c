@@ -40,6 +40,7 @@ static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_c
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
 				texture_to_draw = choose_floor(game, i, j);
+				ft_printf("Texture to draw is: %p\n", texture_to_draw);
 				mlx_put_image_to_window(window->mlx, window->win, texture_to_draw, pixel_x, pixel_y);
 			}
 			j++;
@@ -100,7 +101,7 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 	}
 
 	ft_printf("Drawing collectibles with camera at (%d, %d)\n", camera->x, camera->y);
-	ft_printf("pointer to fill %p\n", game->map->collectible->positions[collectible_count]);
+	// ft_printf("pointer to fill %p\n", game->map->collectible->positions[collectible_count]);
 	i = camera->y;
 	while (i < camera->y + camera->height && i < game->map->rows)
 	{
@@ -127,9 +128,10 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 				pixel_x = (j - game->camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - game->camera->y) * TILE_SIZE;
 				ft_printf("So far so good\n");
-				mlx_put_image_to_window(window->mlx, window->win, texture_chooser(game, i, j), pixel_x, pixel_y);
 				game->map->collectible->positions[collectible_count][0] = j;
 				game->map->collectible->positions[collectible_count][1] = i;
+				mlx_put_image_to_window(window->mlx, window->win, texture_chooser(game, j, i), pixel_x, pixel_y);
+				
 				collectible_count++;
 			}
 			j++;
@@ -143,7 +145,6 @@ int	draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textu
 {
 	ft_printf("----------------Drawing floor...-----------------\n");
 	draw_floor(game, window, textures, camera);
-	ft_printf("Floor texture loaded: %p\n", textures->floor_img);
 	ft_printf("----------------Drawing wall...-----------------\n");
 	draw_wall(game->map, window, textures, camera);
 	ft_printf("Wall texture loaded: %p\n", textures->wall_top_img);

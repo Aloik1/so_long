@@ -6,46 +6,92 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 22:03:11 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/18 00:47:03 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/18 21:30:18 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+static void	*more_ifs(t_game *game, int i, int j)
+{
+	void	*texture_to_return;
+	
+	texture_to_return = NULL;
+	if (j == game->textures->collectible_3->position[0] 
+		&& i == game->textures->collectible_3->position[1])
+	{
+		if (game->textures->collectible_3->number == 0)
+		{
+			ft_printf("collectible number is 0\n");
+			return (game->textures->exit_img);
+		}
+		ft_printf("Entering collectible chooser 3\n");
+		ft_printf("number for collectible 3 is: %d\n", game->textures->collectible_3->number);
+		texture_to_return = collectible_3_chooser(game);
+	}
+	else if (j == game->textures->collectible_4->position[0] 
+		&& i == game->textures->collectible_4->position[1])
+	{
+		if (game->textures->collectible_4->number == 0)
+		{
+			ft_printf("collectible number is 0\n");
+			return (game->textures->exit_img);
+		}
+		ft_printf("Entering collectible chooser 4\n");
+		ft_printf("number for collectible 4 is: %d\n", game->textures->collectible_4->number);
+
+		texture_to_return = collectible_4_chooser(game);
+	}
+	else if (j == game->textures->collectible_5->position[0] 
+		&& i == game->textures->collectible_5->position[1])
+	{
+		if (game->textures->collectible_5->number == 0)
+		{
+			ft_printf("collectible number is 0\n");
+			return (game->textures->exit_img);
+		}
+		ft_printf("number for collectible 5 is: %d\n", game->textures->collectible_5->number);
+
+		ft_printf("Entering collectible chooser 5\n");
+		texture_to_return = collectible_5_chooser(game);
+	}
+	return (texture_to_return);
+}
 
 void	*texture_chooser(t_game *game, int i, int j)
 {
 	void	*texture_to_return;
 	
 	texture_to_return = NULL;
-	if (i == game->textures->collectible_1->position[0] 
-		&& j == game->textures->collectible_1->position[1])
+	if (j == game->textures->collectible_1->position[0] 
+		&& i == game->textures->collectible_1->position[1])
 	{
 		ft_printf("Entering collectible chooser 1\n");
+		ft_printf("number for collectible 1 is: %d\n", game->textures->collectible_1->number);
+		ft_printf("collectible_1 position is %d %d\n", game->textures->collectible_1->position[0], i == game->textures->collectible_1->position[1]);
+		if (game->textures->collectible_1->number == 0)
+		{
+			ft_printf("collectible number is 0\n");
+			return (game->textures->exit_img);
+		}
 		texture_to_return = collectible_1_chooser(game);
 	}
-	else if (i == game->textures->collectible_2->position[0] 
-		&& j == game->textures->collectible_2->position[1])
+	else if (j == game->textures->collectible_2->position[0] 
+		&& i == game->textures->collectible_2->position[1])
 	{
+		ft_printf("number for collectible 2 is: %d\n", game->textures->collectible_2->number);
 		ft_printf("Entering collectible chooser 2\n");
+		if (game->textures->collectible_2->number == 0)
+		{
+			ft_printf("collectible number is 0\n");
+			return (game->textures->exit_img);
+		}
 		texture_to_return = collectible_2_chooser(game);
 	}
-	else if (i == game->textures->collectible_3->position[0] 
-		&& j == game->textures->collectible_3->position[1])
+	else
 	{
-		ft_printf("Entering collectible chooser 3\n");
-		texture_to_return = collectible_3_chooser(game);
+		texture_to_return = more_ifs(game, i, j);
 	}
-	else if (i == game->textures->collectible_4->position[0] 
-		&& j == game->textures->collectible_4->position[1])
-	{
-		ft_printf("Entering collectible chooser 4\n");
-		texture_to_return = collectible_1_chooser(game);
-	}
-	else if (i == game->textures->collectible_5->position[0] 
-		&& j == game->textures->collectible_5->position[1])
-	{
-		ft_printf("Entering collectible chooser 5\n");
-		texture_to_return = collectible_1_chooser(game);
-	}
+	ft_printf("Texture chosen is: %p\n", texture_to_return);
 	return (texture_to_return);
 }
