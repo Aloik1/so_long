@@ -172,6 +172,7 @@ typedef struct s_textures
 	void	*collectible_animation_3;
 	void	*collectible_animation_4;
 	void	*collectible_animation_5;
+	void	*collectible_destroyed;
 	void	*exit_img;
 
 	void	*player_img;

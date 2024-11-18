@@ -48,35 +48,36 @@ static void	delete_collectible_from_map(t_game *game/*, t_map *map*/, t_player_p
 	ft_printf("Position 3[0], Position 3[1] are %d %d\n", game->textures->collectible_3->position[0], game->textures->collectible_3->position[1]);
 	ft_printf("Position 4[0], Position 4[1] are %d %d\n", game->textures->collectible_4->position[0], game->textures->collectible_4->position[1]);
 	ft_printf("Position 5[0], Position 5[1] are %d %d\n", game->textures->collectible_5->position[0], game->textures->collectible_5->position[1]);
-	if (player->y == game->textures->collectible_1->position[0] && player->x == game->textures->collectible_1->position[1]
+	ft_printf("Player position x is %d\n Player position y is %d\n", player->x, player->y);
+	if (player->x == game->textures->collectible_1->position[0] && player->y == game->textures->collectible_1->position[1]
 		&& game->textures->collectible_1->number != 0)
 	{
 		ft_printf("number for collectible 1 before is: %d\n", game->textures->collectible_1->number);
 		game->textures->collectible_1->number = 0;
 		ft_printf("number for collectible 1 after is: %d\n", game->textures->collectible_1->number);
 	}
-	if (player->y == game->textures->collectible_2->position[0] && player->x == game->textures->collectible_2->position[1]
+	if (player->x == game->textures->collectible_2->position[0] && player->y == game->textures->collectible_2->position[1]
 		&& game->textures->collectible_2->number != 0)
 	{
 		ft_printf("number for collectible 2 before is: %d\n", game->textures->collectible_2->number);
 		game->textures->collectible_2->number = 0;
 		ft_printf("number for collectible 2 after is: %d\n", game->textures->collectible_2->number);
 	}
-	if (player->y == game->textures->collectible_3->position[0] && player->x == game->textures->collectible_3->position[1]
+	if (player->x == game->textures->collectible_3->position[0] && player->y == game->textures->collectible_3->position[1]
 		&& game->textures->collectible_3->number != 0)
 	{
 		ft_printf("number for collectible 3 before is: %d\n", game->textures->collectible_3->number);
 		game->textures->collectible_3->number = 0;
 		ft_printf("number for collectible 3 after is: %d\n", game->textures->collectible_3->number);
 	}
-	if (player->y == game->textures->collectible_4->position[0] && player->x == game->textures->collectible_4->position[1]
+	if (player->x == game->textures->collectible_4->position[0] && player->y == game->textures->collectible_4->position[1]
 		&& game->textures->collectible_4->number != 0)
 	{
 		ft_printf("number for collectible 4 before is: %d\n", game->textures->collectible_4->number);
 		game->textures->collectible_4->number = 0;
 		ft_printf("number for collectible 4 after is: %d\n", game->textures->collectible_4->number);
 	}
-	if (player->y == game->textures->collectible_5->position[0] && player->x == game->textures->collectible_5->position[1]
+	if (player->x == game->textures->collectible_5->position[0] && player->y == game->textures->collectible_5->position[1]
 		&& game->textures->collectible_5->number != 0)
 	{
 		ft_printf("number for collectible 5 before is: %d\n", game->textures->collectible_5->number);

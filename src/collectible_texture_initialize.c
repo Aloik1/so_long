@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:02:40 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/18 00:13:19 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/18 23:26:45 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	collectible_textures_initialize(t_game *game, void *mlx)
 	game->textures->collectible_animation_3 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_3.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_animation_4 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_4.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_animation_5 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_5.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
+	game->textures->collectible_animation_5 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_5.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
+	game->textures->collectible_destroyed = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_destroyed.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	if (game->map->collectibles == 5)
 	{
 		if (!five_collectibles(game, mlx))
