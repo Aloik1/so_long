@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:44:58 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/19 21:44:02 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 00:30:07 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *cam
 					mlx_put_image_to_window(window->mlx, window->win, textures->exit_open, pixel_x, pixel_y);
 				else
 					mlx_put_image_to_window(window->mlx, window->win, textures->exit_closed, pixel_x, pixel_y);
-				map->exit->x = j;
-				map->exit->y = i;
+				map->exit_x = j;
+				map->exit_y = i;
 				ft_printf("Exit position set to (%d, %d)\n", j, i);
 			}
 			j++;
@@ -48,8 +48,8 @@ int	open_exit(t_map *map, t_player *player, t_game *game)
 	ft_printf("Checking if exit is open...\n");
 	ft_printf("Collectibles collected: %d\n", player->collectibles_collected);
 	ft_printf("Collectibles left: %d\n", map->collectibles);
-	if (map->collectibles == 0 && player->position.x == map->exit->x
-		&& player->position.y == map->exit->y)
+	if (map->collectibles == 0 && player->position.x == map->exit_x
+		&& player->position.y == map->exit_y)
 	{
 		ft_printf("You win!\n");
 		clean_exit(game);

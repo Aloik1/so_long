@@ -57,8 +57,6 @@ void	free_map(t_map *map)
 		free(map->collectible->positions);
 		free(map->collectible);
 	}
-	if (map->exit)
-		free(map->exit);
         free(map);
     }
     return ;
@@ -85,12 +83,4 @@ t_collectible_position	return_null_and_free_collectibles(t_collectible_position 
 	free(collectibles.positions);
 	collectibles.positions = NULL;
 	return (collectibles);
-}
-t_exit_position	return_null_exit(void)
-{
-	t_exit_position	exit_position;
-
-	exit_position.x = -1;
-	exit_position.y = -1;
-	return (exit_position);
 }

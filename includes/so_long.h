@@ -49,11 +49,6 @@ typedef struct s_collectible_position
 	int		**positions;
 }	t_collectible_position;
 
-typedef struct s_exit_position
-{
-	int		x; // column
-	int		y; // row
-}	t_exit_position;
 
 typedef struct s_map
 {
@@ -65,7 +60,8 @@ typedef struct s_map
 	char		**map_grid;
 	char		**map_aux;
 	t_collectible_position	*collectible;
-	t_exit_position		*exit;
+	int		exit_x;
+	int		exit_y;
 }	t_map;
 
 typedef struct s_player_position
@@ -199,6 +195,7 @@ typedef struct s_textures
 	int			collectible_4_height;
 	int			collectible_5_width;
 	int			collectible_5_height;
+
 	int			floor_width;
 	int			floor_height;
 	int			wall_top_width;
@@ -251,11 +248,10 @@ int			flood_check(t_map *map, t_player_position player_position);
 void			free_map(t_map *map);
 t_player_position	return_null_player(void);
 t_collectible_position	return_null_and_free_collectibles(t_collectible_position collectibles);
-t_exit_position		return_null_exit(void);
 int			path_checks(t_game *game);
 int			map_checks(t_map *map);
 int			draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textures);
-int			init_player(t_map *map, t_player *player, t_textures *textures);
+int			init_player(t_game *game);
 int			draw_player(t_game *game, t_window *window, t_player *player, t_camera *camera);
 int			movement(int keycode, t_game *game);
 void			redraw_everything(t_game *game, t_textures *textures);

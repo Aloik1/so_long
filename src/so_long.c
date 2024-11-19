@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 {
 	t_game		*game;
 
+
 	game = (t_game *)malloc(sizeof(t_game));
 	game->player = (t_player *)malloc(sizeof(t_player));
 	game->textures = (t_textures *)malloc(sizeof(t_textures));
@@ -72,7 +73,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	// init the player
-	if (!init_player(game->map, game->player, game->textures))
+	if (!init_player(game))
 	{
 		free(game);
 		return (1);

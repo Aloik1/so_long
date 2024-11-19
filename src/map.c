@@ -103,7 +103,8 @@ int	read_map(char *file, t_game *game)
 	game->map->collectibles = 0;
 	game->map->exits = 0;
 	game->map->players = 0;
-	game->map->exit = (t_exit_position *)malloc(sizeof(t_exit_position));
+	game->map->exit_x = 0;
+	game->map->exit_y = 0;
 	game->map->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
 	game->map->map_aux = NULL;
 	game->movement = (t_movement *)malloc(sizeof(t_movement));
@@ -113,7 +114,7 @@ int	read_map(char *file, t_game *game)
 	game->movement->move_right = 0;
 	game->movement->key_pressed = 0;
 	
-	if (!game->map->exit || !game->map->collectible)
+	if (!game->map->collectible)
 	{
 		ft_printf("Error: Could not allocate memory for exit position.\n");
 		return (0);

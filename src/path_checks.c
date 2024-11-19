@@ -12,9 +12,8 @@
 
 #include "../includes/so_long.h"
 
-static t_exit_position	get_exit_position(t_map *map)
+static int	get_exit_position(t_map *map)
 {
-	t_exit_position	exit_position;
 	int			i;
 	int			j;
 
@@ -24,9 +23,9 @@ static t_exit_position	get_exit_position(t_map *map)
 	{
 		if (map->map_grid[i][j] == 'E')
 		{
-			exit_position.x = j;
-			exit_position.y = i;
-			return (exit_position);
+			map->exit_x = j;
+			map->exit_y = i;
+			return (1);
 		}
 		j++;
 		if (map->map_grid[i][j] == '\0')
@@ -35,7 +34,7 @@ static t_exit_position	get_exit_position(t_map *map)
 			j = 0;
 		}
 	}
-	return (return_null_exit());
+	return (0);
 }
 
 static t_player_position	get_player_position(t_map *map)
@@ -99,16 +98,14 @@ int	path_checks(t_game *game)
 {
 	t_player_position	player_position;
 	int			collectibles;
-	t_exit_position		exit_position;
 
 	player_position = get_player_position(game->map);
 	collectibles = get_collectibles_position(game->map);
-	exit_position = get_exit_position(game->map);
+	if (!get_exit_position(game->map))
+		return (0);
 	if (player_position.x == -1 || player_position.y == -1)
 		return (0);
 	if (collectibles == 0)
-		return (0);
-	if (exit_position.x == -1 || exit_position.y == -1)
 		return (0);
 	if (!flood_check(game->map, player_position))
 		return (0);

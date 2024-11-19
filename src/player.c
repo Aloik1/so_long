@@ -37,22 +37,19 @@ static void	player_position(t_player *player, t_map *map)
 	}
 }
 
-int	init_player(t_map *map, t_player *player, t_textures *textures)
+int	init_player(t_game *game)
 {
 
-	player->speed = 1;
-	player->direction = 0;
-	player->collectibles_collected = 0;
+	game->player->speed = 1;
+	game->player->direction = 0;
+	game->player->collectibles_collected = 0;
 
 	// Load player texture
-	player_position(player, map);
-	ft_printf("Player position: %d, %d\n", player->position.x, player->position.y);
+	player_position(game->player, game->map);
 	// Set player dimensions
-	ft_printf("player width is %d\n", player->width);
-	ft_printf("player height is %d\n", player->height);
-	textures->player_width = player->width;
-	textures->player_height = player->height;
-	return 1;
+	game->textures->player_width = game->player->width;
+	game->textures->player_height = game->player->height;
+	return (1);
 }
 
 int	draw_player(t_game *game, t_window *window, t_player *player, t_camera *camera)
