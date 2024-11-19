@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 22:03:11 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/19 00:17:25 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 01:27:57 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ static void	*more_ifs(t_game *game, int i, int j)
 	
 	texture_to_return = NULL;
 	ft_printf("Collectible position is %d %d\n", i, j);
-	ft_printf("Position 1[0], Position 1[1] are %d %d\n", game->textures->collectible_1->position[0], game->textures->collectible_1->position[1]);
-	ft_printf("Position 2[0], Position 2[1] are %d %d\n", game->textures->collectible_2->position[0], game->textures->collectible_2->position[1]);
-	ft_printf("Position 3[0], Position 3[1] are %d %d\n", game->textures->collectible_3->position[0], game->textures->collectible_3->position[1]);
-	ft_printf("Position 4[0], Position 4[1] are %d %d\n", game->textures->collectible_4->position[0], game->textures->collectible_4->position[1]);
-	ft_printf("Position 5[0], Position 5[1] are %d %d\n", game->textures->collectible_5->position[0], game->textures->collectible_5->position[1]);
+	
 	if (i == game->textures->collectible_3->position[0] 
 		&& j == game->textures->collectible_3->position[1])
 	{
@@ -70,6 +66,11 @@ void	*texture_chooser(t_game *game, int i, int j)
 	
 	texture_to_return = NULL;
 	ft_printf("i is %d and j is %d\n", i, j);
+	// ft_printf("Position 1[0], Position 1[1] are %d %d\n", game->textures->collectible_1->position[0], game->textures->collectible_1->position[1]);
+	// ft_printf("Position 2[0], Position 2[1] are %d %d\n", game->textures->collectible_2->position[0], game->textures->collectible_2->position[1]);
+	// ft_printf("Position 3[0], Position 3[1] are %d %d\n", game->textures->collectible_3->position[0], game->textures->collectible_3->position[1]);
+	// ft_printf("Position 4[0], Position 4[1] are %d %d\n", game->textures->collectible_4->position[0], game->textures->collectible_4->position[1]);
+	// ft_printf("Position 5[0], Position 5[1] are %d %d\n", game->textures->collectible_5->position[0], game->textures->collectible_5->position[1]);
 	if (i == game->textures->collectible_1->position[0] 
 		&& j == game->textures->collectible_1->position[1])
 	{

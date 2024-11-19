@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:59:14 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/18 00:33:25 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 01:25:34 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	four_collectibles_positions(t_game *game)
 	
 	position = game->map->collectible->positions;
 	game->textures->collectible_1->position = position[0];
-	game->textures->collectible_1->position = position[1];
-	game->textures->collectible_1->position = position[2];
-	game->textures->collectible_1->position = position[3];
+	game->textures->collectible_2->position = position[1];
+	game->textures->collectible_3->position = position[2];
+	game->textures->collectible_4->position = position[3];
 }
 
 void	three_collectibles_positions(t_game *game)
@@ -43,8 +43,8 @@ void	three_collectibles_positions(t_game *game)
 	
 	position = game->map->collectible->positions;
 	game->textures->collectible_1->position = position[0];
-	game->textures->collectible_1->position = position[1];
-	game->textures->collectible_1->position = position[2];
+	game->textures->collectible_2->position = position[1];
+	game->textures->collectible_3->position = position[2];
 }
 
 void	two_collectibles_positions(t_game *game)
@@ -53,7 +53,7 @@ void	two_collectibles_positions(t_game *game)
 	
 	position = game->map->collectible->positions;
 	game->textures->collectible_1->position = position[0];
-	game->textures->collectible_1->position = position[1];
+	game->textures->collectible_2->position = position[1];
 }
 void	collectible_position_adder(t_game *game)
 {
