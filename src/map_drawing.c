@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_camera *camera)
+static void	draw_floor(t_game *game, t_window *window, t_camera *camera)
 {
 	int	i;
 	int	j;
@@ -22,20 +22,13 @@ static void	draw_floor(t_game *game, t_window *window, t_textures *textures, t_c
 
 	texture_to_draw = NULL;
 	ft_printf("Drawing floor with camera at (%d, %d)\n", camera->x, camera->y);
-	if (!textures)
-	{
-		ft_printf("Error: Could not load floor texture.\n");
-		return ;
-	}
-
 	i = camera->y;
 	while (i < camera->y + camera->height && i < game->map->rows)
 	{
 		j = camera->x;
 		while (j < camera->x + camera->width && j < game->map->cols)
 		{
-			if (game->map->map_grid[i][j] != '1'/*== '0' || game->map->map_grid[i][j] == 'P'
-				|| game->map->map_grid[i][j] == 'E' || game->map->map_grid[i][j] == 'C'*/)
+			if (game->map->map_grid[i][j] != '1')
 			{
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
@@ -80,7 +73,7 @@ static void	draw_wall(t_map *map, t_window *window, t_textures *textures, t_came
 		i++;
 	}
 }
-static void	draw_collectibles(t_game *game, t_window *window, t_textures *textures, t_camera *camera)
+static void	draw_collectibles(t_game *game, t_window *window, t_camera *camera)
 {
 	int	i;
 	int	j;
@@ -92,13 +85,6 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 	pixel_x = 0;
 	pixel_y = 0;
 	i = 0;
-	
-	if (!textures->collectible_1 /*|| !textures->collectible_2_img || !textures->collectible_3_img 
-		|| !textures->collectible_4_img || !textures->collectible_5_img*/)
-	{
-		ft_printf("Error: Could not load collectible texture.\n");
-		return ;
-	}
 
 	ft_printf("Drawing collectibles with camera at (%d, %d)\n", camera->x, camera->y);
 	// ft_printf("pointer to fill %p\n", game->map->collectible->positions[collectible_count]);
@@ -145,12 +131,12 @@ static void	draw_collectibles(t_game *game, t_window *window, t_textures *textur
 int	draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textures)
 {
 	ft_printf("----------------Drawing floor...-----------------\n");
-	draw_floor(game, window, textures, camera);
+	draw_floor(game, window, camera);
 	ft_printf("----------------Drawing wall...-----------------\n");
 	draw_wall(game->map, window, textures, camera);
 	ft_printf("Wall texture loaded: %p\n", textures->wall_top_img);
 	ft_printf("----------------Drawing collectibles...-----------------\n");
-	draw_collectibles(game, window, textures, camera);
+	draw_collectibles(game, window, camera);
 	ft_printf("Collectibles loaded\n");
 	ft_printf("----------------Drawing exit...-----------------\n");
 	draw_exit(game->map, window, textures, camera);

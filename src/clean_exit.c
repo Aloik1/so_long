@@ -181,11 +181,6 @@ static void	free_exit(t_game *game)
 
 static void	free_player(t_game *game)
 {
-	// if (game->textures->player_img)
-	// {
-	// 	mlx_destroy_image(game->window->mlx, game->textures->player_img);
-	// 	game->textures->player_img = NULL;
-	// }
 	if (game->textures->player_up_1)
 	{
 		mlx_destroy_image(game->window->mlx, game->textures->player_up_1);
@@ -246,6 +241,11 @@ static void	free_player(t_game *game)
 		mlx_destroy_image(game->window->mlx, game->textures->player_right_3);
 		game->textures->player_right_3 = NULL;
 	}
+	// if (game->player->player_texture)
+	// {
+	// 	mlx_destroy_image(game->window->mlx, game->player->player_texture);
+	// 	game->textures->player_img = NULL;
+	// }
 }
 
 void	free_textures(t_game *game)
