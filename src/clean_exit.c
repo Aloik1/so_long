@@ -65,10 +65,41 @@ void	free_textures(t_game *game)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_left_img);
 	// if (game->textures->wall_right_img)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_right_img);
-	if (game->textures->exit_img)
-		mlx_destroy_image(game->window->mlx, game->textures->exit_img);
+	if (game->textures->exit_closed)
+		mlx_destroy_image(game->window->mlx, game->textures->exit_closed);
+	if (game->textures->exit_open)
+		mlx_destroy_image(game->window->mlx, game->textures->exit_open);
 	if (game->textures->player_img)
 		mlx_destroy_image(game->window->mlx, game->player->player_texture);
+	if (game->textures->player_up_1)
+		mlx_destroy_image(game->window->mlx, game->textures->player_up_1);
+	if (game->textures->player_up_2)
+		mlx_destroy_image(game->window->mlx, game->textures->player_up_2);	
+	if (game->textures->player_up_3)
+		mlx_destroy_image(game->window->mlx, game->textures->player_up_3);
+	// if (game->textures->player_down_1)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->player_down_1);
+	if (game->textures->player_down_2)
+		mlx_destroy_image(game->window->mlx, game->textures->player_down_2);
+	if (game->textures->player_down_3)
+		mlx_destroy_image(game->window->mlx, game->textures->player_down_3);
+	if (game->textures->player_left_1)
+		mlx_destroy_image(game->window->mlx, game->textures->player_left_1);
+	if (game->textures->player_left_2)
+		mlx_destroy_image(game->window->mlx, game->textures->player_left_2);
+	if (game->textures->player_left_3)
+		mlx_destroy_image(game->window->mlx, game->textures->player_left_3);
+	if (game->textures->player_right_1)
+		mlx_destroy_image(game->window->mlx, game->textures->player_right_1);
+	if (game->textures->player_right_2)
+		mlx_destroy_image(game->window->mlx, game->textures->player_right_2);
+	// if (game->textures->player_right_3)
+	// 	mlx_destroy_image(game->window->mlx, game->textures->player_right_3);
+
+
+
+
+
 }
 
 void clean_exit(t_game *game)

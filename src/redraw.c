@@ -58,6 +58,6 @@ void	redraw_everything(t_game *game, t_textures *textures)
 	draw_map(game, game->window, game->camera, textures);
 
 	ft_printf("Drawing player at position (%d, %d)...\n", game->player->pixel_x, game->player->pixel_y);
-	draw_player(game->window, game->player, game->camera);
+	draw_player(game, game->window, game->player, game->camera);
 }
 

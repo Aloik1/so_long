@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:02:47 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/16 18:03:29 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 16:55:55 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	aux_map_creation(t_game *game)
 	int	j;
 	
 	i = 0;
-	game->map->map_aux = (char **)malloc(sizeof(char *) * game->map->cols + 1);
+	game->map->map_aux = (char **)malloc(sizeof(char *) * (game->map->rows + 1));
 	if (!game->map->map_aux)
 	{
 		ft_printerror("Couldn't allocate memory for map_aux");

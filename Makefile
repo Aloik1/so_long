@@ -1,6 +1,6 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror ##-g -fsanitize=address##
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 MINILIBX_FLAGS = -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm
 INCLUDES = -I./includes
 
@@ -28,6 +28,7 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/3_collectibles.c		$(SRC_DIR)/4_collectibles.c \
 	$(SRC_DIR)/5_collectibles.c		$(SRC_DIR)/collectible_position_adder.c \
 	$(SRC_DIR)/texture_chooser.c		$(SRC_DIR)/collectible_animation.c \
+	$(SRC_DIR)/exit_texture_initialize.c \
 	
 OBJ = $(SRC:.c=.o)
 

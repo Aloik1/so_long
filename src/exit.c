@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:44:58 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/11 23:41:04 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 17:20:28 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *cam
 	int	pixel_x;
 	int	pixel_y;
 
-	// map->exit = (t_exit_position *)malloc(sizeof(t_exit_position));
 	i = camera->y;
 	while (i < camera->y + camera->height && i < map->rows)
 	{
@@ -30,7 +29,10 @@ void	draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *cam
 			{
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
-				mlx_put_image_to_window(window->mlx, window->win, textures->exit_img, pixel_x, pixel_y);
+				if (map->collectibles == 0)
+					mlx_put_image_to_window(window->mlx, window->win, textures->exit_open, pixel_x, pixel_y);
+				else
+					mlx_put_image_to_window(window->mlx, window->win, textures->exit_closed, pixel_x, pixel_y);
 				map->exit->x = j;
 				map->exit->y = i;
 				ft_printf("Exit position set to (%d, %d)\n", j, i);

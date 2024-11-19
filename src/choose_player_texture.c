@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:15:02 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/17 19:53:42 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 18:02:35 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	*choose_player_texture(t_game *game)
 {
 	void	*texture_to_return;
 
+	ft_printf("Key pressed is %d\n", game->movement->key_pressed);
 	texture_to_return = NULL;
 	if (game->movement->key_pressed == 119 /*W*/)
 	{
@@ -113,5 +114,7 @@ void	*choose_player_texture(t_game *game)
 		texture_to_return = player_right(game);
 		return (texture_to_return);
 	}
+	else
+		return (game->player->player_texture);
 	return (NULL);
 }

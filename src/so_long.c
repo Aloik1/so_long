@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	// draw the player
-	if (!draw_player(window, game->player, game->camera))
+	if (!draw_player(game, window, game->player, game->camera))
 	{
 		free(game);
 		return (1);

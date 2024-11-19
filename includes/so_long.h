@@ -173,7 +173,8 @@ typedef struct s_textures
 	void	*collectible_animation_4;
 	void	*collectible_animation_5;
 	void	*collectible_destroyed;
-	void	*exit_img;
+	void	*exit_closed;
+	void	*exit_open;
 
 	void	*player_img;
 	void	*player_up_1;
@@ -257,7 +258,7 @@ int			path_checks(t_game *game);
 int			map_checks(t_map *map);
 int			draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textures);
 int			init_player(t_map *map, t_player *player, t_textures *textures);
-int			draw_player(t_window *window, t_player *player, t_camera *camera);
+int			draw_player(t_game *game, t_window *window, t_player *player, t_camera *camera);
 int			movement(int keycode, t_game *game);
 void			redraw_everything(t_game *game, t_textures *textures);
 void			update_camera(t_camera *camera, t_player *player, t_map *map);
@@ -285,5 +286,6 @@ void			*collectible_2_chooser(t_game *game);
 void			*collectible_3_chooser(t_game *game);
 void			*collectible_4_chooser(t_game *game);
 void			*collectible_5_chooser(t_game *game);
+int			exit_initialize(t_game *game, void *mlx);
 
 #endif

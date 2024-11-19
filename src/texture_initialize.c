@@ -95,12 +95,8 @@ int	texture_initialize(t_game *game, void *mlx)
 	if (!collectible_textures_initialize(game, mlx))
 		return (0);
 	ft_printf("Collectible textures are done\n");
-	game->textures->exit_img = mlx_xpm_file_to_image(mlx, "assets/textures/exit/exit.xpm", &game->textures->exit_width, &game->textures->exit_height);
-	if (!game->textures->exit_img)
-	{
-		ft_printf("Error: Could not load exit texture.\n");
+	if (!exit_initialize(game, mlx))
 		return (0);
-	}
 	if (!player_texture_initialize(game, mlx))
 		return (0);
 	return (1);
