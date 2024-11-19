@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	game->textures = (t_textures *)malloc(sizeof(t_textures));
 	game->map = (t_map *)malloc(sizeof(t_map));
 	game->window = (t_window *)malloc(sizeof(t_window));
-	if (!game->player || !game || !game->textures)
+	if (!game->player || !game || !game->textures || !game->window)
 	{
 		ft_printerror("Error: Could not allocate memory for player, game or textures\n");
 		return (1);
@@ -94,6 +94,7 @@ int	main(int argc, char **argv)
 	}
 	// check for key presses
 	mlx_key_hook(game->window->win, movement, game);
+	mlx_hook(game->window->win, 17, 0, (int (*)(void *))clean_exit, game);
 	
 	// start the loop
 	mlx_loop(game->window->mlx);

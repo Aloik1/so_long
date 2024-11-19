@@ -88,7 +88,7 @@ int	texture_initialize(t_game *game, void *mlx)
 	game->textures->wall_top_img = mlx_xpm_file_to_image(mlx, "assets/textures/walls/forest_wall_main.xpm", &game->textures->wall_top_width, &game->textures->wall_top_height);
 	if (!game->textures->wall_top_img)
 	{
-		ft_printf("Error: Could not load wall top texture.\n");
+		ft_printf("Error: Could not load wall texture.\n");
 		return (0);
 	}
 	ft_printf("Walls textures are done\n");

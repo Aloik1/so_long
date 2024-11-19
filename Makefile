@@ -28,7 +28,7 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/3_collectibles.c		$(SRC_DIR)/4_collectibles.c \
 	$(SRC_DIR)/5_collectibles.c		$(SRC_DIR)/collectible_position_adder.c \
 	$(SRC_DIR)/texture_chooser.c		$(SRC_DIR)/collectible_animation.c \
-	$(SRC_DIR)/exit_texture_initialize.c \
+	$(SRC_DIR)/exit_texture_initialize.c 	$(SRC_DIR)/free_collectibles.c \
 	
 OBJ = $(SRC:.c=.o)
 

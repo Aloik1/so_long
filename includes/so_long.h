@@ -102,119 +102,117 @@ typedef struct s_collectible_1
 {
 	int	count;
 	int	number;
-	int	*position;
-	void	*collectible_img;
+	int	*position;//
+	void	*collectible_img;//
 }	t_collectible_1;
 
 typedef struct s_collectible_2
 {
 	int	count;
 	int	number;
-	int	*position;
-	void	*collectible_img;
+	int	*position;//
+	void	*collectible_img;//
 }	t_collectible_2;
 
 typedef struct s_collectible_3
 {
 	int	count;
 	int	number;
-	int	*position;
-	void	*collectible_img;
+	int	*position;//
+	void	*collectible_img;//
 }	t_collectible_3;
 
 typedef struct s_collectible_4
 {
 	int	count;
 	int	number;
-	int	*position;
-	void	*collectible_img;
+	int	*position;//
+	void	*collectible_img;//
 }	t_collectible_4;
 
 typedef struct s_collectible_5
 {
 	int	count;
 	int	number;
-	int	*position;
-	void	*collectible_img;
+	int	*position;//
+	void	*collectible_img;//
 }	t_collectible_5;
 
 typedef struct s_textures
 {
-	void	*floor_img;
-	void	*floor_all_open;
-	void	*floor_top_bot;
-	void	*floor_left_right;
-	void	*floor_top_open;
-	void	*floor_bot_open;
-	void	*floor_left_open;
-	void	*floor_right_open;
-	void	*floor_top_right_corner;
-	void	*floor_top_left_corner;
-	void	*floor_bot_right_corner;
-	void	*floor_bot_left_corner;
-	void	*floor_top_closed;
-	void	*floor_bot_closed;
-	void	*floor_left_closed;
-	void	*floor_right_closed;
+	void			*floor_img;//
+	void			*floor_all_open;//
+	void			*floor_top_bot;//
+	void			*floor_left_right;//
+	void			*floor_top_open;//
+	void			*floor_bot_open;//
+	void			*floor_left_open;//
+	void			*floor_right_open;//
+	void			*floor_top_right_corner;//
+	void			*floor_top_left_corner;//
+	void			*floor_bot_right_corner;//
+	void			*floor_bot_left_corner;//
+	void			*floor_top_closed;//
+	void			*floor_bot_closed;//
+	void			*floor_left_closed;//
+	void			*floor_right_closed;//
 
-	void	*wall_top_img;
-	void	*wall_bottom_img;
-	void	*wall_left_img;
-	void	*wall_right_img;
+	void			*wall_top_img;//
 
-	t_collectible_1		*collectible_1;
-	t_collectible_2		*collectible_2;
-	t_collectible_3		*collectible_3;
-	t_collectible_4		*collectible_4;
-	t_collectible_5		*collectible_5;
-	void	*collectible_animation_1;
-	void	*collectible_animation_2;
-	void	*collectible_animation_3;
-	void	*collectible_animation_4;
-	void	*collectible_animation_5;
-	void	*collectible_destroyed;
-	void	*exit_closed;
-	void	*exit_open;
+	t_collectible_1		*collectible_1;//
+	t_collectible_2		*collectible_2;//
+	t_collectible_3		*collectible_3;//
+	t_collectible_4		*collectible_4;//
+	t_collectible_5		*collectible_5;//
+	void			*collectible_animation_1;//
+	void			*collectible_animation_2;//
+	void			*collectible_animation_3;//
+	void			*collectible_animation_4;//
+	void			*collectible_animation_5;//
+	void			*collectible_destroyed;//
 
-	void	*player_img;
-	void	*player_up_1;
-	void	*player_up_2;
-	void	*player_up_3;
-	void	*player_down_1;
-	void	*player_down_2;
-	void	*player_down_3;
-	void	*player_left_1;
-	void	*player_left_2;
-	void	*player_left_3;
-	void	*player_right_1;
-	void	*player_right_2;
-	void	*player_right_3;
+	void			*exit_closed;//
+	void			*exit_open;//
+
+	void			*player_img;//
+	void			*player_up_1;//
+	void			*player_up_2;//
+	void			*player_up_3;//
+	void			*player_down_1;//
+	void			*player_down_2;//
+	void			*player_down_3;//
+	void			*player_left_1;//
+	void			*player_left_2;//
+	void			*player_left_3;//
+	void			*player_right_1;//
+	void			*player_right_2;//
+	void			*player_right_3;//
 
 
-	int		collectible_1_width;
-	int		collectible_1_height;
-	int		collectible_2_width;
-	int		collectible_2_height;
-	int		collectible_3_width;
-	int		collectible_3_height;
-	int		collectible_4_width;
-	int		collectible_4_height;
-	int		collectible_5_width;
-	int		collectible_5_height;
-	int		floor_width;
-	int		floor_height;
-	int		wall_top_width;
-	int		wall_top_height;
-	int		wall_bottom_width;
-	int		wall_bottom_height;
-	int		wall_left_width;
-	int		wall_left_height;
-	int		wall_right_width;
-	int		wall_right_height;
-	int		exit_width;
-	int		exit_height;
-	int		player_width;
-	int		player_height;
+	int			collectible_1_width;
+	int			collectible_1_height;
+	int			collectible_2_width;
+	int			collectible_2_height;
+	int			collectible_3_width;
+	int			collectible_3_height;
+	int			collectible_4_width;
+	int			collectible_4_height;
+	int			collectible_5_width;
+	int			collectible_5_height;
+	int			floor_width;
+	int			floor_height;
+	int			wall_top_width;
+	int			wall_top_height;
+	int			wall_bottom_width;
+	int			wall_bottom_height;
+	int			wall_left_width;
+	int			wall_left_height;
+	int			wall_right_width;
+	int			wall_right_height;
+	int			exit_width;
+	int			exit_height;
+	int			player_width;
+	int			player_height;
 }	t_textures;
 
 typedef struct s_movement
@@ -266,7 +264,7 @@ void			camera_init(t_camera *camera, t_player *player, t_map *map);
 int			collect_collectible(t_game *game, t_player *player);
 int			open_exit(t_map *map, t_player *player, t_game *game);
 void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *camera);
-void			clean_exit(t_game *game);
+int			clean_exit(t_game *game);
 int			texture_initialize(t_game *game, void *mlx);
 void			*choose_floor(t_game *game, int j, int i);
 void			aux_map_creation(t_game *game);
@@ -287,5 +285,10 @@ void			*collectible_3_chooser(t_game *game);
 void			*collectible_4_chooser(t_game *game);
 void			*collectible_5_chooser(t_game *game);
 int			exit_initialize(t_game *game, void *mlx);
+void			free_collectible_1(t_game *game);
+void			free_collectible_2(t_game *game);
+void			free_collectible_3(t_game *game);
+void			free_collectible_4(t_game *game);
+void			free_collectible_5(t_game *game);
 
 #endif

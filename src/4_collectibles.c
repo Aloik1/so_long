@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 21:07:55 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/18 19:11:43 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 21:59:17 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ static void	initialize_4_counts(t_game *game)
 	return ;
 }
 
-static int	initialize_4_positions(t_game *game)
-{
-	game->textures->collectible_1->position = (int *)malloc(sizeof(int *));
-	if(!game->textures->collectible_1->position)
-		return (0);
-	game->textures->collectible_2->position = (int *)malloc(sizeof(int *));
-	if(!game->textures->collectible_1->position)
-		return (0);
-	game->textures->collectible_3->position = (int *)malloc(sizeof(int *));
-	if(!game->textures->collectible_1->position)
-		return (0);
-	game->textures->collectible_4->position = (int *)malloc(sizeof(int *));
-	if(!game->textures->collectible_1->position)
-		return (0);
-	return (1);
-}
+// static int	initialize_4_positions(t_game *game)
+// {
+// 	game->textures->collectible_1->position = (int *)malloc(sizeof(int *));
+// 	if(!game->textures->collectible_1->position)
+// 		return (0);
+// 	game->textures->collectible_2->position = (int *)malloc(sizeof(int *));
+// 	if(!game->textures->collectible_1->position)
+// 		return (0);
+// 	game->textures->collectible_3->position = (int *)malloc(sizeof(int *));
+// 	if(!game->textures->collectible_1->position)
+// 		return (0);
+// 	game->textures->collectible_4->position = (int *)malloc(sizeof(int *));
+// 	if(!game->textures->collectible_1->position)
+// 		return (0);
+// 	return (1);
+// }
 
 int	initialize_4_collectibles(t_game *game)
 {
@@ -56,8 +56,8 @@ int	initialize_4_collectibles(t_game *game)
 	game->textures->collectible_4 = (t_collectible_4 *)malloc(sizeof(t_collectible_4));
 	if(!game->textures->collectible_4)
 		return (0);
-	if (!initialize_4_positions(game))
-		return (0);
+	// if (!initialize_4_positions(game))
+	// 	return (0);
 	initialize_4_counts(game);
 	return (1);
 }

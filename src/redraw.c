@@ -54,7 +54,6 @@ void	redraw_everything(t_game *game, t_textures *textures)
 	update_camera(game->camera, game->player, game->map);
 
 	ft_printf("Drawing map...\n");
-	game->player->player_texture = choose_player_texture(game);
 	draw_map(game, game->window, game->camera, textures);
 
 	ft_printf("Drawing player at position (%d, %d)...\n", game->player->pixel_x, game->player->pixel_y);
