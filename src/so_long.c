@@ -94,7 +94,7 @@ int	main(int argc, char **argv)
 	}
 	// check for key presses
 	mlx_key_hook(game->window->win, movement, game);
-	mlx_hook(game->window->win, 17, 0, (int (*)(void *))clean_exit, game);
+	mlx_hook(game->window->win, 17, 0, clean_exit, game);
 	
 	// start the loop
 	mlx_loop(game->window->mlx);

@@ -14,15 +14,6 @@
 
 int	window_and_mlx(t_window **window)
 {
-	// allocate memory for the window
-	ft_printf("Allocating memory for window\n");
-	*window = (t_window *)malloc(sizeof(t_window));
-	if (!*window)
-	{
-		ft_printerror("Failed to allocate memory\n");
-		return (0);
-	}
-	// initialize mlx
 	ft_printf("initializing mlx\n");
 	(*window)->mlx = mlx_init();
 	if (!(*window)->mlx)

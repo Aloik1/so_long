@@ -301,8 +301,10 @@ int clean_exit(t_game *game)
 		}
 		free(game->window);
 		game->window = NULL;
+		
 	}
-	
+	free(game->window);
+	game->window = NULL;
 	ft_printf("game window pointer: %p\n", game->window);
 	free(game);
 	game = NULL;
