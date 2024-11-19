@@ -31,6 +31,16 @@ void	free_map(t_map *map)
             free(map->map_grid);
         }
 	i = 0;
+	if (map->map_aux)
+	{
+            while (i < map->rows) 
+	    {
+                free(map->map_aux[i]);
+                i++;
+            }
+            free(map->map_aux);
+        }
+	i = 0;
 	if (map->collectible)
 	{
 		//ft_printf("collectibles collected is %d\n");
@@ -42,14 +52,12 @@ void	free_map(t_map *map)
 				ft_printf("Index %d is %p\n", j, map->collectible->positions[j]);
 				j++;
 			}
-			free(map->collectible->positions[i]);
+			// free(map->collectible->positions[i]);
 			ft_printf("Freed index %d\n", i);
 			i++;
 		}
-		//free(map->collectible->positions[i]);
+		free(map->collectible->positions[i]);
 		ft_printf("I is %d\n", i);
-		
-		//free(map->collectible->positions[i]);
 		free(map->collectible->positions);
 		free(map->collectible);
 	}

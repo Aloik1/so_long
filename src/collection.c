@@ -70,8 +70,6 @@ static void	delete_collectible_from_map(t_game *game/*, t_map *map*/, t_player_p
 	{
 		ft_printf("number for collectible 1 before is: %d\n", game->textures->collectible_1->number);
 		game->textures->collectible_1->number = 0;
-		// game->textures->collectible_1->position[0] = 0;
-		// game->textures->collectible_1->position[1] = 0;
 		ft_printf("number for collectible 1 after is: %d\n", game->textures->collectible_1->number);
 		return ;
 	}
@@ -80,8 +78,6 @@ static void	delete_collectible_from_map(t_game *game/*, t_map *map*/, t_player_p
 	{
 		ft_printf("number for collectible 2 before is: %d\n", game->textures->collectible_2->number);
 		game->textures->collectible_2->number = 0;
-		// game->textures->collectible_2->position[0] = 0;
-		// game->textures->collectible_2->position[1] = 0;
 		ft_printf("number for collectible 2 after is: %d\n", game->textures->collectible_2->number);
 		return ;
 	}

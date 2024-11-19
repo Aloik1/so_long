@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:32:42 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/18 19:26:32 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/19 18:40:59 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static int	one_collectible(t_game *game, void *mlx)
 	game->textures->collectible_1 = (t_collectible_1 *)malloc(sizeof(t_collectible_1));
 	if(!game->textures->collectible_1)
 		return (0);
-	game->textures->collectible_1->position = (int *)malloc(sizeof(int *));
+	game->textures->collectible_1->position = (int *)malloc(sizeof(int) * 2);
+	ft_printf("collectible 1 position pointer is: %p\n", game->textures->collectible_1->position);
 	if(!game->textures->collectible_1->position)
 		return (0);
 	game->textures->collectible_1->count = 0;

@@ -17,14 +17,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_window	*window;
 	t_game		*game;
 
-	window = NULL;
 	game = (t_game *)malloc(sizeof(t_game));
 	game->player = (t_player *)malloc(sizeof(t_player));
 	game->textures = (t_textures *)malloc(sizeof(t_textures));
 	game->map = (t_map *)malloc(sizeof(t_map));
+	game->window = (t_window *)malloc(sizeof(t_window));
 	if (!game->player || !game || !game->textures)
 	{
 		ft_printerror("Error: Could not allocate memory for player, game or textures\n");
@@ -49,7 +48,7 @@ int	main(int argc, char **argv)
 	ft_printf("all checks done\n");
 
 	// create the window
-	if (!window_and_mlx(&window))
+	if (!window_and_mlx(&game->window))
 	{
 		free(game);
 		ft_printf("Couldn't load window\n");
@@ -57,7 +56,7 @@ int	main(int argc, char **argv)
 	}
 	ft_printf("Initialized window\n");
 	// initialize the textures
-	if (!texture_initialize(game, window->mlx))
+	if (!texture_initialize(game, game->window->mlx))
 	{
 		ft_printf("couldn't load textures\n");
 		free(game);
@@ -82,23 +81,22 @@ int	main(int argc, char **argv)
 	camera_init(game->camera, game->player, game->map);
 	
 	// draw the map
-	if (!draw_map(game, window, game->camera, game->textures))
+	if (!draw_map(game, game->window, game->camera, game->textures))
 	{
 		free(game);
 		return (1);
 	}
 	// draw the player
-	if (!draw_player(game, window, game->player, game->camera))
+	if (!draw_player(game, game->window, game->player, game->camera))
 	{
 		free(game);
 		return (1);
 	}
-	game->window = window;
 	// check for key presses
-	mlx_key_hook(window->win, movement, game);
+	mlx_key_hook(game->window->win, movement, game);
 	
 	// start the loop
-	mlx_loop(window->mlx);
+	mlx_loop(game->window->mlx);
 	// Free resources before exiting
 	return (0);
 }

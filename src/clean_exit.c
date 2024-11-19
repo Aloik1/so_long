@@ -59,43 +59,106 @@ void	free_textures(t_game *game)
 
 	if (game->textures->wall_top_img)
 		mlx_destroy_image(game->window->mlx, game->textures->wall_top_img);
-	// if (game->textures->wall_bottom_img)
-	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_bottom_img);
-	// if (game->textures->wall_left_img)
-	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_left_img);
-	// if (game->textures->wall_right_img)
-	// 	mlx_destroy_image(game->window->mlx, game->textures->wall_right_img);
+
 	if (game->textures->exit_closed)
 		mlx_destroy_image(game->window->mlx, game->textures->exit_closed);
 	if (game->textures->exit_open)
 		mlx_destroy_image(game->window->mlx, game->textures->exit_open);
+	
 	if (game->textures->player_img)
 		mlx_destroy_image(game->window->mlx, game->player->player_texture);
 	if (game->textures->player_up_1)
 		mlx_destroy_image(game->window->mlx, game->textures->player_up_1);
 	if (game->textures->player_up_2)
-		mlx_destroy_image(game->window->mlx, game->textures->player_up_2);	
+		mlx_destroy_image(game->window->mlx, game->textures->player_up_2);
 	if (game->textures->player_up_3)
 		mlx_destroy_image(game->window->mlx, game->textures->player_up_3);
+
 	// if (game->textures->player_down_1)
 	// 	mlx_destroy_image(game->window->mlx, game->textures->player_down_1);
 	if (game->textures->player_down_2)
 		mlx_destroy_image(game->window->mlx, game->textures->player_down_2);
 	if (game->textures->player_down_3)
 		mlx_destroy_image(game->window->mlx, game->textures->player_down_3);
+
 	if (game->textures->player_left_1)
 		mlx_destroy_image(game->window->mlx, game->textures->player_left_1);
 	if (game->textures->player_left_2)
 		mlx_destroy_image(game->window->mlx, game->textures->player_left_2);
 	if (game->textures->player_left_3)
 		mlx_destroy_image(game->window->mlx, game->textures->player_left_3);
+
 	if (game->textures->player_right_1)
 		mlx_destroy_image(game->window->mlx, game->textures->player_right_1);
 	if (game->textures->player_right_2)
 		mlx_destroy_image(game->window->mlx, game->textures->player_right_2);
-	// if (game->textures->player_right_3)
-	// 	mlx_destroy_image(game->window->mlx, game->textures->player_right_3);
+	if (game->textures->player_right_3)
+	 	mlx_destroy_image(game->window->mlx, game->textures->player_right_3);
+	ft_printf("collectible 1 position pointer is: %p\n", game->textures->collectible_1->position);
+	if (game->textures->collectible_1)
+	{
+		if (game->textures->collectible_1->position)
+			free(game->textures->collectible_1->position);
+		ft_printf("collectible 1 position pointer is: %p\n", game->textures->collectible_1->position);
+		if (game->textures->collectible_1->collectible_img)
+			mlx_destroy_image(game->window->mlx, game->textures->collectible_1->collectible_img);
+		free (game->textures->collectible_1);
+	}
+	if (game->textures->collectible_2)
+	{
+		if (game->textures->collectible_2->position)
+			free(game->textures->collectible_2->position);
+		ft_printf("collectible 2 position pointer is: %p\n", game->textures->collectible_2->position);
+		if (game->textures->collectible_2->collectible_img)
+			mlx_destroy_image(game->window->mlx, game->textures->collectible_2->collectible_img);
+		free (game->textures->collectible_2);
+	}
+	if (game->textures->collectible_3)
+	{
+		if (game->textures->collectible_3->position)
+			free(game->textures->collectible_3->position);
+		ft_printf("collectible 3 position pointer is: %p\n", game->textures->collectible_1->position);
+		if (game->textures->collectible_3->collectible_img)
+			mlx_destroy_image(game->window->mlx, game->textures->collectible_1->collectible_img);
+		free (game->textures->collectible_3);
+	}
+	if (game->textures->collectible_4)
+	{
+		if (game->textures->collectible_4->position)
+			free(game->textures->collectible_4->position);
+		ft_printf("collectible 4 position pointer is: %p\n", game->textures->collectible_4->position);
+		if (game->textures->collectible_4->collectible_img)
+			mlx_destroy_image(game->window->mlx, game->textures->collectible_4->collectible_img);
+		free (game->textures->collectible_4);
+	}
+	if (game->textures->collectible_5)
+	{
+		if (game->textures->collectible_5->position)
+			free(game->textures->collectible_5->position);
+		ft_printf("collectible 1 position pointer is: %p\n", game->textures->collectible_5->position);
+		if (game->textures->collectible_5->collectible_img)
+			mlx_destroy_image(game->window->mlx, game->textures->collectible_5->collectible_img);
+		free (game->textures->collectible_5);
+	}
+	if (game->textures->collectible_animation_1)
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_1);
+	if (game->textures->collectible_animation_2)
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_2);
+	if (game->textures->collectible_animation_3)
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_3);
+	if (game->textures->collectible_animation_4)
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_4);
+	if (game->textures->collectible_animation_5)
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_5);
 
+	// if (game->textures->collectible_2->position)
+	// 	free(game->textures->collectible_2->position);
+	// if (game->textures->collectible_3->position)
+	// 	free(game->textures->collectible_3->position);
+	// if (game->textures->collectible_4->position)
+	// 	free(game->textures->collectible_4->position);
+	// if (game->textures->collectible_5->position)
+	// 	free(game->textures->collectible_5->position);
 
 
 
@@ -106,14 +169,16 @@ void clean_exit(t_game *game)
 {
 	if (!game)
 		exit(1);
+	free_textures(game);
 	if (game->map)
 		free_map(game->map);
-	free_textures(game);
+	
 	if (game->player)
 	{
 		free(game->player);
 	}
-	
+	if (game->movement)
+		free(game->movement);
 	if (game->camera)
 	{
 		free(game->camera);
