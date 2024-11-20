@@ -57,6 +57,7 @@ static void	move_right(t_game *game, t_player *player, t_map *map)
 
 int	movement(int keycode, t_game *game)
 {
+	static int	i;
 	game->movement->key_pressed = 0;
 	if (!game || !game->player || !game->map || !game->textures) 
 		return (0);
@@ -70,6 +71,8 @@ int	movement(int keycode, t_game *game)
 		move_right(game, game->player, game->map);
 	else
 		return (0);
+	i++;
+	ft_printf("Movement count is: %d\n", i);
 	collect_collectible(game, game->player);
 	redraw_everything(game, game->textures);
 	open_exit(game->map, game->player, game);
