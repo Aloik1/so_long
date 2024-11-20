@@ -85,7 +85,6 @@ int	main(int argc, char **argv)
 {
 	t_game		*game;
 
-
 	game = (t_game *)malloc(sizeof(t_game));
 	game->textures = (t_textures *)malloc(sizeof(t_textures));
 	init_textures(game->textures);
@@ -100,8 +99,6 @@ int	main(int argc, char **argv)
 		return (0);
 	mlx_key_hook(game->window->win, movement, game);
 	mlx_hook(game->window->win, 17, 0, clean_exit, game);
-	// start the loop
 	mlx_loop(game->window->mlx);
-	// Free resources before exiting
 	return (0);
 }

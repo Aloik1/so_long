@@ -12,153 +12,66 @@
 
 #include "../includes/so_long.h"
 
-static void	move_up(t_player *player, t_map *map)
+static void	move_up(t_game *game, t_player *player, t_map *map)
 {
+	game->movement->key_pressed = 119;
 	if (!player || !map || !map->map_grid) 
-	{
-		ft_printf("Error: Null pointer detected in move_up\n");
 		return;
-	}
-	ft_printf("Attempting to move up from (%d, %d)\n", player->position.x, player->position.y);
-
-	// Check map bounds and grid access
 	if (player->position.y > 0 && map->map_grid[player->position.y - 1] != NULL &&
 		map->map_grid[player->position.y - 1][player->position.x] != '1')
-	{
 		player->position.y = player->position.y - 1;
-		ft_printf("Moved up to (%d, %d)\n", player->position.x, player->position.y);
-	}
-	else
-	{
-		ft_printf("Move up blocked or out of bounds\n");
-	}
+
 }
 
-static void	move_down(t_player *player, t_map *map)
+static void	move_down(t_game *game, t_player *player, t_map *map)
 {
+	game->movement->key_pressed = 115;
 	if (!player || !map || !map->map_grid) 
-	{
-		ft_printf("Error: Null pointer detected in move_down\n");
-		return;
-	}
-	ft_printf("Attempting to move down from (%d, %d)\n", player->position.x, player->position.y);
-
-	// Check map bounds and grid access
+		return ;
 	if (player->position.y < map->rows - 1 && map->map_grid[player->position.y + 1] != NULL &&
 		map->map_grid[player->position.y + 1][player->position.x] != '1')
 	{
 		player->position.y = player->position.y + 1;
-		ft_printf("Moved down to (%d, %d)\n", player->position.x, player->position.y);
-	}
-	else
-	{
-		ft_printf("Move down blocked or out of bounds\n");
 	}
 }
 
-static void	move_left(t_player *player, t_map *map)
+static void	move_left(t_game *game, t_player *player, t_map *map)
 {
+	game->movement->key_pressed = 97;
 	if (!player || !map || !map->map_grid) 
-	{
-		ft_printf("Error: Null pointer detected in move_left\n");
-		return;
-	}
-	ft_printf("Attempting to move left from (%d, %d)\n", player->position.x, player->position.y);
-
-	// Check map bounds and grid access
-	ft_printf("Checking map bounds and grid access\n");
-	ft_printf("Player position: (%d, %d)\n", player->position.x, player->position.y);
+		return ;
 	if (player->position.x > 0 && map->map_grid[player->position.y] != NULL &&
 		map->map_grid[player->position.y][player->position.x - 1] != '1')
-	{
 		player->position.x -= 1;
-		ft_printf("Moved left to (%d, %d)\n", player->position.x, player->position.y);
-	}
-	else
-	{
-		ft_printf("Move left blocked or out of bounds\n");
-	}
 }
 
-static void	move_right(t_player *player, t_map *map)
+static void	move_right(t_game *game, t_player *player, t_map *map)
 {
-	if (!player || !map || !map->map_grid) 
-	{
-		ft_printf("Error: Null pointer detected in move_right\n");
+	game->movement->key_pressed = 100;
+	if (!player || !map || !map->map_grid)
 		return;
-	}
-	ft_printf("Attempting to move right from (%d, %d)\n", player->position.x, player->position.y);
-
-	// Check map bounds and grid access
 	if (player->position.x < map->cols - 1 && map->map_grid[player->position.y] != NULL &&
 		map->map_grid[player->position.y][player->position.x + 1] != '1')
-	{
 		player->position.x = player->position.x + 1;
-		ft_printf("Moved right to (%d, %d)\n", player->position.x, player->position.y);
-	}
-	else
-	{
-		ft_printf("Move right blocked or out of bounds\n");
-	}
 }
 
 int	movement(int keycode, t_game *game)
 {
-	ft_printf("---------------Movement---------------\n");
-	ft_printf("Wall texture: %p\n", game->textures->wall_top_img);
-	ft_printf("Floor texture: %p\n", game->textures->floor_img);
 	game->movement->key_pressed = 0;
 	if (!game || !game->player || !game->map || !game->textures) 
-	{
-		ft_printf("Error: Null pointer detected in movement\n");
-		return (-1);
-	}
-	ft_printf("Key pressed: %d\n", keycode);
+		return (0);
 	if (keycode == KEY_W)
-	{
-		ft_printf("W key pressed\n");
-		move_up(game->player, game->map);
-		game->movement->key_pressed = 119;
-	}
+		move_up(game, game->player, game->map);
 	else if (keycode == KEY_A)
-	{
-		ft_printf("A key pressed\n");
-		move_left(game->player, game->map);
-		game->movement->key_pressed = 97;
-	}
+		move_left(game, game->player, game->map);
 	else if (keycode == KEY_S)
-	{
-		ft_printf("S key pressed\n");
-		move_down(game->player, game->map);
-		game->movement->key_pressed = 115;
-	}
+		move_down(game, game->player, game->map);
 	else if (keycode == KEY_D)
-	{
-		ft_printf("D key pressed\n");
-		move_right(game->player, game->map);
-		game->movement->key_pressed = 100;
-	}
+		move_right(game, game->player, game->map);
 	else
-	{
-		ft_printf("Invalid key pressed\n");
-		return (-1);
-	}
-	// Debugging: Check pointers before redrawing
-
-	ft_printf("Attempting to redraw everything\n");
-	ft_printf("Player position after movement: (%d, %d)\n", game->player->position.x, game->player->position.y);
-	if (collect_collectible(game, game->player))
-	{
-		ft_printf("---------------Redrawing everything---------------\n");
-		ft_printf("Textures: %p\n", game->textures);
-		redraw_everything(game, game->textures);
-		open_exit(game->map, game->player, game);
-	}
-	else
-	{
-		ft_printf("---------------Redrawing everything---------------\n");
-		redraw_everything(game, game->textures);
-		open_exit(game->map, game->player, game);
-	}
-	return (0);
+		return (0);
+	collect_collectible(game, game->player);
+	redraw_everything(game, game->textures);
+	open_exit(game->map, game->player, game);
+	return (1);
 }
