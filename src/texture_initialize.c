@@ -14,10 +14,6 @@
 
 int	init_textures(t_textures *textures)
 {
-	// textures = (t_textures *)malloc(sizeof(t_textures));
-	// if (!textures)
-	// 	return (0);
-	ft_printf("initializing ints\n");
 	textures->collectible_1_x = 0;
 	textures->collectible_1_y = 0;
 	textures->collectible_2_x = 0;

@@ -28,7 +28,6 @@ static void	player_position(t_player *player, t_map *map)
 
 				player->position.x = j;
 				player->position.y = i;
-				ft_printf("x and y are: %d, %d\n", player->position.x, player->position.y);
 				return ;
 			}
 			j++;
@@ -43,10 +42,7 @@ int	init_player(t_game *game)
 	game->player->speed = 1;
 	game->player->direction = 0;
 	game->player->collectibles_collected = 0;
-
-	// Load player texture
 	player_position(game->player, game->map);
-	// Set player dimensions
 	game->textures->player_width = game->player->width;
 	game->textures->player_height = game->player->height;
 	return (1);
@@ -55,18 +51,7 @@ int	init_player(t_game *game)
 int	draw_player(t_game *game, t_window *window, t_player *player, t_camera *camera)
 {
 	if (!player->player_texture)
-	{
-		ft_printf("Error: Player texture is NULL.\n");
 		return 0;
-	}
-	else
-	{
-		ft_printf("Player texture loaded: %p\n", player->player_texture);
-		ft_printf("Player dimensions: %d x %d\n", player->width, player->height);
-	}
-	// player->player_texture = choose_player_texture(game);
-	ft_printf("player texture chosen is %p\n", player->player_texture);
-	ft_printf("Player position: %d, %d\n", player->position.x, player->position.y);
 	player->pixel_x = (player->position.x - camera->x) * TILE_SIZE + 48 - (player->width) / 2;
 	player->pixel_y = (player->position.y - camera->y) * TILE_SIZE + 48 - (player->height) / 2;
 	mlx_put_image_to_window(window->mlx, window->win, choose_player_texture(game), player->pixel_x, player->pixel_y);

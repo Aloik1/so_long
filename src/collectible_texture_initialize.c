@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:02:40 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 02:05:33 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 18:11:06 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,5 @@ int	collectible_textures_initialize(t_game *game, void *mlx)
 		four_collectibles(game->textures, game->map);
 	else
 		more_collectible_textures(game->textures, game->map);
-	ft_printf("Collectible position in collectible textures is: %d %d\n", game->textures->collectible_1_x, game->textures->collectible_1_y);
-
 	return (1);	
 }
