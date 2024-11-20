@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 22:56:35 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 23:55:42 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 23:58:37 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	escape_button(int keycode, t_game *game)
 {
 	if (keycode == 65307)
 		clean_exit(game);
-	return (1);
+	return (0);
 }
 
 void	*choose_same_texture(t_game *game)

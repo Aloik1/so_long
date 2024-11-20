@@ -76,7 +76,7 @@ int	movement(int keycode, t_game *game)
 	else if (keycode == KEY_ENTER)
 		enter_press(game);
 	else
-		return (0);
+		return (escape_button(keycode, game));
 	if (keycode != KEY_ENTER)
 	{
 		i++;
