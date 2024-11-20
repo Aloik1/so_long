@@ -94,46 +94,6 @@ typedef struct s_flood_grid
 	int	cols;
 }	t_flood_grid;
 
-// typedef struct s_collectible_1
-// {
-// 	int	count;
-// 	int	number;
-// 	int	*position;//
-// 	void	*collectible_img;//
-// }	t_collectible_1;
-
-// typedef struct s_collectible_2
-// {
-// 	int	count;
-// 	int	number;
-// 	int	*position;//
-// 	void	*collectible_img;//
-// }	t_collectible_2;
-
-// typedef struct s_collectible_3
-// {
-// 	int	count;
-// 	int	number;
-// 	int	*position;//
-// 	void	*collectible_img;//
-// }	t_collectible_3;
-
-// typedef struct s_collectible_4
-// {
-// 	int	count;
-// 	int	number;
-// 	int	*position;//
-// 	void	*collectible_img;//
-// }	t_collectible_4;
-
-// typedef struct s_collectible_5
-// {
-// 	int	count;
-// 	int	number;
-// 	int	*position;//
-// 	void	*collectible_img;//
-// }	t_collectible_5;
-
 typedef struct s_textures
 {
 	void			*floor_img;//
@@ -155,11 +115,6 @@ typedef struct s_textures
 
 	void			*wall_top_img;//
 
-	// t_collectible_1		*collectible_1;//
-	// t_collectible_2		*collectible_2;//
-	// t_collectible_3		*collectible_3;//
-	// t_collectible_4		*collectible_4;//
-	// t_collectible_5		*collectible_5;//
 	void			*collectible_image;
 	void			*collectible_animation_1;//
 	void			*collectible_animation_2;//
@@ -188,14 +143,6 @@ typedef struct s_textures
 
 	int			collectible_1_width;
 	int			collectible_1_height;
-	// int			collectible_2_width;
-	// int			collectible_2_height;
-	// int			collectible_3_width;
-	// int			collectible_3_height;
-	// int			collectible_4_width;
-	// int			collectible_4_height;
-	// int			collectible_5_width;
-	// int			collectible_5_height;
 	int			collectible_count;
 	int			collectible_1_x;
 	int			collectible_1_y;

@@ -95,9 +95,6 @@ static int	floor_textures(t_textures *textures, void *mlx)
 	textures->floor_right_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_right_open.xpm", &textures->floor_width, &textures->floor_height);
 	if (!textures->floor_right_open)
 		return (0);
-	textures->floor_right_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_right_open.xpm", &textures->floor_width, &textures->floor_height);
-	if (!textures->floor_right_open)
-		return (0);
 	if (!more_floors(textures, mlx))
 		return (0);
 	return (1);

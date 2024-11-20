@@ -14,6 +14,11 @@
 
 static void	free_collectible_animation(t_game *game)
 {
+	if (game->textures->collectible_image)
+	{
+		mlx_destroy_image(game->window->mlx, game->textures->collectible_image);
+		game->textures->collectible_image = NULL;
+	}
 	if (game->textures->collectible_animation_1)
 	{
 		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_1);
@@ -202,11 +207,11 @@ static void	free_player(t_game *game)
 		mlx_destroy_image(game->window->mlx, game->textures->player_right_3);
 		game->textures->player_right_3 = NULL;
 	}
-	// if (game->player->player_texture)
-	// {
-	// 	mlx_destroy_image(game->window->mlx, game->player->player_texture);
-	// 	game->textures->player_img = NULL;
-	// }
+	if (game->player->player_texture)
+	{
+		mlx_destroy_image(game->window->mlx, game->player->player_texture);
+		game->textures->player_img = NULL;
+	}
 }
 
 void	free_textures(t_game *game)

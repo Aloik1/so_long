@@ -64,11 +64,11 @@ int	draw_player(t_game *game, t_window *window, t_player *player, t_camera *came
 		ft_printf("Player texture loaded: %p\n", player->player_texture);
 		ft_printf("Player dimensions: %d x %d\n", player->width, player->height);
 	}
-	player->player_texture = choose_player_texture(game);
+	// player->player_texture = choose_player_texture(game);
 	ft_printf("player texture chosen is %p\n", player->player_texture);
 	ft_printf("Player position: %d, %d\n", player->position.x, player->position.y);
 	player->pixel_x = (player->position.x - camera->x) * TILE_SIZE + 48 - (player->width) / 2;
 	player->pixel_y = (player->position.y - camera->y) * TILE_SIZE + 48 - (player->height) / 2;
-	mlx_put_image_to_window(window->mlx, window->win, player->player_texture, player->pixel_x, player->pixel_y);
+	mlx_put_image_to_window(window->mlx, window->win, choose_player_texture(game), player->pixel_x, player->pixel_y);
 	return 1;
 }
