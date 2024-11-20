@@ -6,77 +6,52 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:32:42 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/19 22:00:10 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 02:08:14 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	three_collectibles(t_game *game, void *mlx)
+static void	three_collectibles(t_textures *textures, t_map *map)
 {
-	if (!initialize_3_collectibles(game))
-		return (0);
-	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1->collectible_img)
-		return (0);
-	game->textures->collectible_2->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_2->collectible_img)
-		return (0);
-	game->textures->collectible_3->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_3->collectible_img)
-		return (0);
-	return (1);
+	ft_printf("Entering 3 collectibles\n");
+	textures->collectible_1_x = map->collectible->positions[0][0];
+	textures->collectible_1_y = map->collectible->positions[0][1];
+	textures->collectible_2_x = map->collectible->positions[1][0];
+	textures->collectible_2_y = map->collectible->positions[1][1];
+	textures->collectible_3_x = map->collectible->positions[2][0];
+	textures->collectible_3_y = map->collectible->positions[2][1];
+	textures->collectible_1_state = 1;
+	textures->collectible_2_state = 1;
+	textures->collectible_3_state = 1;
+	return ;
 }
 
-static int	two_collectibles(t_game *game, void *mlx)
+static void	two_collectibles(t_textures *textures, t_map *map)
 {
-	if (!initialize_2_collectibles(game))
-		return (0);
-	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1->collectible_img)
-		return (0);
-	game->textures->collectible_2->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_2->collectible_img)
-		return (0);
-	return (1);
+	ft_printf("Entering 2 collectibles\n");
+	textures->collectible_1_x = map->collectible->positions[0][0];
+	textures->collectible_1_y = map->collectible->positions[0][1];
+	textures->collectible_2_x = map->collectible->positions[1][0];
+	textures->collectible_2_y = map->collectible->positions[1][1];
+	textures->collectible_1_state = 1;
+	textures->collectible_2_state = 1;
+	return ;
 }
 
-static int	one_collectible(t_game *game, void *mlx)
+void	more_collectible_textures(t_textures *textures, t_map *map)
 {
-	game->textures->collectible_1 = (t_collectible_1 *)malloc(sizeof(t_collectible_1));
-	if(!game->textures->collectible_1)
-		return (0);
-	// game->textures->collectible_1->position = (int *)malloc(sizeof(int) * 2);
-	// ft_printf("collectible 1 position pointer is: %p\n", game->textures->collectible_1->position);
-	// if(!game->textures->collectible_1->position)
-	// 	return (0);
-	game->textures->collectible_1->count = 0;
-	game->textures->collectible_1->number = 1;
-	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1->collectible_img)
-		return (0);
-	return (1);
-}
-
-int	more_collectible_textures(t_game *game, void *mlx)
-{
-	if (game->map->collectibles == 3)
+	if (map->collectibles == 3)
+		three_collectibles(textures, map);
+	if (map->collectibles == 2)
+		two_collectibles(textures, map);
+	if (map->collectibles == 1)
 	{
-		if (!three_collectibles(game, mlx))
-			return (0);
-		return (1);
+		ft_printf("Entering 1 collectibles\n");
+		textures->collectible_1_x = map->collectible->positions[0][0];
+		textures->collectible_1_y = map->collectible->positions[0][1];
+		textures->collectible_1_state = 1;
+		ft_printf("Collectible position in more collectible textures is: %d %d\n", textures->collectible_1_x, textures->collectible_1_y);
 	}
-	if (game->map->collectibles == 2)
-	{
-		if (!two_collectibles(game, mlx))
-			return (0);
-		return (1);
-	}
-	if (game->map->collectibles == 1)
-	{
-		if (!one_collectible(game, mlx))
-			return (0);
-		return (1);
-	}
-	return (1);
+	return ;
 }

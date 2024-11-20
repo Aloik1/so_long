@@ -95,6 +95,7 @@ int	read_map(char *file, t_game *game)
 	i = 0;	
 	line = NULL;
 	// Allocate memory for the map
+	game->map = (t_map *)malloc(sizeof(t_map));
 	if (!memory_check_map(game->map))
 		return (0);
 	// initialize the map

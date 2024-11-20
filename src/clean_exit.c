@@ -12,45 +12,6 @@
 
 #include "../includes/so_long.h"
 
-static void	free_collectible_structures(t_game *game)
-{
-	if (game->player->collectibles_collected == 1)
-	{
-		ft_printf("Entering 1 collectible free\n");
-		free_collectible_1(game);
-	}
-	if (game->player->collectibles_collected == 2)
-	{
-		ft_printf("Entering 2 collectible free\n");
-		free_collectible_1(game);
-		free_collectible_2(game);
-	}
-	if (game->player->collectibles_collected == 3)
-	{
-		ft_printf("Entering 3 collectible free\n");
-		free_collectible_1(game);
-		free_collectible_2(game);
-		free_collectible_3(game);
-	}
-	if (game->player->collectibles_collected == 4)
-	{
-		ft_printf("Entering 4 collectible free\n");
-		free_collectible_1(game);
-		free_collectible_2(game);
-		free_collectible_3(game);
-		free_collectible_4(game);
-	}
-	if (game->player->collectibles_collected == 5)
-	{
-		ft_printf("Entering 5 collectible free\n");
-		free_collectible_1(game);
-		free_collectible_2(game);
-		free_collectible_3(game);
-		free_collectible_4(game);
-		free_collectible_5(game);
-	}
-}
-
 static void	free_collectible_animation(t_game *game)
 {
 	if (game->textures->collectible_animation_1)
@@ -251,7 +212,7 @@ static void	free_player(t_game *game)
 void	free_textures(t_game *game)
 {
 	ft_printf("cleaning textures\n");
-	free_collectible_structures(game);
+	//free_collectible_structures(game);
 	free_collectible_animation(game);
 	free_floors(game);
 	free_exit(game);

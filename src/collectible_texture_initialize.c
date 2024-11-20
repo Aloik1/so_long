@@ -6,62 +6,56 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:02:40 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/19 19:29:58 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 02:05:33 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	five_collectibles(t_game *game, void *mlx)
+static void	five_collectibles(t_textures *textures, t_map *map)
 {
-	if (!initialize_5_collectibles(game))
-		return (0);
-	ft_printf("Collectibles initialized successfully\n");
-	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1->collectible_img)
-		return (0);
-	ft_printf("Collectible_1 loaded\n");
-	game->textures->collectible_2->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_2->collectible_img)
-		return (0);
-	ft_printf("Collectible_2 loaded\n");
-	game->textures->collectible_3->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_3->collectible_img)
-		return (0);
-	ft_printf("Collectible_3 loaded\n");
-	game->textures->collectible_4->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_4->collectible_img)
-		return (0);
-	ft_printf("Collectible_4 loaded\n");
-	game->textures->collectible_5->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_5->collectible_img)
-		return (0);
-	ft_printf("Collectible_5 loaded\n");
-	return (1);
+	ft_printf("Entering 5 collectibles\n");
+	textures->collectible_1_x = map->collectible->positions[0][0];
+	textures->collectible_1_y = map->collectible->positions[0][1];
+	textures->collectible_2_x = map->collectible->positions[1][0];
+	textures->collectible_2_y = map->collectible->positions[1][1];
+	textures->collectible_3_x = map->collectible->positions[2][0];
+	textures->collectible_3_y = map->collectible->positions[2][1];
+	textures->collectible_4_x = map->collectible->positions[3][0];
+	textures->collectible_4_y = map->collectible->positions[3][1];
+	textures->collectible_5_x = map->collectible->positions[4][0];
+	textures->collectible_5_y = map->collectible->positions[4][1];
+	textures->collectible_1_state = 1;
+	textures->collectible_2_state = 1;
+	textures->collectible_3_state = 1;
+	textures->collectible_4_state = 1;
+	textures->collectible_5_state = 1;
+	return ;
 }
 
-static int	four_collectibles(t_game *game, void *mlx)
+static void	four_collectibles(t_textures *textures, t_map *map)
 {
-	if (!initialize_4_collectibles(game))
-		return (0);
-	game->textures->collectible_1->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_1->collectible_img)
-		return (0);
-	game->textures->collectible_2->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_2->collectible_img)
-		return (0);
-	game->textures->collectible_3->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_3->collectible_img)
-		return (0);
-	game->textures->collectible_4->collectible_img = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
-	if (!game->textures->collectible_4->collectible_img)
-		return (0);
-	return (1);
+	ft_printf("Entering 4 collectibles\n");
+	textures->collectible_1_x = map->collectible->positions[0][0];
+	textures->collectible_1_y = map->collectible->positions[0][1];
+	textures->collectible_2_x = map->collectible->positions[1][0];
+	textures->collectible_2_y = map->collectible->positions[1][1];
+	textures->collectible_3_x = map->collectible->positions[2][0];
+	textures->collectible_3_y = map->collectible->positions[2][1];
+	textures->collectible_4_x = map->collectible->positions[3][0];
+	textures->collectible_4_y = map->collectible->positions[3][1];
+	textures->collectible_1_state = 1;
+	textures->collectible_2_state = 1;
+	textures->collectible_3_state = 1;
+	textures->collectible_4_state = 1;
+	return ;
 }
 
 int	collectible_textures_initialize(t_game *game, void *mlx)
 {
-	ft_printf("Number of collectibles is: %d\n", game->map->collectibles);
+	ft_printf("Initializing collectibles\n");
+	game->textures->collectible_count = 0;
+	game->textures->collectible_image = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_animation_1 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_animation_2 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_2.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_animation_3 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_3.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
@@ -69,18 +63,12 @@ int	collectible_textures_initialize(t_game *game, void *mlx)
 	game->textures->collectible_animation_5 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_5.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_destroyed = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_destroyed.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	if (game->map->collectibles == 5)
-	{
-		if (!five_collectibles(game, mlx))
-			return (0);
-	}
+		five_collectibles(game->textures, game->map);
 	if (game->map->collectibles == 4)
-	{
-		if (!four_collectibles(game, mlx))
-			return (0);
-	}
+		four_collectibles(game->textures, game->map);
 	else
-		if (!more_collectible_textures(game, mlx))
-			return (0);
-	collectible_position_adder(game);
+		more_collectible_textures(game->textures, game->map);
+	ft_printf("Collectible position in collectible textures is: %d %d\n", game->textures->collectible_1_x, game->textures->collectible_1_y);
+
 	return (1);	
 }

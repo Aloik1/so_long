@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-// Define the global textures variable
+// FIX THE COLLECTIBLES NOT DISSAPPEARING< COLLECTIBLE POSITION IS WRONG FOR SOME REASON
 
 
 int	main(int argc, char **argv)
@@ -21,11 +21,13 @@ int	main(int argc, char **argv)
 
 
 	game = (t_game *)malloc(sizeof(t_game));
-	game->player = (t_player *)malloc(sizeof(t_player));
 	game->textures = (t_textures *)malloc(sizeof(t_textures));
-	game->map = (t_map *)malloc(sizeof(t_map));
+	init_textures(game->textures);
+	game->player = (t_player *)malloc(sizeof(t_player));
 	game->window = (t_window *)malloc(sizeof(t_window));
-	if (!game->player || !game || !game->textures || !game->window)
+
+
+	if (!game->player || !game || !game->window)
 	{
 		ft_printerror("Error: Could not allocate memory for player, game or textures\n");
 		return (1);
@@ -63,6 +65,9 @@ int	main(int argc, char **argv)
 		free(game);
 		return (1);
 	}
+	ft_printf("Collectible position in main is: %d %d\n", game->textures->collectible_1_x, game->textures->collectible_1_y);
+
+
 	// Initialize the camera
 	ft_printf("Initialized textures\n");
 	game->camera = (t_camera *)malloc(sizeof(t_camera));
