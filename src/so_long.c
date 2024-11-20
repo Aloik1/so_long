@@ -97,6 +97,7 @@ int	main(int argc, char **argv)
 	if (!draw_everything(game))
 		return (0);
 	mlx_key_hook(game->window->win, movement, game);
+	mlx_key_hook(game->window->win, escape_button, game);
 	mlx_hook(game->window->win, 17, 0, clean_exit, game);
 	mlx_loop(game->window->mlx);
 	return (0);

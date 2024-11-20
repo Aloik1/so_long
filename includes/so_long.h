@@ -249,5 +249,6 @@ void			clean_more_player_textures(t_game *game);
 void			cilit_bang(t_game *game);
 void			enter_press(t_game *game);
 void			*choose_same_texture(t_game *game);
+int			escape_button(int keycode, t_game *game);
 
 #endif
