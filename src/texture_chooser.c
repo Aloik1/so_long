@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 22:03:11 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 02:47:15 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 16:51:10 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	*more_ifs(t_game *game, int i, int j)
 	
 	texture_to_return = NULL;
 	ft_printf("Collectible position is %d %d\n", i, j);
-	if (i == game->textures->collectible_3_y 
-		&& j == game->textures->collectible_3_x)
+	if (i == game->textures->collectible_3_x 
+		&& j == game->textures->collectible_3_y)
 	{
 		if (game->textures->collectible_3_state == 0)
 		{
@@ -28,8 +28,8 @@ static void	*more_ifs(t_game *game, int i, int j)
 		}
 		texture_to_return = collectible_chooser(game);
 	}
-	else if (i == game->textures->collectible_4_y
-		&& j == game->textures->collectible_4_x)
+	else if (i == game->textures->collectible_4_x
+		&& j == game->textures->collectible_4_y)
 	{
 		if (game->textures->collectible_4_state == 0)
 		{
@@ -38,8 +38,8 @@ static void	*more_ifs(t_game *game, int i, int j)
 		}
 		texture_to_return = collectible_chooser(game);
 	}
-	else if (i == game->textures->collectible_5_y 
-		&& j == game->textures->collectible_5_x)
+	else if (i == game->textures->collectible_5_x 
+		&& j == game->textures->collectible_5_y)
 	{
 		if (game->textures->collectible_5_state == 0)
 		{

@@ -24,10 +24,8 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/texture_initialize.c		$(SRC_DIR)/choose_texture.c \
 	$(SRC_DIR)/utils.c 			$(SRC_DIR)/player_textures_initialize.c \
 	$(SRC_DIR)/choose_player_texture.c 	$(SRC_DIR)/collectible_texture_initialize.c \
-	$(SRC_DIR)/more_collectible_textures.c	$(SRC_DIR)/2_collectibles.c \
-	$(SRC_DIR)/3_collectibles.c		$(SRC_DIR)/4_collectibles.c \
-	$(SRC_DIR)/5_collectibles.c		$(SRC_DIR)/collectible_position_adder.c \
-	$(SRC_DIR)/texture_chooser.c		$(SRC_DIR)/collectible_animation.c \
+	$(SRC_DIR)/more_collectible_textures.c	$(SRC_DIR)/texture_chooser.c \
+	$(SRC_DIR)/collectible_position_adder.c $(SRC_DIR)/collectible_animation.c \
 	$(SRC_DIR)/exit_texture_initialize.c \
 
 OBJ = $(SRC:.c=.o)

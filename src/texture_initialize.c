@@ -119,7 +119,6 @@ int	texture_initialize(t_game *game, void *mlx)
 	ft_printf("Walls textures are done\n");
 	if (!collectible_textures_initialize(game, mlx))
 		return (0);
-	ft_printf("Collectible position in texture initialize is: %d %d\n", game->textures->collectible_1_x, game->textures->collectible_1_y);
 	ft_printf("Collectible textures are done\n");
 	if (!exit_initialize(game, mlx))
 		return (0);
