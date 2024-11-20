@@ -123,7 +123,7 @@ int	draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *textu
 	draw_floor(game, window, camera);
 	draw_wall(game->map, window, textures, camera);
 	draw_collectibles(game, window, camera);
-	draw_exit(game->map, window, textures, camera);
+	draw_exit(game, window, textures, camera);
 	return (1);
 }
 

@@ -54,7 +54,7 @@ static int	check_if_collected(t_game *game)
 	return (0);
 }
 
-static void	delete_collectible_from_map(t_game *game/*, t_map *map*/, t_player_position *player)
+static void	delete_collectible_from_map(t_game *game, t_player_position *player)
 {
 	if (player->y == game->textures->collectible_1_x && player->x == game->textures->collectible_1_y
 		&& game->textures->collectible_1_state != 0)

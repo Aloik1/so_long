@@ -12,6 +12,52 @@
 
 #include "../includes/so_long.h"
 
+void	cilit_bang(t_game *game)
+{
+	if (game->window)
+	{
+		if (game->window->win)
+		{
+			mlx_destroy_window(game->window->mlx, game->window->win);
+			game->window->win = NULL;
+		}
+		if (game->window->mlx)
+		{
+			mlx_destroy_display(game->window->mlx);
+			free(game->window->mlx);
+			game->window->mlx = NULL;
+		}
+		free(game->window);
+		game->window = NULL;
+	}
+}
+
+static void	free_collectible_and_aux(t_map *map, int i)
+{
+	if (map->map_aux)
+	{
+            while (i < map->rows) 
+	    {
+                free(map->map_aux[i]);
+                i++;
+            }
+            free(map->map_aux);
+        }
+	i = 0;
+	if (map->collectible)
+	{
+		while (map->collectible->positions[i])
+		{	
+			
+			if (map->collectible->positions[i] != NULL)
+				free(map->collectible->positions[i]);
+			i++;
+		}
+		ft_printf("I is %d\n", i);
+		free(map->collectible->positions);
+		free(map->collectible);
+	}
+}
 void	free_map(t_map *map) 
 {
     int i;
@@ -29,34 +75,7 @@ void	free_map(t_map *map)
             free(map->map_grid);
         }
 	i = 0;
-	if (map->map_aux)
-	{
-            while (i < map->rows) 
-	    {
-                free(map->map_aux[i]);
-                i++;
-            }
-            free(map->map_aux);
-        }
-	i = 0;
-	if (map->collectible)
-	{
-		while (map->collectible->positions[i])
-		{	
-			
-			if (map->collectible->positions[i] != NULL)
-			{
-				ft_printf("Index %d is %p\n", i, map->collectible->positions[i]);
-				free(map->collectible->positions[i]);
-			}
-			ft_printf("Freed index %d\n", i);
-			i++;
-		}
-		//free(map->collectible->positions[i]);
-		ft_printf("I is %d\n", i);
-		free(map->collectible->positions);
-		free(map->collectible);
-	}
+	free_collectible_and_aux(map, i);
         free(map);
     }
     return ;
@@ -70,6 +89,7 @@ t_player_position	return_null_player(void)
 	player_position.y = -1;
 	return (player_position);
 }
+
 t_collectible_position	return_null_and_free_collectibles(t_collectible_position collectibles)
 {
 	int	i;

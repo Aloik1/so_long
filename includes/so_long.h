@@ -223,7 +223,7 @@ void			update_camera(t_camera *camera, t_player *player, t_map *map);
 void			camera_init(t_camera *camera, t_player *player, t_map *map);
 int			collect_collectible(t_game *game, t_player *player);
 int			open_exit(t_map *map, t_player *player, t_game *game);
-void			draw_exit(t_map *map, t_window *window, t_textures *textures, t_camera *camera);
+void			draw_exit(t_game *game, t_window *window, t_textures *textures, t_camera *camera);
 int			clean_exit(t_game *game);
 int			texture_initialize(t_game *game, void *mlx);
 void			*choose_floor(t_game *game, int j, int i);
@@ -239,4 +239,13 @@ int			init_textures(t_textures *textures);
 int			memory_check_grid(t_map *map);
 int			memory_check_fd(int fd);
 int			memory_check_map(t_map *map);
+void			clean_more_collectible_animation(t_game *game);
+void			clean_more_floors(t_game *game);
+void			clean_even_more_floors(t_game *game);
+void			clean_some_floors(t_game *game);
+void			clean_floors(t_game *game);
+void			clean_player_textures(t_game *game);
+void			clean_more_player_textures(t_game *game);
+void			cilit_bang(t_game *game);
+
 #endif
