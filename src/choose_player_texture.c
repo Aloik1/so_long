@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:15:02 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 17:31:15 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 19:37:03 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	*player_up(t_game *game)
 {
-	ft_printf("Before moving up, move_up is %d\n", game->movement->move_up);
 	if (game->movement->move_up == 0)
 	{
 		game->movement->move_up++;
@@ -40,7 +39,6 @@ static void	*player_up(t_game *game)
 
 static void	*player_down(t_game *game)
 {
-	ft_printf("Before moving down, move_down is %d\n", game->movement->move_down);
 	if (game->movement->move_down == 0)
 	{
 		game->movement->move_down++;
@@ -66,7 +64,6 @@ static void	*player_down(t_game *game)
 
 static void	*player_right(t_game *game)
 {
-	ft_printf("Before moving right, move_right is %d\n", game->movement->move_right);
 	if (game->movement->move_right == 0)
 	{
 		game->movement->move_right++;
@@ -92,7 +89,6 @@ static void	*player_right(t_game *game)
 
 static void	*player_left(t_game *game)
 {
-	ft_printf("Before moving left, move_left is %d\n", game->movement->move_left);
 	if (game->movement->move_left == 0)
 	{
 		game->movement->move_left++;
@@ -120,29 +116,17 @@ void	*choose_player_texture(t_game *game)
 {
 	void	*texture_to_return;
 
-	ft_printf("Key pressed is %d\n", game->movement->key_pressed);
 	texture_to_return = NULL;
-	if (game->movement->key_pressed == 119 /*W*/)
-	{
+	if (game->movement->key_pressed == 119)
 		texture_to_return = player_up(game);
-		return (texture_to_return);
-	}
-	if (game->movement->key_pressed == 97 /*A*/)
-	{
+	else if (game->movement->key_pressed == 97)
 		texture_to_return = player_left(game);
-		return (texture_to_return);
-	}
-	if (game->movement->key_pressed == 115 /*S*/)
-	{
+	else if (game->movement->key_pressed == 115)
 		texture_to_return = player_down(game);
-		return (texture_to_return);
-	}
-	if (game->movement->key_pressed == 100 /*D*/)
-	{
+	else if (game->movement->key_pressed == 100)
 		texture_to_return = player_right(game);
-		return (texture_to_return);
-	}
 	else
 		return (game->player->player_texture);
+	return (texture_to_return);
 	return (NULL);
 }

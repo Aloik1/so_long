@@ -80,7 +80,6 @@ static int	get_collectibles_position(t_map *map)
 			{
 				map->collectible->positions[position_add][0] = i;
 				map->collectible->positions[position_add][1] = j;
-				ft_printf("Position %d is %d %d\n", position_add, i, j);
 				position_add++;
 			}
 			j++;

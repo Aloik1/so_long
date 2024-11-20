@@ -14,15 +14,12 @@
 
 int	window_and_mlx(t_window **window)
 {
-	ft_printf("initializing mlx\n");
 	(*window)->mlx = mlx_init();
 	if (!(*window)->mlx)
 	{
 		ft_printerror("Failed to initialize mlx\n");
 		return (0);
 	}
-	ft_printf("Creating window\n");
-	// create the window
 	(*window)->win = mlx_new_window((*window)->mlx, WIN_WIDTH, WIN_HEIGHT, "so_long");
 	if (!(*window)->win)
 	{

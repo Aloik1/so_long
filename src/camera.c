@@ -55,7 +55,6 @@ void	update_camera(t_camera *camera, t_player *player, t_map *map)
 		camera->x = map->cols - camera->width;
 	if (camera->y + camera->height > map->rows)
 		camera->y = map->rows - camera->height;
-	// Handle small maps
 	if (map->cols <= camera->width) 
 	{
 		camera->x = 0;

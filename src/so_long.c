@@ -21,18 +21,18 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 	}
 	if (!basic_check(argc, argv))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	if (!read_map(argv[1], game))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	if (!path_checks(game))
 	{
 		ft_printerror("Error: Invalid path, can't reach all collectibles or exit\n");
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	return (1);
@@ -42,24 +42,23 @@ static int	initialize_everything(t_game *game)
 {
 	if (!window_and_mlx(&game->window))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
-	ft_printf("Initialized window\n");
 	if (!texture_initialize(game, game->window->mlx))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	game->camera = (t_camera *)malloc(sizeof(t_camera));
 	if (!game->camera)
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	if (!init_player(game))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	camera_init(game->camera, game->player, game->map);
@@ -70,12 +69,12 @@ static int	draw_everything(t_game *game)
 {
 	if (!draw_map(game, game->window, game->camera, game->textures))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	if (!draw_player(game, game->window, game->player, game->camera))
 	{
-		free(game);
+		clean_exit(game);
 		return (0);
 	}
 	return (1);

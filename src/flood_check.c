@@ -27,31 +27,19 @@ static void	free_flood_grid(t_flood_grid flood_grid)
 
 void	explore_flood_grid(t_flood_grid *flood_grid, int current_x, int current_y)
 {
-	// Check boundaries
 	if (current_x < 0 || current_y < 0 || current_x >= flood_grid->cols
 		|| current_y >= flood_grid->rows)
 		return ;
-
-	// Check if the cell is a wall or already visited
 	if (flood_grid->flood_map[current_y][current_x] == '1' || flood_grid->flood_map[current_y][current_x] == 'V') {
 		return;
 	}
-	// Check for collectibles and exits
 	if (flood_grid->flood_map[current_y][current_x] == 'C')
-	{
 		flood_grid->collectibles_count--;
-		ft_printf("Collectible found! Remaining: %d\n", flood_grid->collectibles_count);
-	}
 	if (flood_grid->flood_map[current_y][current_x] == 'E')
-	{
 		flood_grid->exits_count--;
-		ft_printf("Exit found! Remaining: %d\n", flood_grid->exits_count);
-	}
-	// Mark the cell as visited
 	flood_grid->flood_map[current_y][current_x] = 'V';
 	if (flood_grid->collectibles_count == 0 && flood_grid->exits_count == 0) 
 		return ;	
-	// Explore in all four directions
 	explore_flood_grid(flood_grid, current_x + 1, current_y);
 	explore_flood_grid(flood_grid, current_x - 1, current_y);
 	explore_flood_grid(flood_grid, current_x, current_y + 1);

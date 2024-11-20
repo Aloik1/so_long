@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:02:40 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 18:11:06 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 19:27:38 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	five_collectibles(t_textures *textures, t_map *map)
 {
-	ft_printf("Entering 5 collectibles\n");
 	textures->collectible_1_x = map->collectible->positions[0][0];
 	textures->collectible_1_y = map->collectible->positions[0][1];
 	textures->collectible_2_x = map->collectible->positions[1][0];
@@ -35,7 +34,6 @@ static void	five_collectibles(t_textures *textures, t_map *map)
 
 static void	four_collectibles(t_textures *textures, t_map *map)
 {
-	ft_printf("Entering 4 collectibles\n");
 	textures->collectible_1_x = map->collectible->positions[0][0];
 	textures->collectible_1_y = map->collectible->positions[0][1];
 	textures->collectible_2_x = map->collectible->positions[1][0];
@@ -53,7 +51,6 @@ static void	four_collectibles(t_textures *textures, t_map *map)
 
 int	collectible_textures_initialize(t_game *game, void *mlx)
 {
-	ft_printf("Initializing collectibles\n");
 	game->textures->collectible_count = 0;
 	game->textures->collectible_image = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);
 	game->textures->collectible_animation_1 = mlx_xpm_file_to_image(mlx, "assets/textures/collectibles/collectible_1.xpm", &game->textures->collectible_1_width, &game->textures->collectible_1_height);

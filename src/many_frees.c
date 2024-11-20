@@ -53,7 +53,6 @@ static void	free_collectible_and_aux(t_map *map, int i)
 				free(map->collectible->positions[i]);
 			i++;
 		}
-		ft_printf("I is %d\n", i);
 		free(map->collectible->positions);
 		free(map->collectible);
 	}
