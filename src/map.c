@@ -36,6 +36,7 @@ static int	map_initialize(t_game *game)
 	game->movement->move_left = 0;
 	game->movement->move_right = 0;
 	game->movement->key_pressed = 0;
+	game->movement->previous_key_pressed = 0;
 	return (1);
 }
 

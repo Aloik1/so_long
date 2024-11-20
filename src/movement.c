@@ -15,6 +15,7 @@
 static void	move_up(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 119;
+	game->movement->previous_key_pressed = 119;
 	if (!player || !map || !map->map_grid) 
 		return;
 	if (player->position.y > 0 && map->map_grid[player->position.y - 1] != NULL &&
@@ -26,6 +27,7 @@ static void	move_up(t_game *game, t_player *player, t_map *map)
 static void	move_down(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 115;
+	game->movement->previous_key_pressed = 115;
 	if (!player || !map || !map->map_grid) 
 		return ;
 	if (player->position.y < map->rows - 1 && map->map_grid[player->position.y + 1] != NULL &&
@@ -38,6 +40,7 @@ static void	move_down(t_game *game, t_player *player, t_map *map)
 static void	move_left(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 97;
+	game->movement->previous_key_pressed = 97;
 	if (!player || !map || !map->map_grid) 
 		return ;
 	if (player->position.x > 0 && map->map_grid[player->position.y] != NULL &&
@@ -48,6 +51,7 @@ static void	move_left(t_game *game, t_player *player, t_map *map)
 static void	move_right(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 100;
+	game->movement->previous_key_pressed = 100;
 	if (!player || !map || !map->map_grid)
 		return;
 	if (player->position.x < map->cols - 1 && map->map_grid[player->position.y] != NULL &&
@@ -69,11 +73,16 @@ int	movement(int keycode, t_game *game)
 		move_down(game, game->player, game->map);
 	else if (keycode == KEY_D)
 		move_right(game, game->player, game->map);
+	else if (keycode == KEY_ENTER)
+		enter_press(game);
 	else
 		return (0);
-	i++;
-	ft_printf("Movement count is: %d\n", i);
-	collect_collectible(game, game->player);
+	if (keycode != KEY_ENTER)
+	{
+		i++;
+		ft_printf("Movement count is: %d\n", i);
+		collect_collectible(game, game->player);
+	}
 	redraw_everything(game, game->textures);
 	open_exit(game->map, game->player, game);
 	return (1);

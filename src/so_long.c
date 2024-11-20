@@ -69,7 +69,7 @@ static int	draw_everything(t_game *game)
 {
 	if (!draw_map(game, game->window, game->camera, game->textures))
 	{
-		clean_exit(game);
+		clean_exit(game); 
 		return (0);
 	}
 	if (!draw_player(game, game->window, game->player, game->camera))

@@ -42,6 +42,8 @@ int	init_player(t_game *game)
 	game->player->speed = 1;
 	game->player->direction = 0;
 	game->player->collectibles_collected = 0;
+	game->textures->player_width = 0;
+	game->textures->player_height = 0;
 	player_position(game->player, game->map);
 	game->textures->player_width = game->player->width;
 	game->textures->player_height = game->player->height;

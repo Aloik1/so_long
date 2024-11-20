@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:15:02 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 19:37:03 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/20 23:48:09 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ void	*choose_player_texture(t_game *game)
 		texture_to_return = player_down(game);
 	else if (game->movement->key_pressed == 100)
 		texture_to_return = player_right(game);
+	else if (game->movement->key_pressed != game->movement->previous_key_pressed)
+		texture_to_return = choose_same_texture(game);
 	else
 		return (game->player->player_texture);
 	return (texture_to_return);

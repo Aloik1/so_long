@@ -25,6 +25,7 @@
 # define KEY_A 		97
 # define KEY_S 		115
 # define KEY_D 		100
+# define KEY_ENTER 	65293
 # define KEY_ESC 	65307
 # define KEY_PRESS 	2
 # define KEY_RELEASE 	3
@@ -43,12 +44,11 @@ typedef struct s_window
 
 typedef struct s_collectible_position
 {
-	int		x; // column
-	int		y; // row
+	int		x;
+	int		y;
 	int		collectibles_visible;
 	int		**positions;
 }	t_collectible_position;
-
 
 typedef struct s_map
 {
@@ -66,8 +66,8 @@ typedef struct s_map
 
 typedef struct s_player_position
 {
-	int		x; // column
-	int		y; // row
+	int		x;
+	int		y;
 }	t_player_position;
 
 typedef struct s_player
@@ -96,35 +96,35 @@ typedef struct s_flood_grid
 
 typedef struct s_textures
 {
-	void			*floor_img;//
-	void			*floor_all_open;//
-	void			*floor_top_bot;//
-	void			*floor_left_right;//
-	void			*floor_top_open;//
-	void			*floor_bot_open;//
-	void			*floor_left_open;//
-	void			*floor_right_open;//
-	void			*floor_top_right_corner;//
-	void			*floor_top_left_corner;//
-	void			*floor_bot_right_corner;//
-	void			*floor_bot_left_corner;//
-	void			*floor_top_closed;//
-	void			*floor_bot_closed;//
-	void			*floor_left_closed;//
-	void			*floor_right_closed;//
+	void			*floor_img;
+	void			*floor_all_open;
+	void			*floor_top_bot;
+	void			*floor_left_right;
+	void			*floor_top_open;
+	void			*floor_bot_open;
+	void			*floor_left_open;
+	void			*floor_right_open;
+	void			*floor_top_right_corner;
+	void			*floor_top_left_corner;
+	void			*floor_bot_right_corner;
+	void			*floor_bot_left_corner;
+	void			*floor_top_closed;
+	void			*floor_bot_closed;
+	void			*floor_left_closed;
+	void			*floor_right_closed;
 
-	void			*wall_top_img;//
+	void			*wall_top_img;
 
 	void			*collectible_image;
-	void			*collectible_animation_1;//
-	void			*collectible_animation_2;//
-	void			*collectible_animation_3;//
-	void			*collectible_animation_4;//
-	void			*collectible_animation_5;//
-	void			*collectible_destroyed;//
+	void			*collectible_animation_1;
+	void			*collectible_animation_2;
+	void			*collectible_animation_3;
+	void			*collectible_animation_4;
+	void			*collectible_animation_5;
+	void			*collectible_destroyed;
 
-	void			*exit_closed;//
-	void			*exit_open;//
+	void			*exit_closed;
+	void			*exit_open;
 
 	void			*player_img;//
 	void			*player_up_1;//
@@ -139,7 +139,6 @@ typedef struct s_textures
 	void			*player_right_1;//
 	void			*player_right_2;//
 	void			*player_right_3;//
-
 
 	int			collectible_1_width;
 	int			collectible_1_height;
@@ -183,6 +182,7 @@ typedef struct s_movement
 	int	move_right;
 	int	move_left;
 	int	key_pressed;
+	int	previous_key_pressed;
 }	t_movement;
 
 typedef struct s_camera
@@ -247,5 +247,7 @@ void			clean_floors(t_game *game);
 void			clean_player_textures(t_game *game);
 void			clean_more_player_textures(t_game *game);
 void			cilit_bang(t_game *game);
+void			enter_press(t_game *game);
+void			*choose_same_texture(t_game *game);
 
 #endif

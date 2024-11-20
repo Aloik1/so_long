@@ -28,6 +28,7 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/collectible_position_adder.c $(SRC_DIR)/collectible_animation.c \
 	$(SRC_DIR)/exit_texture_initialize.c 	$(SRC_DIR)/map_reading_utils.c \
 	$(SRC_DIR)/clean_textures.c 		$(SRC_DIR)/clean_player_textures.c \
+	$(SRC_DIR)/additional_buttons.c \
 
 OBJ = $(SRC:.c=.o)
 
