@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:02:47 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/19 16:55:55 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/21 02:18:46 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	aux_map_creation(t_game *game)
 		while (j < game->map->cols)
 		{
 			if (game->map->map_grid[i][j] == '0' || game->map->map_grid[i][j] == 'E'
-			|| game->map->map_grid[i][j] == 'P' || game->map->map_grid[i][j] == 'C')
+			|| game->map->map_grid[i][j] == 'P' || game->map->map_grid[i][j] == 'C'
+			|| game->map->map_grid[i][j] == 'X')
 				game->map->map_aux[i][j] = '0';
 			else
 				game->map->map_aux[i][j] = game->map->map_grid[i][j];

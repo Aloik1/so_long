@@ -42,6 +42,21 @@ typedef struct s_window
 	int		win_height;
 }	t_window;
 
+typedef struct s_enemies
+{
+	int	number_of_enemies;
+	int	enemy_1_x;
+	int	enemy_1_y;
+	int	enemy_2_x;
+	int	enemy_2_y;
+	int	enemy_3_x;
+	int	enemy_3_y;
+	int	enemy_4_x;
+	int	enemy_4_y;
+	int	enemy_5_x;
+	int	enemy_5_y;
+}	t_enemies;
+
 typedef struct s_collectible_position
 {
 	int		x;
@@ -140,6 +155,58 @@ typedef struct s_textures
 	void			*player_right_2;//
 	void			*player_right_3;//
 
+	void			*enemy_base;
+	int			enemy_base_height;
+	int			enemy_base_width;
+
+	void			*enemy_up_1;
+	int			enemy_up_1_height;
+	int			enemy_up_1_width;
+
+	void			*enemy_up_2;
+	int			enemy_up_2_height;
+	int			enemy_up_2_width;
+
+	void			*enemy_up_3;
+	int			enemy_up_3_height;
+	int			enemy_up_3_width;
+
+	void			*enemy_down_1;
+	int			enemy_down_1_height;
+	int			enemy_down_1_width;
+
+	void			*enemy_down_2;
+	int			enemy_down_2_height;
+	int			enemy_down_2_width;
+
+	void			*enemy_down_3;
+	int			enemy_down_3_height;
+	int			enemy_down_3_width;
+
+	void			*enemy_right_1;
+	int			enemy_right_1_height;
+	int			enemy_right_1_width;
+
+	void			*enemy_right_2;
+	int			enemy_right_2_height;
+	int			enemy_right_2_width;
+
+	void			*enemy_right_3;
+	int			enemy_right_3_height;
+	int			enemy_right_3_width;
+
+	void			*enemy_left_1;
+	int			enemy_left_1_height;
+	int			enemy_left_1_width;
+
+	void			*enemy_left_2;
+	int			enemy_left_2_height;
+	int			enemy_left_2_width;
+
+	void			*enemy_left_3;
+	int			enemy_left_3_height;
+	int			enemy_left_3_width;
+
 	int			collectible_1_width;
 	int			collectible_1_height;
 	int			collectible_count;
@@ -201,6 +268,7 @@ typedef struct 		s_game
 	t_camera	*camera;
 	t_textures	*textures;
 	t_movement	*movement;
+	t_enemies	*enemies;
 
 }	t_game;
 
@@ -250,5 +318,8 @@ void			cilit_bang(t_game *game);
 void			enter_press(t_game *game);
 void			*choose_same_texture(t_game *game);
 int			escape_button(int keycode, t_game *game);
+int			enemies_init(t_game *game);
+int			draw_enemies(t_game *game, t_camera *camera, t_window *window);
+void			free_enemies(t_game *game);
 
 #endif

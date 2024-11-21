@@ -79,7 +79,6 @@ void	free_textures(t_game *game)
 	clean_floors(game);
 	clean_more_floors(game);
 	clean_even_more_floors(game);
-
 	free_collectible_animation(game);
 	free_exit(game);
 	if (game->textures->wall_top_img)
@@ -88,6 +87,7 @@ void	free_textures(t_game *game)
 		game->textures->wall_top_img = NULL;
 	}
 	free_player(game);
+	free_enemies(game);
 	free(game->textures);
 	game->textures = NULL;
 }
@@ -106,6 +106,8 @@ int clean_exit(t_game *game)
 		free(game->movement);
 	if (game->camera)
 		free(game->camera);
+	if (game->enemies)
+		free(game->enemies);
 	cilit_bang(game);
 	free(game);
 	game = NULL;

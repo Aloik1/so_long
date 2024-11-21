@@ -62,6 +62,8 @@ static int	initialize_everything(t_game *game)
 		return (0);
 	}
 	camera_init(game->camera, game->player, game->map);
+	if (!enemies_init(game))
+		return (0);
 	return (1);
 }
 
@@ -73,6 +75,11 @@ static int	draw_everything(t_game *game)
 		return (0);
 	}
 	if (!draw_player(game, game->window, game->player, game->camera))
+	{
+		clean_exit(game);
+		return (0);
+	}
+	if (!draw_enemies(game, game->camera, game->window))
 	{
 		clean_exit(game);
 		return (0);
