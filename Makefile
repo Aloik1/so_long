@@ -33,6 +33,7 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/enemies_update.c 		$(SRC_DIR)/enemies_movement.c \
 	$(SRC_DIR)/enemies_move_direction.c	$(SRC_DIR)/draw_updated_enemy.c \
 	$(SRC_DIR)/check_collision.c 		$(SRC_DIR)/draw_info.c \
+	$(SRC_DIR)/enemies_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:08:16 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/21 23:16:10 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 00:44:51 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,17 @@ static void	enemies_init_positions(t_game *game, t_map *map, int number_of_enemi
 {
 	int	i;
 	int	j;
+	int	number;
 
-	i = rand() % (map->rows - 1) + 1;
-	j = rand() % (map->cols - 1) + 1;
-	if (game->map->map_grid[i][j] == '0')
+	number = number_of_enemies;
+	while (number > 0)
 	{
-		game->enemies->enemy_1_y = i;
-		game->enemies->enemy_1_x = j;
-		map->map_grid[i][j] = 'X';
-		number_of_enemies--;
-		if (number_of_enemies != 0)
-			enemies_init_positions(game, map, number_of_enemies);
-		else
-			return ;
+		i = rand() % (map->rows - 1) + 1;
+		j = rand() % (map->cols - 1) + 1;
+		if (!positions_for_enemies(game, map, i, j))
+			number++;
+		number--;
 	}
-	else
-		enemies_init_positions(game, map, number_of_enemies);
-	return ;
 }
 
 static int	init_basic(t_game *game)
@@ -129,6 +123,7 @@ int	enemies_init(t_game *game)
 		game->enemies->number_of_enemies = 4;
 	else if (game->map->rows > 20 || game->map->cols > 20)
 		game->enemies->number_of_enemies = 5;
+	ft_printf("Number of enemies is %d\n", game->enemies->number_of_enemies);
 	enemies_init_positions(game, game->map, game->enemies->number_of_enemies);
 	if (!enemies_textures_init(game->textures, game->window->mlx))
 		return (0);

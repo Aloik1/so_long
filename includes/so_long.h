@@ -340,4 +340,5 @@ void			draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos
 int			determine_enemy(t_enemies *enemies, int i, int j);
 void			check_collision(t_game *game);
 void			draw_info(t_game *game, int moves);
+int			positions_for_enemies(t_game *game, t_map *map, int i, int j);
 #endif
