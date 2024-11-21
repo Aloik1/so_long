@@ -27,7 +27,7 @@ void	redraw_everything(t_game *game, t_textures *textures, int moves)
 	draw_player(game, game->window, game->player, game->camera);
 	enemies_movement(game, game->enemies);
 	draw_info(game, moves);
-	check_collision(game, moves);
+	check_collision(game);
 	
 }
 

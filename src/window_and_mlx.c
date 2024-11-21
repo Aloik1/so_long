@@ -12,13 +12,24 @@
 
 #include "../includes/so_long.h"
 
-int	window_and_mlx(t_window **window)
+int	window_and_mlx(t_game *game, t_window **window)
 {
 	(*window)->mlx = mlx_init();
 	if (!(*window)->mlx)
 	{
 		ft_printerror("Failed to initialize mlx\n");
 		return (0);
+	}
+	if (game->map->rows < 10 || game->map->cols < 10)
+	{
+		(*window)->win = mlx_new_window((*window)->mlx, game->map->cols * 96, 
+			game->map->rows * 96, "so_long");
+		if (!(*window)->win)
+		{
+			ft_printerror("Error: Failed to create window\n");
+			return (0);
+		}
+		return (1);
 	}
 	(*window)->win = mlx_new_window((*window)->mlx, WIN_WIDTH, WIN_HEIGHT, "so_long");
 	if (!(*window)->win)

@@ -40,7 +40,7 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 
 static int	initialize_everything(t_game *game)
 {
-	if (!window_and_mlx(&game->window))
+	if (!window_and_mlx(game, &game->window))
 	{
 		clean_exit(game);
 		return (0);

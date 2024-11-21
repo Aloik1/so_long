@@ -63,8 +63,6 @@ int	movement(int keycode, t_game *game)
 {
 	static int	i;
 	game->movement->key_pressed = 0;
-	if (!game || !game->player || !game->map || !game->textures) 
-		return (0);
 	if (keycode == KEY_W)
 		move_up(game, game->player, game->map);
 	else if (keycode == KEY_A)
@@ -83,7 +81,8 @@ int	movement(int keycode, t_game *game)
 		ft_printf("Movement count is: %d\n", i);
 		collect_collectible(game, game->player);
 	}
-	redraw_everything(game, game->textures, i);
+	if (!(keycode == KEY_ENTER))
+		redraw_everything(game, game->textures, i);
 	open_exit(game->map, game->player, game);
 	return (1);
 }

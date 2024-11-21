@@ -287,7 +287,7 @@ typedef struct 		s_game
 // function prototypes
 int			basic_check(int argc, char **argv);
 int			read_map(char *file, t_game *game);
-int			window_and_mlx(t_window **window);
+int			window_and_mlx(t_game *game, t_window **window);
 int			flood_check(t_map *map, t_player_position player_position);
 void			free_map(t_map *map);
 t_player_position	return_null_player(void);
