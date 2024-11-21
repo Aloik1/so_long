@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:08:16 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/21 22:24:46 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/21 23:16:10 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,12 @@ static int	more_enemies_textures(t_textures *textures, void *mlx)
 
 static int	enemies_textures_init(t_textures *textures, void *mlx)
 {
-	ft_printf("Enemy up 1 height is: %d\n", textures->enemy_up_1_height);
-	ft_printf("Enemy up 1 width is: %d\n", textures->enemy_up_1_width);
 	textures->enemy_base = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_down.xpm", &textures->enemy_base_width, &textures->enemy_base_height);
 	if (!textures->enemy_base)
 		return (0);
 	textures->enemy_up_1 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_up_1.xpm", &textures->enemy_up_1_width, &textures->enemy_up_1_height);
 	if (!textures->enemy_up_1)
 		return (0);
-	ft_printf("Enemy up 1 height is: %d\n", textures->enemy_up_1_height);
-	ft_printf("Enemy up 1 width is: %d\n", textures->enemy_up_1_width);
 	textures->enemy_up_2 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_up_2.xpm", &textures->enemy_up_2_width, &textures->enemy_up_2_height);
 	if (!textures->enemy_up_2)
 		return (0);

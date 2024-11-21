@@ -83,8 +83,6 @@ int	movement(int keycode, t_game *game)
 		ft_printf("Movement count is: %d\n", i);
 		collect_collectible(game, game->player);
 	}
-	ft_printf("Enemy up 1 height during movement is: %d\n", game->textures->enemy_up_1_height);
-	ft_printf("Enemy up 1 width during movement is: %d\n", game->textures->enemy_up_1_width);
 	redraw_everything(game, game->textures);
 	open_exit(game->map, game->player, game);
 	return (1);

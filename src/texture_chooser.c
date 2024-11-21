@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 22:03:11 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/21 02:21:55 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/21 23:19:02 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ void	*texture_chooser(t_game *game, int i, int j)
 	void	*texture_to_return;
 	
 	texture_to_return = NULL;
-	ft_printf("Entering texture chooser\n");
-	ft_printf("I J: %d %d\n", i, j);
-	ft_printf("1_x 1_y: %d %d\n", game->textures->collectible_1_x, game->textures->collectible_1_y);
 	if (i == game->textures->collectible_1_x 
 		&& j == game->textures->collectible_1_y)
 	{

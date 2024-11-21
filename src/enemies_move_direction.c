@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:11:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/21 22:55:13 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/21 23:20:12 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ static int	three_free_spaces(t_game *game, int pos_y, int pos_x, int direction, 
 
 static int	two_free_spaces(t_game *game, int pos_y, int pos_x, int direction, int enemy_number)
 {
-	ft_printf("Direction inside 2 free spaces is %d\n", direction);
 	if (direction == 0)
 	{
 		if (game->map->map_aux[pos_y - 1][pos_x] == '0')
@@ -279,7 +278,6 @@ int	generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, int 
 	int	enemy_number;
 	
 	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
-	ft_printf("Free_spaces is %d\n", free_spaces);
 	if (free_spaces == 4)
 		direction = four_free_spaces(game, pos_y, pos_x, direction, enemy_number);
 	if (free_spaces == 3)
@@ -288,6 +286,5 @@ int	generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, int 
 		direction = two_free_spaces(game, pos_y, pos_x, direction, enemy_number);
 	if (free_spaces == 1)
 		direction = one_free_space(game, pos_y, pos_x, direction, enemy_number);
-	ft_printf("Direction is %d\n", direction);
 	return (direction);
 }

@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/21 22:54:57 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/21 23:19:51 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,9 @@ int	determine_enemy(t_enemies *enemies, int i, int j)
 static void	update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number)
 {
 
-	ft_printf("Enemy number is %d\n", enemy_number);
 	if (enemy_number == 1)
 	{
-		//direction = game->textures->direction_1;
-		ft_printf("game->textures_.direction1 is %d\n", game->textures->direction_1);
-		ft_printf("enemy position is %d %d\n", enemies->enemy_1_y, enemies->enemy_1_x);
 		game->textures->direction_1 = generate_direction(game, update_enemy(game, enemies->enemy_1_y, enemies->enemy_1_x), enemies->enemy_1_y, enemies->enemy_1_x, game->textures->direction_1);
-		ft_printf("direction after generating is %d\n", game->textures->direction_1);
-		ft_printf("enemy position is %d %d\n", enemies->enemy_1_y, enemies->enemy_1_x);
 		draw_enemy(game, game->textures->direction_1, game->textures->animation_1, enemies->enemy_1_y, enemies->enemy_1_x);
 	}
 	if (enemy_number == 2)
@@ -73,14 +67,7 @@ void	enemies_movement(t_game *game, t_enemies *enemies)
 	{
 		j = game->camera->x;
 		while (j < game->camera->x + game->camera->width && j < game->map->cols)
-		{
-			// ft_printf("i is %d and j is %d\n", i, j);
-			// ft_printf("1_y is %d and 1_x is %d\n", enemies->enemy_1_y, enemies->enemy_1_x);
-			// ft_printf("1_y is %d and 1_x is %d\n", enemies->enemy_2_y, enemies->enemy_2_x);
-			// ft_printf("1_y is %d and 1_x is %d\n", enemies->enemy_3_y, enemies->enemy_3_x);
-			// ft_printf("1_y is %d and 1_x is %d\n", enemies->enemy_4_y, enemies->enemy_4_x);
-			// ft_printf("1_y is %d and 1_x is %d\n", enemies->enemy_5_y, enemies->enemy_5_x);
-			
+		{	
 			if ((enemies->enemy_1_y == i && enemies->enemy_1_x == j)
 				|| (enemies->enemy_2_y == i && enemies->enemy_2_x == j)
 				|| (enemies->enemy_3_y == i && enemies->enemy_3_x == j)

@@ -64,9 +64,6 @@ static int	initialize_everything(t_game *game)
 	camera_init(game->camera, game->player, game->map);
 	if (!enemies_init(game))
 		return (0);
-	ft_printf("Initialized everything\n");
-	ft_printf("Enemy up 1 height after initializing is: %d\n", game->textures->enemy_up_1_height);
-	ft_printf("Enemy up 1 width after initializing is: %d\n", game->textures->enemy_up_1_width);
 	return (1);
 }
 
@@ -106,8 +103,6 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!draw_everything(game))
 		return (0);
-	ft_printf("Enemy up 1 height before entering hook is: %d\n", game->textures->enemy_up_1_height);
-	ft_printf("Enemy up 1 width before entering hook is: %d\n", game->textures->enemy_up_1_width);
 	mlx_key_hook(game->window->win, movement, game);
 	mlx_hook(game->window->win, 17, 0, clean_exit, game);
 	mlx_loop(game->window->mlx);
