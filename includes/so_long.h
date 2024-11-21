@@ -207,6 +207,18 @@ typedef struct s_textures
 	int			enemy_left_3_height;
 	int			enemy_left_3_width;
 
+	int			direction_1;
+	int			direction_2;
+	int			direction_3;
+	int			direction_4;
+	int			direction_5;
+	
+	int			animation_1;
+	int			animation_2;
+	int			animation_3;
+	int			animation_4;
+	int			animation_5;
+
 	int			collectible_1_width;
 	int			collectible_1_height;
 	int			collectible_count;
@@ -321,5 +333,9 @@ int			escape_button(int keycode, t_game *game);
 int			enemies_init(t_game *game);
 int			draw_enemies(t_game *game, t_camera *camera, t_window *window);
 void			free_enemies(t_game *game);
-
+void			enemies_movement(t_game *game, t_enemies *enemies);
+int			update_enemy(t_game *game, int pos_y, int pos_x);
+int			generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, int direction);
+void			draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x);
+int			determine_enemy(t_enemies *enemies, int i, int j);
 #endif

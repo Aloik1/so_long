@@ -31,11 +31,13 @@ void	redraw_everything(t_game *game, t_textures *textures)
 		return ;
 	if (!game->window->mlx || !game->window->win) 
 		return ;
-	if (!textures) 
+	if (!textures)
 		return ;
 	mlx_clear_window(game->window->mlx, game->window->win);
 	update_camera(game->camera, game->player, game->map);
 	draw_map(game, game->window, game->camera, textures);
+	
 	draw_player(game, game->window, game->player, game->camera);
+	enemies_movement(game, game->enemies);
 }
 
