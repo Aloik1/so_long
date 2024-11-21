@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-void	redraw_everything(t_game *game, t_textures *textures)
+void	redraw_everything(t_game *game, t_textures *textures, int moves)
 {
 	if (!game || !game->window || !game->map || !game->player || !game->camera
 		|| !game->movement) 
@@ -25,7 +25,9 @@ void	redraw_everything(t_game *game, t_textures *textures)
 	update_camera(game->camera, game->player, game->map);
 	draw_map(game, game->window, game->camera, textures);
 	draw_player(game, game->window, game->player, game->camera);
-	check_collision(game);
 	enemies_movement(game, game->enemies);
+	draw_info(game, moves);
+	check_collision(game, moves);
+	
 }
 

@@ -84,6 +84,7 @@ static int	draw_everything(t_game *game)
 		clean_exit(game);
 		return (0);
 	}
+	draw_info(game, 0);
 	return (1);
 }
 

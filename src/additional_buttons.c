@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 22:56:35 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 23:58:37 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/21 23:53:47 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	*choose_same_texture(t_game *game)
 	return (NULL);
 }
 
-void	enter_press(t_game *game)
+void	enter_press(t_game *game, int moves)
 {
-	redraw_everything(game, game->textures);
+	redraw_everything(game, game->textures, moves);
 	return ;
 }

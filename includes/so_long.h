@@ -298,7 +298,7 @@ int			draw_map(t_game *game, t_window *window, t_camera *camera, t_textures *tex
 int			init_player(t_game *game);
 int			draw_player(t_game *game, t_window *window, t_player *player, t_camera *camera);
 int			movement(int keycode, t_game *game);
-void			redraw_everything(t_game *game, t_textures *textures);
+void			redraw_everything(t_game *game, t_textures *textures, int moves);
 void			update_camera(t_camera *camera, t_player *player, t_map *map);
 void			camera_init(t_camera *camera, t_player *player, t_map *map);
 int			collect_collectible(t_game *game, t_player *player);
@@ -327,7 +327,7 @@ void			clean_floors(t_game *game);
 void			clean_player_textures(t_game *game);
 void			clean_more_player_textures(t_game *game);
 void			cilit_bang(t_game *game);
-void			enter_press(t_game *game);
+void			enter_press(t_game *game, int moves);
 void			*choose_same_texture(t_game *game);
 int			escape_button(int keycode, t_game *game);
 int			enemies_init(t_game *game);
@@ -339,4 +339,5 @@ int			generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, in
 void			draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x);
 int			determine_enemy(t_enemies *enemies, int i, int j);
 void			check_collision(t_game *game);
+void			draw_info(t_game *game, int moves);
 #endif

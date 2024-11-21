@@ -74,7 +74,7 @@ int	movement(int keycode, t_game *game)
 	else if (keycode == KEY_D)
 		move_right(game, game->player, game->map);
 	else if (keycode == KEY_ENTER)
-		enter_press(game);
+		enter_press(game, i);
 	else
 		return (escape_button(keycode, game));
 	if (keycode != KEY_ENTER)
@@ -83,7 +83,7 @@ int	movement(int keycode, t_game *game)
 		ft_printf("Movement count is: %d\n", i);
 		collect_collectible(game, game->player);
 	}
-	redraw_everything(game, game->textures);
+	redraw_everything(game, game->textures, i);
 	open_exit(game->map, game->player, game);
 	return (1);
 }
