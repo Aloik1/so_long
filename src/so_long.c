@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//ENEMIES DO NOT APPEAR ON THE MAP VISUALLY BUT THEY ARE THERE
 #include "../includes/so_long.h"
 
 static int	initial_checks(int argc, char **argv, t_game *game)
