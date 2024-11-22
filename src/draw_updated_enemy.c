@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:24:26 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 18:38:13 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 21:44:32 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 static int	determine_pixel_position_y(t_game *game, int pos_y)
 {
 	int	pixel_y;
-	// ft_printf("Camera y range is %d -> %d\n", game->camera->y,  game->camera->y + 6);
-	// ft_printf("Position y is %d\n", pos_y);
-	if (pos_y < game->camera->y + game->camera->height)
+	
+	if (pos_y <= game->camera->y + game->camera->height
+		&& pos_y >= game->camera->y)
 		pixel_y = (pos_y - game->camera->y) * TILE_SIZE + 48 - (game->textures->enemy_up_1_height) / 2;
+	else
+		return (0);
 	return (pixel_y);
 }
 
@@ -26,10 +28,11 @@ static int	determine_pixel_position_x(t_game *game, int pos_x)
 {
 	int	pixel_x;
 	
-	// ft_printf("Camera x range is %d -> %d\n", game->camera->x, game->camera->x + 10);
-	// ft_printf("Position x is %d\n", pos_x);
-	if (pos_x < game->camera->x + game->camera->width)
+	if (pos_x <= game->camera->x + game->camera->width
+		&& pos_x >= game->camera->x)
 		pixel_x = (pos_x - game->camera->x) * TILE_SIZE + 48 - (game->textures->enemy_up_1_width) / 2;
+	else
+		return (0);
 	return (pixel_x);
 }
 
@@ -60,7 +63,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_1, pixel_x, pixel_y);
 		}
 		else if (animation == 2)
 		{
@@ -68,7 +72,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_2, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_2, pixel_x, pixel_y);
 		}
 		else if (animation == 3)
 		{
@@ -76,7 +81,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_3, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_3, pixel_x, pixel_y);
 		}
 		else
 		{
@@ -84,7 +90,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_up_1, pixel_x, pixel_y);
 		}
 	}
 	if (direction == 2)
@@ -95,7 +102,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_1, pixel_x, pixel_y);
 		}
 		else if (animation == 2)
 		{
@@ -103,7 +111,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_2, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_2, pixel_x, pixel_y);
 		}
 		else if (animation == 3)
 		{
@@ -111,7 +120,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_3, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_3, pixel_x, pixel_y);
 		}
 		else
 		{
@@ -119,7 +129,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_down_1, pixel_x, pixel_y);
 		}
 	}
 	if (direction == 3)
@@ -130,15 +141,17 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_1, pixel_x, pixel_y);
 		}
 		else if (animation == 2)
 		{
 			animation++;
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
-			pixel_x = determine_pixel_position_x(game, pos_x);			ft_printf("pos y is %d and pos x is %d\n", pos_y, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_2, pixel_x, pixel_y);
+			pixel_x = determine_pixel_position_x(game, pos_x);
+			if (pixel_y > 0 && pixel_x > 0)	
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_2, pixel_x, pixel_y);
 		}
 		else if (animation == 3)
 		{
@@ -146,7 +159,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_3, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_3, pixel_x, pixel_y);
 		}
 		else
 		{
@@ -154,7 +168,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_left_1, pixel_x, pixel_y);
 		}
 	}
 	if (direction == 4)
@@ -165,7 +180,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_1, pixel_x, pixel_y);
 		}
 		else if (animation == 2)
 		{
@@ -173,7 +189,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_2, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_2, pixel_x, pixel_y);
 		}
 		else if (animation == 3)
 		{
@@ -181,7 +198,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_3, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_3, pixel_x, pixel_y);
 		}
 		else
 		{
@@ -189,7 +207,8 @@ void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x
 			check_enemy_number(game, pos_y, pos_x, animation);
 			pixel_y = determine_pixel_position_y(game, pos_y);
 			pixel_x = determine_pixel_position_x(game, pos_x);
-			mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_1, pixel_x, pixel_y);
+			if (pixel_y > 0 && pixel_x > 0)
+				mlx_put_image_to_window(game->window->mlx, game->window->win, game->textures->enemy_right_1, pixel_x, pixel_y);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 18:32:13 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 21:38:18 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	check_if_in_camera(t_game *game, int i, int j)
 {
-	if (i < game->camera->y + game->camera->height && i < game->map->rows
-		&& i > game->camera->y
-		&& j < game->camera->x + game->camera->width && j < game->map->cols
-		&& j > game->camera->x)
+	if (i <= game->camera->y + game->camera->height && i <= game->map->rows
+		&& i >= game->camera->y
+		&& j <= game->camera->x + game->camera->width && j < game->map->cols
+		&& j >= game->camera->x)
 		return (1);
 	return (0);
 }
@@ -101,57 +101,39 @@ void	enemies_movement(t_game *game, t_enemies *enemies)
 	updated_3 = 0;
 	updated_4 = 0;
 	updated_5 = 0;
-	i = 0;//game->camera->y;
-	while (i < game->map->rows)//game->camera->y + game->camera->height && i < game->map->rows)
+	i = 0;
+	while (i < game->map->rows)
 	{
-		j = 0;//game->camera->x;
-		while (j < game->map->cols)//game->camera->x + game->camera->width && j < game->map->cols)
+		j = 0;
+		while (j < game->map->cols)
 		{	
-			//ft_printf("Checking row %d index %d\n", i, j);
 			if (enemies->enemy_1_y == i && enemies->enemy_1_x == j 
 				&& updated_1 == 0)
 			{
-				// ft_printf("\nFound enemy 1, updating...\n");
-				// ft_printf("i is %d and j is %d\n", i, j);
-				// ft_printf("Determine enemy output is %d\n", determine_enemy(enemies, i, j));
 				update_enemies_position(game, enemies, determine_enemy(enemies, i, j), i, j);
 				updated_1++;
 			}
 			if (enemies->enemy_2_y == i && enemies->enemy_2_x == j 
 				&& updated_2 == 0)
-			{
-				// ft_printf("\nFound enemy 2, updating...\n");
-				// ft_printf("i is %d and j is %d\n", i, j);
-				// ft_printf("Determine enemy output is %d\n", determine_enemy(enemies, i, j));
+			{				
 				update_enemies_position(game, enemies, determine_enemy(enemies, i, j), i, j);
 				updated_2++;
 			}
 			if (enemies->enemy_3_y == i && enemies->enemy_3_x == j
 				&& updated_3 == 0)
 			{
-				// ft_printf("\nFound enemy 3, updating...\n");
-				// ft_printf("i is %d and j is %d\n", i, j);
-				// ft_printf("Determine enemy output is %d\n", determine_enemy(enemies, i, j));
 				update_enemies_position(game, enemies, determine_enemy(enemies, i, j), i, j);
 				updated_3++;
 			}
 			if (enemies->enemy_4_y == i && enemies->enemy_4_x == j
 				&& updated_4 == 0)
 			{
-				// ft_printf("\nFound enemy 4, updating...\n");
-				// ft_printf("i is %d and j is %d\n", i, j);
-				// ft_printf("pos y is %d and pos x is %d\n", game->enemies->enemy_4_y, game->enemies->enemy_4_x);
-				// ft_printf("Determine enemy output is %d\n", determine_enemy(enemies, i, j));
 				update_enemies_position(game, enemies, determine_enemy(enemies, i, j), i, j);
 				updated_4++;
 			}
 			if (enemies->enemy_5_y == i && enemies->enemy_5_x == j
 				&& updated_5 == 0)
 			{
-				// ft_printf("\nFound enemy 5, updating...\n");
-				// ft_printf("i is %d and j is %d\n", i, j);
-				// ft_printf("pos y is %d and pos x is %d\n", game->enemies->enemy_5_y, game->enemies->enemy_5_x);
-				// ft_printf("Determine enemy output is %d\n", determine_enemy(enemies, i, j));
 				update_enemies_position(game, enemies, determine_enemy(enemies, i, j), i, j);
 				updated_5++;
 			}
