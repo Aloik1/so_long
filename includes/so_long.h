@@ -341,4 +341,6 @@ int			determine_enemy(t_enemies *enemies, int i, int j);
 void			check_collision(t_game *game);
 void			draw_info(t_game *game, int moves);
 int			positions_for_enemies(t_game *game, t_map *map, int i, int j);
+//void			assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x)
+
 #endif

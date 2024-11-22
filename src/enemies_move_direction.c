@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:11:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/21 23:20:12 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:49:07 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	four_free_spaces(t_game *game, int pos_y, int pos_x, int direction, i
 		pos_x++;
 		direction = direction - direction + 4;
 	}
-	assign_positions(game, enemy_number, pos_y, pos_x);
+	assign_positions(game, enemy_number, pos_y, pos_x); //assigns new position
 	return (direction);
 }
 

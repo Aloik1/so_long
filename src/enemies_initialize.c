@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:08:16 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 00:44:51 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:41:47 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,9 @@ int	enemies_init(t_game *game)
 {
 	if (!init_basic(game))
 		return (0);
-	if (game->map->rows <= 5 || game->map->cols <= 5)
+	if (game->map->rows <= 1 || game->map->cols <= 1)
 		game->enemies->number_of_enemies = 1;
-	else if (game->map->rows <= 10 || game->map->cols <= 10)
+	else if (game->map->rows <= 5 || game->map->cols <= 5)
 		game->enemies->number_of_enemies = 2;
 	else if (game->map->rows <= 15 || game->map->cols <= 15)
 		game->enemies->number_of_enemies = 3;
