@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 17:31:47 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 18:32:13 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static int	check_if_in_camera(t_game *game, int i, int j)
 {
-	ft_printf("Entering camera check\n");
-	ft_printf("i -> camera y + height: %d %d\n", i, game->camera->y + game->camera->height);
-	ft_printf("j -> camera x + width: %d %d\n", j, game->camera->x + game->camera->width);
 	if (i < game->camera->y + game->camera->height && i < game->map->rows
 		&& i > game->camera->y
 		&& j < game->camera->x + game->camera->width && j < game->map->cols
@@ -42,65 +39,51 @@ int	determine_enemy(t_enemies *enemies, int i, int j)
 
 static void	update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int i, int j)
 {
-	ft_printf("Entering update enemies position\n");
-	ft_printf("Current camera position: %d %d\n", game->camera->y, game->camera->x);
-	//ft_printf("Enemy number is %d\n", enemy_number);
 	if (enemy_number == 1)
 	{
-		ft_printf("Enemy number is 1\n");
 		game->textures->direction_1 = generate_direction(game, update_enemy(game, enemies->enemy_1_y, enemies->enemy_1_x), enemies->enemy_1_y, enemies->enemy_1_x, game->textures->direction_1);
 		if (check_if_in_camera(game, i, j))
 		{
-			ft_printf("-------------Found enemy 1 in camera-------------\n");
 			draw_enemy(game, game->textures->direction_1, game->textures->animation_1, enemies->enemy_1_y, enemies->enemy_1_x);
 		}
 		return ;
 	}
 	if (enemy_number == 2)
 	{
-		ft_printf("Enemy number is 2\n");
 		game->textures->direction_2 = generate_direction(game, update_enemy(game, enemies->enemy_2_y, enemies->enemy_2_x), enemies->enemy_2_y, enemies->enemy_2_x, game->textures->direction_2);
 		if (check_if_in_camera(game, i, j))
 		{
-			ft_printf("-------------Found enemy 2 in camera-------------\n");
 			draw_enemy(game, game->textures->direction_2, game->textures->animation_2, enemies->enemy_2_y, enemies->enemy_2_x);
 		}
 		return ;
 	}
 	if (enemy_number == 3)
 	{
-		ft_printf("Enemy number is 3\n");
 		game->textures->direction_3 = generate_direction(game, update_enemy(game, enemies->enemy_3_y, enemies->enemy_3_x), enemies->enemy_3_y, enemies->enemy_3_x, game->textures->direction_3);
 		if (check_if_in_camera(game, i, j))
 		{
-			ft_printf("-------------Found enemy 3 in camera-------------\n");
 			draw_enemy(game, game->textures->direction_3, game->textures->animation_3, enemies->enemy_3_y, enemies->enemy_3_x);
 		}
 		return ;
 	}
 	if (enemy_number == 4)
 	{
-		ft_printf("Enemy number is 4\n");
 		game->textures->direction_4 = generate_direction(game, update_enemy(game, enemies->enemy_4_y, enemies->enemy_4_x), enemies->enemy_4_y, enemies->enemy_4_x, game->textures->direction_4);
 		if (check_if_in_camera(game, i, j))
 		{
-			ft_printf("-------------Found enemy 4 in camera-------------\n");
 			draw_enemy(game, game->textures->direction_4, game->textures->animation_4, enemies->enemy_4_y, enemies->enemy_4_x);
 		}
 		return ;
 	}
 	if (enemy_number == 5)
 	{
-		ft_printf("Enemy number is 5\n");
 		game->textures->direction_5 = generate_direction(game, update_enemy(game, enemies->enemy_5_y, enemies->enemy_5_x), enemies->enemy_5_y, enemies->enemy_5_x, game->textures->direction_5);
 		if (check_if_in_camera(game, i, j))
 		{
-			ft_printf("-------------Found enemy 5 in camera-------------\n");
 			draw_enemy(game, game->textures->direction_5, game->textures->animation_5, enemies->enemy_5_y, enemies->enemy_5_x);
 		}
 		return ;
 	}
-	ft_printf("Didn't find enemy number\n");
 }
 
 void	enemies_movement(t_game *game, t_enemies *enemies)

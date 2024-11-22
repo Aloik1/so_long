@@ -83,11 +83,6 @@ int	movement(int keycode, t_game *game)
 	}
 	if (!(keycode == KEY_ENTER))
 		redraw_everything(game, game->textures, i);
-	ft_printf("Enemy 1 position: %d %d\n", game->enemies->enemy_1_y, game->enemies->enemy_1_x);
-	ft_printf("Enemy 2 position: %d %d\n", game->enemies->enemy_2_y, game->enemies->enemy_2_x);
-	ft_printf("Enemy 3 position: %d %d\n", game->enemies->enemy_3_y, game->enemies->enemy_3_x);
-	ft_printf("Enemy 4 position: %d %d\n", game->enemies->enemy_4_y, game->enemies->enemy_4_x);
-	ft_printf("Enemy 5 position: %d %d\n", game->enemies->enemy_5_y, game->enemies->enemy_5_x);
 	open_exit(game->map, game->player, game);
 	return (1);
 }

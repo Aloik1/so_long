@@ -85,11 +85,6 @@ static int	draw_everything(t_game *game)
 		clean_exit(game);
 		return (0);
 	}
-	ft_printf("Enemy 1 position: %d %d\n", game->enemies->enemy_1_y, game->enemies->enemy_1_x);
-	ft_printf("Enemy 2 position: %d %d\n", game->enemies->enemy_2_y, game->enemies->enemy_2_x);
-	ft_printf("Enemy 3 position: %d %d\n", game->enemies->enemy_3_y, game->enemies->enemy_3_x);
-	ft_printf("Enemy 4 position: %d %d\n", game->enemies->enemy_4_y, game->enemies->enemy_4_x);
-	ft_printf("Enemy 5 position: %d %d\n", game->enemies->enemy_5_y, game->enemies->enemy_5_x);
 	draw_info(game, 0);
 	return (1);
 }

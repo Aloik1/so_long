@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:50:02 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 15:22:37 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 18:32:43 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	draw_enemies(t_game *game, t_camera *camera, t_window *window)
 		{
 			if (game->map->map_grid[i][j] == 'X')
 			{
-				ft_printf("Found initial enemy in camera\n");
 				pixel_x = (j - game->camera->x) * TILE_SIZE + 24;
 				pixel_y = (i - game->camera->y) * TILE_SIZE + 24;
 				mlx_put_image_to_window(window->mlx, window->win, enemy_texture_chooser(game, i, j), pixel_x, pixel_y);

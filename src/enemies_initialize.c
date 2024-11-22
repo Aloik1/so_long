@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:08:16 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 15:41:47 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 18:33:20 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,6 @@ int	enemies_init(t_game *game)
 		game->enemies->number_of_enemies = 4;
 	else if (game->map->rows > 20 || game->map->cols > 20)
 		game->enemies->number_of_enemies = 5;
-	ft_printf("Number of enemies is %d\n", game->enemies->number_of_enemies);
 	enemies_init_positions(game, game->map, game->enemies->number_of_enemies);
 	if (!enemies_textures_init(game->textures, game->window->mlx))
 		return (0);

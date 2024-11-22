@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:11:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 15:49:07 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/22 18:31:17 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ static int	three_free_spaces(t_game *game, int pos_y, int pos_x, int direction, 
 		direction = direction + 4;
 	}
 	assign_positions(game, enemy_number, pos_y, pos_x);
+	
 	return (direction);
 }
 
@@ -254,17 +255,17 @@ static int	one_free_space(t_game *game, int pos_y, int pos_x, int direction, int
 		direction = direction - direction + 1;
 		pos_y--;
 	}
-	if (game->map->map_aux[pos_y + 1][pos_x] == '0')
+	else if (game->map->map_aux[pos_y + 1][pos_x] == '0')
 	{
 		direction = direction - direction + 2;
 		pos_y++;
 	}
-	if (game->map->map_aux[pos_y][pos_x - 1] == '0')
+	else if (game->map->map_aux[pos_y][pos_x - 1] == '0')
 	{
-		direction = direction - direction + 3;
+		direction = direction -direction + 3;
 		pos_x--;
 	}
-	if (game->map->map_aux[pos_y][pos_x + 1] == '0')
+	else if (game->map->map_aux[pos_y][pos_x + 1] == '0')
 	{
 		direction = direction - direction + 4;
 		pos_x++;
