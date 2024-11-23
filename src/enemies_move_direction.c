@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:11:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/23 15:49:49 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:22:08 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,143 +94,16 @@ static int	three_free_spaces(t_game *game, int pos_y, int pos_x, int direction, 
 static int	two_free_spaces(t_game *game, int pos_y, int pos_x, int direction, int enemy_number)
 {
 	if (direction == 0)
-	{
-		if (game->map->map_aux[pos_y - 1][pos_x] == '0')
-		{
-			direction = direction - direction + 1;
-			pos_y--;
-		}
-		else if (game->map->map_aux[pos_y + 1][pos_x] == '0')
-		{
-			direction = direction - direction + 2;
-			pos_y++;
-		}
-		else if (game->map->map_aux[pos_y][pos_x - 1] == '0')
-		{
-			direction = direction - direction + 3;
-			pos_x--;
-		}
-		else if (game->map->map_aux[pos_y][pos_x + 1] == '0')
-		{
-			direction = direction - direction + 4;
-			pos_x++;
-		}
-		assign_positions(game, enemy_number, pos_y, pos_x);
-		return (direction);
-	}
+		direction = two_free_spaces_0(game, pos_y, pos_x, direction, enemy_number);
 	else if (direction == 1)
-	{
-		if (game->map->map_aux[pos_y - 1][pos_x] == '0')
-		{
-			direction = direction - direction + 1;
-			pos_y--;
-		}
-		else
-		{
-			if (game->map->map_aux[pos_y][pos_x - 1] == '0')
-			{
-				direction = direction - direction + 3;
-				pos_x--;
-			}
-			else if (game->map->map_aux[pos_y][pos_x + 1] == '0')
-			{
-				direction = direction - direction + 4;
-				pos_x++;
-			}
-			else
-			{
-				direction = direction - direction + 2;
-				pos_y++;
-			}
-		}
-		assign_positions(game, enemy_number, pos_y, pos_x);
-		return (direction);
-	}
+		direction = two_free_spaces_1(game, pos_y, pos_x, direction, enemy_number);
 	else if (direction == 2)
-	{
-		if (game->map->map_aux[pos_y + 1][pos_x] == '0')
-		{
-			direction = direction - direction + 2;
-			pos_y++;
-		}
-		else
-		{
-			if (game->map->map_aux[pos_y][pos_x - 1] == '0')
-			{
-				direction = direction - direction + 3;
-				pos_x--;
-			}
-			else if (game->map->map_aux[pos_y][pos_x + 1] == '0')
-			{
-				direction = direction - direction + 4;
-				pos_x++;
-			}
-			else
-			{
-				direction = direction - direction + 1;
-				pos_y--;
-			}
-		}
-		assign_positions(game, enemy_number, pos_y, pos_x);
-		return (direction);
-	}
+		direction = two_free_spaces_2(game, pos_y, pos_x, direction, enemy_number);
 	else if (direction == 3)
-	{
-		if (game->map->map_aux[pos_y][pos_x - 1] == '0')
-		{
-			direction = direction - direction + 3;
-			pos_x--;
-		}
-		else
-		{
-			if (game->map->map_aux[pos_y - 1][pos_x] == '0')
-			{
-				direction = direction - direction + 1;
-				pos_y--;
-			}
-			else if (game->map->map_aux[pos_y + 1][pos_x] == '0')
-			{
-				direction = direction - direction + 2;
-				pos_y++;
-			}
-			else
-			{
-				direction = direction - direction + 4;
-				pos_x++;
-			}
-		}
-		assign_positions(game, enemy_number, pos_y, pos_x);
-		return (direction);
-	}
-	if (direction == 4)
-	{
-		if (game->map->map_aux[pos_y][pos_x + 1] == '0')
-		{
-			direction = direction - direction + 4;
-			pos_x++;
-		}
-		else
-		{
-			if (game->map->map_aux[pos_y - 1][pos_x] == '0')
-			{
-				direction = direction - direction + 1;
-				pos_y--;
-			}
-			else if (game->map->map_aux[pos_y + 1][pos_x] == '0')
-			{
-				direction = direction - direction + 2;
-				pos_y++;
-			}
-			else
-			{
-				direction = direction - direction + 3;
-				pos_x--;
-			}
-		}
-		assign_positions(game, enemy_number, pos_y, pos_x);
-		return (direction);
-	}
-	return (0);
+		direction = two_free_spaces_3(game, pos_y, pos_x, direction, enemy_number);
+	else if (direction == 4)
+		direction = two_free_spaces_4(game, pos_y, pos_x, direction, enemy_number);
+	return (direction);
 }
 
 

@@ -364,8 +364,12 @@ int			three_free_spaces_1(t_game *game, int pos_x, int pos_y, int direction, int
 int			three_free_spaces_2(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
 int			three_free_spaces_3(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
 int			three_free_spaces_4(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
-int			three_free_spaces_5(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
 void			assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x);
+int			two_free_spaces_0(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
+int			two_free_spaces_1(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
+int			two_free_spaces_2(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
+int			two_free_spaces_3(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
+int			two_free_spaces_4(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
 
 
 #endif
