@@ -370,6 +370,7 @@ int			two_free_spaces_1(t_game *game, int pos_y, int pos_x, int direction, int e
 int			two_free_spaces_2(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
 int			two_free_spaces_3(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
 int			two_free_spaces_4(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
+int			even_more_enemies_textures(t_textures *textures, void *mlx);
 
 
 #endif

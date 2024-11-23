@@ -26,7 +26,7 @@ int	window_and_mlx(t_game *game, t_window **window)
 			game->map->rows * 96, "so_long");
 		if (!(*window)->win)
 		{
-			ft_printerror("Error: Failed to create window\n");
+			ft_printerror("Failed to create window\n");
 			return (0);
 		}
 		return (1);
@@ -34,7 +34,7 @@ int	window_and_mlx(t_game *game, t_window **window)
 	(*window)->win = mlx_new_window((*window)->mlx, WIN_WIDTH, WIN_HEIGHT, "so_long");
 	if (!(*window)->win)
 	{
-		ft_printerror("Error: Failed to create window\n");
+		ft_printerror("Failed to create window\n");
 		return (0);
 	}
 	return (1);

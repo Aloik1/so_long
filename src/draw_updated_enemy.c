@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:24:26 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/23 14:23:13 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:53:01 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	determine_pixel_position_y(t_game *game, int pos_y)
 	
 	if (pos_y <= game->camera->y + game->camera->height
 		&& pos_y >= game->camera->y)
-		pixel_y = (pos_y - game->camera->y) * TILE_SIZE + 48 - (game->textures->enemy_up_1_height) / 2;
+		pixel_y = (pos_y - game->camera->y) * TILE_SIZE 
+			+ 48 - (game->textures->enemy_up_1_height) / 2;
 	else
 		return (0);
 	return (pixel_y);
@@ -30,7 +31,8 @@ int	determine_pixel_position_x(t_game *game, int pos_x)
 	
 	if (pos_x <= game->camera->x + game->camera->width
 		&& pos_x >= game->camera->x)
-		pixel_x = (pos_x - game->camera->x) * TILE_SIZE + 48 - (game->textures->enemy_up_1_width) / 2;
+		pixel_x = (pos_x - game->camera->x) * TILE_SIZE 
+			+ 48 - (game->textures->enemy_up_1_width) / 2;
 	else
 		return (0);
 	return (pixel_x);

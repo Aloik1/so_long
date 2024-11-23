@@ -74,7 +74,6 @@ static void	free_player(t_game *game)
 
 void	free_textures(t_game *game)
 {
-	
 	clean_some_floors(game);
 	clean_floors(game);
 	clean_more_floors(game);

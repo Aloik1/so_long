@@ -17,7 +17,7 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 {
 	if (!game->player || !game || !game->window)
 	{
-		ft_printerror("Error: Could not allocate memory for player, game or textures\n");
+		ft_printerror("Could not allocate memory for player, game or textures\n");
 		return (0);
 	}
 	if (!basic_check(argc, argv))
@@ -32,7 +32,7 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 	}
 	if (!path_checks(game))
 	{
-		ft_printerror("Error: Invalid path, can't reach all collectibles or exit\n");
+		ft_printerror("Invalid path, can't reach all collectibles or exit\n");
 		clean_exit(game);
 		return (0);
 	}

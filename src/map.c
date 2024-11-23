@@ -115,7 +115,8 @@ int	read_map(char *file, t_game *game)
 		return (0);
 	if (!map_reader(game->map, fd, line))
 		return (0);
-	game->map->collectible->positions = (int **)malloc(sizeof(int *) * (game->map->collectibles + 1));
+	game->map->collectible->positions = (int **)malloc(sizeof(int *) 
+		* (game->map->collectibles + 1));
 	if (!game->map->collectible->positions)
 		return (0);
 	while (i < game->map->collectibles)

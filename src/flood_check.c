@@ -30,7 +30,8 @@ void	explore_flood_grid(t_flood_grid *flood_grid, int current_x, int current_y)
 	if (current_x < 0 || current_y < 0 || current_x >= flood_grid->cols
 		|| current_y >= flood_grid->rows)
 		return ;
-	if (flood_grid->flood_map[current_y][current_x] == '1' || flood_grid->flood_map[current_y][current_x] == 'V') {
+	if (flood_grid->flood_map[current_y][current_x] == '1' 
+		|| flood_grid->flood_map[current_y][current_x] == 'V') {
 		return;
 	}
 	if (flood_grid->flood_map[current_y][current_x] == 'C')

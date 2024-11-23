@@ -24,7 +24,7 @@ static int	map_checks_rectangle(t_map *map)
 		if (ft_strlen(map->map_grid[j]) != i
 			&& ft_strlen(map->map_grid[j]) != i - 1)
 		{
-			ft_printerror("Error: Map is not a rectangle\n");
+			ft_printerror("Map is not a rectangle\n");
 			return (0);
 		}
 		j++;
@@ -41,7 +41,7 @@ static int	map_checks_first_last_line(t_map *map)
 	{
 		if (map->map_grid[0][i] != '1')
 		{
-			ft_printerror("Error: First line is not walls\n");
+			ft_printerror("First line is not walls\n");
 			return (0);
 		}
 		i++;
@@ -51,7 +51,7 @@ static int	map_checks_first_last_line(t_map *map)
 	{
 		if (map->map_grid[map->rows - 1][i] != '1')
 		{
-			ft_printerror("Error: Last line is not walls\n");
+			ft_printerror("Last line is not walls\n");
 			return (0);
 		}
 		i++;
@@ -69,7 +69,7 @@ static int	map_checks_horizontal_edges(t_map *map)
 	{
 		if (map->map_grid[i][0] != '1' || map->map_grid[i][map->cols - 1] != '1')
 		{
-			ft_printerror("Error: Sides are not walls\n");
+			ft_printerror("Sides are not walls\n");
 			return (0);
 		}
 		i++;
@@ -82,7 +82,7 @@ static int	map_checks_errors(t_map *map)
 	if (map->rows == 0 || map->cols == 0 || map->collectibles == 0 
 		|| map->exits == 0 || map->players == 0)
 	{
-		ft_printerror("Error: Cols, rows, collectibles, exits or players is 0\n");
+		ft_printerror("Cols, rows, collectibles, exits or players is 0\n");
 		return (0);
 	}
 	return (1);

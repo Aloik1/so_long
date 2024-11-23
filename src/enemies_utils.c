@@ -6,11 +6,32 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:35:24 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 16:12:17 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:57:39 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	even_more_enemies_textures(t_textures *textures, void *mlx)
+{
+	textures->enemy_left_3 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_left_3.xpm", 
+		&textures->enemy_left_3_width, &textures->enemy_left_3_height);
+	if (!textures->enemy_left_3)
+		return (0);
+	textures->enemy_right_1 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_right_1.xpm", 
+		&textures->enemy_right_1_width, &textures->enemy_right_1_height);
+	if (!textures->enemy_right_1)
+		return (0);
+	textures->enemy_right_2 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_right_2.xpm", 
+		&textures->enemy_right_2_width, &textures->enemy_right_2_height);
+	if (!textures->enemy_right_2)
+		return (0);
+	textures->enemy_right_3 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_right_3.xpm", 
+		&textures->enemy_right_3_width, &textures->enemy_right_3_height);
+	if (!textures->enemy_right_3)
+		return (0);
+	return (1);
+}
 
 static int	more_positions_for_enemies(t_game *game, t_map *map, int i, int j)
 {

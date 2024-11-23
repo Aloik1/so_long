@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:44:58 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 18:45:37 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:59:29 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ static void	closed_or_open(t_game *game, t_window *window, t_textures *textures,
 	pixel_x = (j - game->camera->x) * TILE_SIZE;
 	pixel_y = (i - game->camera->y) * TILE_SIZE;
 	if (game->map->collectibles == 0)
-		mlx_put_image_to_window(window->mlx, window->win, textures->exit_open, pixel_x, pixel_y);
+		mlx_put_image_to_window(window->mlx, window->win, 
+			textures->exit_open, pixel_x, pixel_y);
 	else
-		mlx_put_image_to_window(window->mlx, window->win, textures->exit_closed, pixel_x, pixel_y);
+		mlx_put_image_to_window(window->mlx, window->win, 
+			textures->exit_closed, pixel_x, pixel_y);
 	game->map->exit_x = j;
 	game->map->exit_y = i;
 }

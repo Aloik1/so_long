@@ -25,7 +25,7 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/utils.c 			$(SRC_DIR)/player_textures_initialize.c \
 	$(SRC_DIR)/choose_player_texture.c 	$(SRC_DIR)/collectible_texture_initialize.c \
 	$(SRC_DIR)/more_collectible_textures.c	$(SRC_DIR)/texture_chooser.c \
-	$(SRC_DIR)/collectible_position_adder.c $(SRC_DIR)/collectible_animation.c \
+	$(SRC_DIR)/collectible_animation.c	$(SRC_DIR)/free_spaces_utils_2.c \
 	$(SRC_DIR)/exit_texture_initialize.c 	$(SRC_DIR)/map_reading_utils.c \
 	$(SRC_DIR)/clean_textures.c 		$(SRC_DIR)/clean_player_textures.c \
 	$(SRC_DIR)/additional_buttons.c 	$(SRC_DIR)/enemies_initialize.c \
@@ -36,7 +36,6 @@ SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
 	$(SRC_DIR)/enemies_utils.c 		$(SRC_DIR)/enemy_animation_up_down.c \
 	$(SRC_DIR)/enemy_animation_left_right.c $(SRC_DIR)/update_enemies_utils.c \
 	$(SRC_DIR)/enemies_movement_utils.c 	$(SRC_DIR)/free_spaces_utils_3.c \
-	$(SRC_DIR)/free_spaces_utils_2.c \
 
 OBJ = $(SRC:.c=.o)
 

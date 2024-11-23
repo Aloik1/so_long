@@ -32,7 +32,8 @@ static void	draw_floor(t_game *game, t_window *window, t_camera *camera)
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
 				texture_to_draw = choose_floor(game, i, j);
-				mlx_put_image_to_window(window->mlx, window->win, texture_to_draw, pixel_x, pixel_y);
+				mlx_put_image_to_window(window->mlx, window->win, 
+					texture_to_draw, pixel_x, pixel_y);
 			}
 			j++;
 		}
@@ -58,7 +59,8 @@ static void	draw_wall(t_map *map, t_window *window, t_textures *textures, t_came
 			{
 				pixel_x = (j - camera->x) * TILE_SIZE;
 				pixel_y = (i - camera->y) * TILE_SIZE;
-				mlx_put_image_to_window(window->mlx, window->win, textures->wall_top_img, pixel_x, pixel_y);
+				mlx_put_image_to_window(window->mlx, window->win, 
+					textures->wall_top_img, pixel_x, pixel_y);
 			}
 			j++;
 		}
