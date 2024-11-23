@@ -6,13 +6,13 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:11:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 21:05:08 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:49:49 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x)
+void	assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x)
 {
 	if (enemy_number == 1)
 	{
@@ -66,7 +66,7 @@ static int	four_free_spaces(t_game *game, int pos_y, int pos_x, int direction, i
 		pos_x++;
 		direction = direction - direction + 4;
 	}
-	assign_positions(game, enemy_number, pos_y, pos_x); //assigns new position
+	assign_positions(game, enemy_number, pos_y, pos_x);
 	return (direction);
 }
 
@@ -77,31 +77,17 @@ static int	three_free_spaces(t_game *game, int pos_y, int pos_x, int direction, 
 	direction = 0;
 	i = (rand() % 3) + 1;
 	if (i == 1 && game->map->map_aux[pos_y - 1][pos_x] == '0')
-	{
-		pos_y--;
-		direction = direction + 1;
-	}
+		direction = three_free_spaces_1(game, pos_x, pos_y, direction, enemy_number);
 	else if (i == 1 && game->map->map_aux[pos_y - 1][pos_x] == '1')
 		i = 2;
 	if (i == 2 && game->map->map_aux[pos_y + 1][pos_x] == '0')
-	{
-		pos_y++;
-		direction = direction + 2;
-	}
+		direction = three_free_spaces_2(game, pos_x, pos_y, direction, enemy_number);
 	else if (i == 2 && game->map->map_aux[pos_y + 1][pos_x] == '1')
 		i = 3;
 	if (i == 3 && game->map->map_aux[pos_y][pos_x - 1] == '0')
-	{
-		pos_x--;
-		direction = direction + 3;
-	}
+		direction = three_free_spaces_3(game, pos_x, pos_y, direction, enemy_number);
 	else if (i == 3 && game->map->map_aux[pos_y][pos_x + 1] == '0')
-	{
-		pos_x++;
-		direction = direction + 4;
-	}
-	assign_positions(game, enemy_number, pos_y, pos_x);
-	
+		direction = three_free_spaces_4(game, pos_x, pos_y, direction, enemy_number);
 	return (direction);
 }
 

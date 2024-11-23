@@ -360,5 +360,12 @@ int			choose_enemy_3(t_game *game, t_enemies *enemies, int i, int j, int updated
 int			choose_enemy_4(t_game *game, t_enemies *enemies, int i, int j, int updated_4);
 int			choose_enemy_5(t_game *game, t_enemies *enemies, int i, int j, int updated_5);
 void			update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int i, int j);
+int			three_free_spaces_1(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
+int			three_free_spaces_2(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
+int			three_free_spaces_3(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
+int			three_free_spaces_4(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
+int			three_free_spaces_5(t_game *game, int pos_x, int pos_y, int direction, int enemy_number);
+void			assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x);
+
 
 #endif
