@@ -333,7 +333,7 @@ int			escape_button(int keycode, t_game *game);
 int			enemies_init(t_game *game);
 int			draw_enemies(t_game *game, t_camera *camera, t_window *window);
 void			free_enemies(t_game *game);
-void			enemies_movement(t_game *game, t_enemies *enemies);
+void			enemies_movement(t_game *game, t_enemies *enemies, int updated_1, int updated_2, int updated_3);
 int			update_enemy(t_game *game, int pos_y, int pos_x);
 int			generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, int direction);
 void			draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x);
@@ -341,6 +341,24 @@ int			determine_enemy(t_enemies *enemies, int i, int j);
 void			check_collision(t_game *game);
 void			draw_info(t_game *game, int moves);
 int			positions_for_enemies(t_game *game, t_map *map, int i, int j);
-//void			assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x)
+int			determine_pixel_position_y(t_game *game, int pos_y);
+int			determine_pixel_position_x(t_game *game, int pos_x);
+void			check_enemy_number(t_game *game, int pos_y, int pos_x, int animation);
+void			choose_enemy_up_1_2_3_4(t_game *game, int animation, int pos_y, int pos_x);
+void			choose_enemy_down_1_2_3_4(t_game *game, int animation, int pos_y, int pos_x);
+void			choose_enemy_left_1_2_3_4(t_game *game, int animation, int pos_y, int pos_x);
+void			choose_enemy_right_1_2_3_4(t_game *game, int animation, int pos_y, int pos_x);
+int			check_if_in_camera(t_game *game, int i, int j);
+void			update_enemy_1(t_game *game, t_enemies *enemies, int i, int j);
+void			update_enemy_2(t_game *game, t_enemies *enemies, int i, int j);
+void			update_enemy_3(t_game *game, t_enemies *enemies, int i, int j);
+void			update_enemy_4(t_game *game, t_enemies *enemies, int i, int j);
+void			update_enemy_5(t_game *game, t_enemies *enemies, int i, int j);
+int			choose_enemy_1(t_game *game, t_enemies *enemies, int i, int j, int updated_1);
+int			choose_enemy_2(t_game *game, t_enemies *enemies, int i, int j, int updated_2);
+int			choose_enemy_3(t_game *game, t_enemies *enemies, int i, int j, int updated_3);
+int			choose_enemy_4(t_game *game, t_enemies *enemies, int i, int j, int updated_4);
+int			choose_enemy_5(t_game *game, t_enemies *enemies, int i, int j, int updated_5);
+void			update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int i, int j);
 
 #endif

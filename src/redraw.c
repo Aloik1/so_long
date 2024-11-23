@@ -14,6 +14,13 @@
 
 void	redraw_everything(t_game *game, t_textures *textures, int moves)
 {
+	int updated_1;
+	int updated_2;
+	int updated_3;
+
+	updated_1 = 0;
+	updated_2 = 0;
+	updated_3 = 0;
 	if (!game || !game->window || !game->map || !game->player || !game->camera
 		|| !game->movement) 
 		return ;
@@ -25,9 +32,8 @@ void	redraw_everything(t_game *game, t_textures *textures, int moves)
 	update_camera(game->camera, game->player, game->map);
 	draw_map(game, game->window, game->camera, textures);
 	draw_player(game, game->window, game->player, game->camera);
-	enemies_movement(game, game->enemies);
+	enemies_movement(game, game->enemies, updated_1, updated_2, updated_3);
 	draw_info(game, moves);
 	check_collision(game);
-	
 }
 
