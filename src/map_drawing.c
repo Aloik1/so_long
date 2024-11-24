@@ -97,12 +97,8 @@ static void	draw_collectibles(t_game *game, t_window *window, t_camera *camera)
 {
 	int	i;
 	int	j;
-	int	pixel_x;
-	int	pixel_y;
 	int	collectibles_visible;
 
-	pixel_x = 0;
-	pixel_y = 0;
 	i = 0;
 	collectibles_visible = count_collectibles(game, camera);
 	game->map->collectible->collectibles_visible = collectibles_visible;

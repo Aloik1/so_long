@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/23 15:05:49 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 00:13:10 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,28 +51,30 @@ void	update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number,
 		update_enemy_5(game, enemies, i, j);
 }
 
-void	enemies_movement(t_game *game, t_enemies *enemies, int updated_1, int updated_2, int updated_3)
+void	enemies_movement(t_game *game, t_enemies *enemies, int *updated)
 {
 	int	i;
 	int	j;
-	int	updated_4;
-	int	updated_5;
+	int	*params;
 	
-	updated_4 = 0;
-	updated_5 = 0;
+	params = malloc(sizeof(int) * 2);
 	i = 0;
 	while (i < game->map->rows)
 	{
 		j = 0;
 		while (j < game->map->cols)
-		{	
-			updated_1 = choose_enemy_1(game, enemies, i, j, updated_1);
-			updated_2 = choose_enemy_2(game, enemies, i, j, updated_2);
-			updated_3 = choose_enemy_3(game, enemies, i, j, updated_3);
-			updated_4 = choose_enemy_4(game, enemies, i, j, updated_4);
-			updated_5 = choose_enemy_5(game, enemies, i, j, updated_5);
+		{
+			params[0] = i;
+			params[1] = j;
+			updated[0] = choose_enemy_1(game, enemies, params, updated[0]);
+			updated[1] = choose_enemy_2(game, enemies, params, updated[1]);
+			updated[2] = choose_enemy_3(game, enemies, params, updated[2]);
+			updated[3] = choose_enemy_4(game, enemies, params, updated[3]);
+			updated[4] = choose_enemy_5(game, enemies, params, updated[4]);
 			j++;
 		}
 		i++;
 	}
+	free (params);
+	free(updated);
 }
