@@ -12,24 +12,25 @@
 
 #include "../includes/so_long.h"
 
-static void	closed_or_open(t_game *game, t_window *window, t_textures *textures, int i, int j)
+static void	closed_or_open(t_game *game, t_textures *textures, int i, int j)
 {
 	int	pixel_x;
 	int	pixel_y;
-	
+
 	pixel_x = (j - game->camera->x) * TILE_SIZE;
 	pixel_y = (i - game->camera->y) * TILE_SIZE;
 	if (game->map->collectibles == 0)
-		mlx_put_image_to_window(window->mlx, window->win, 
+		mlx_put_image_to_window(game->window->mlx, game->window->win,
 			textures->exit_open, pixel_x, pixel_y);
 	else
-		mlx_put_image_to_window(window->mlx, window->win, 
+		mlx_put_image_to_window(game->window->mlx, game->window->win,
 			textures->exit_closed, pixel_x, pixel_y);
 	game->map->exit_x = j;
 	game->map->exit_y = i;
 }
 
-void	draw_exit(t_game *game, t_window *window, t_textures *textures, t_camera *camera)
+void	draw_exit(t_game *game,
+	t_textures *textures, t_camera *camera)
 {
 	int	i;
 	int	j;
@@ -41,7 +42,7 @@ void	draw_exit(t_game *game, t_window *window, t_textures *textures, t_camera *c
 		while (j < camera->x + camera->width && j < game->map->cols)
 		{
 			if (game->map->map_grid[i][j] == 'E')
-				closed_or_open(game, window, textures, i, j);
+				closed_or_open(game, textures, i, j);
 			j++;
 		}
 		i++;

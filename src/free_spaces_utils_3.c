@@ -13,32 +13,44 @@
 #include "../includes/so_long.h"
 
 int	three_free_spaces_1(t_game *game, int pos_x,
-		int pos_y, int direction, int enemy_number)
+		int pos_y, int direction)
 {
+	int	enemy_number;
+
+	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	pos_y--;
 	assign_positions(game, enemy_number, pos_y, pos_x);
 	return (direction + 1);
 }
 
 int	three_free_spaces_2(t_game *game, int pos_x,
-		int pos_y, int direction, int enemy_number)
+		int pos_y, int direction)
 {
+	int	enemy_number;
+
+	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	pos_y++;
 	assign_positions(game, enemy_number, pos_y, pos_x);
 	return (direction + 2);
 }
 
 int	three_free_spaces_3(t_game *game, int pos_x,
-		int pos_y, int direction, int enemy_number)
+		int pos_y, int direction)
 {
+	int	enemy_number;
+
+	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	pos_x--;
 	assign_positions(game, enemy_number, pos_y, pos_x);
 	return (direction + 3);
 }
 
 int	three_free_spaces_4(t_game *game, int pos_x,
-		int pos_y, int direction, int enemy_number)
+		int pos_y, int direction)
 {
+	int	enemy_number;
+
+	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	pos_x++;
 	assign_positions(game, enemy_number, pos_y, pos_x);
 	return (direction + 4);

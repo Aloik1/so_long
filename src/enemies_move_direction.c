@@ -41,10 +41,13 @@ void	assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x)
 	}
 }
 
-static int	four_free_spaces(t_game *game, int pos_y, int pos_x, int direction, int enemy_number)
+static int	four_free_spaces(t_game *game, int pos_y, int pos_x, int direction)
 {
 	int	i;
 
+	int	enemy_number;
+	
+	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	i = (rand() % 4) + 1;
 	if (i == 1)
 	{
@@ -70,45 +73,48 @@ static int	four_free_spaces(t_game *game, int pos_y, int pos_x, int direction, i
 	return (direction);
 }
 
-static int	three_free_spaces(t_game *game, int pos_y, int pos_x, int direction, int enemy_number)
+static int	three_free_spaces(t_game *game, int pos_y, int pos_x, int direction)
 {
 	int	i;
 
 	direction = 0;
 	i = (rand() % 3) + 1;
 	if (i == 1 && game->map->map_aux[pos_y - 1][pos_x] == '0')
-		direction = three_free_spaces_1(game, pos_x, pos_y, direction, enemy_number);
+		direction = three_free_spaces_1(game, pos_x, pos_y, direction);
 	else if (i == 1 && game->map->map_aux[pos_y - 1][pos_x] == '1')
 		i = 2;
 	if (i == 2 && game->map->map_aux[pos_y + 1][pos_x] == '0')
-		direction = three_free_spaces_2(game, pos_x, pos_y, direction, enemy_number);
+		direction = three_free_spaces_2(game, pos_x, pos_y, direction);
 	else if (i == 2 && game->map->map_aux[pos_y + 1][pos_x] == '1')
 		i = 3;
 	if (i == 3 && game->map->map_aux[pos_y][pos_x - 1] == '0')
-		direction = three_free_spaces_3(game, pos_x, pos_y, direction, enemy_number);
+		direction = three_free_spaces_3(game, pos_x, pos_y, direction);
 	else if (i == 3 && game->map->map_aux[pos_y][pos_x + 1] == '0')
-		direction = three_free_spaces_4(game, pos_x, pos_y, direction, enemy_number);
+		direction = three_free_spaces_4(game, pos_x, pos_y, direction);
 	return (direction);
 }
 
-static int	two_free_spaces(t_game *game, int pos_y, int pos_x, int direction, int enemy_number)
+static int	two_free_spaces(t_game *game, int pos_y, int pos_x, int direction)
 {
 	if (direction == 0)
-		direction = two_free_spaces_0(game, pos_y, pos_x, direction, enemy_number);
+		direction = two_free_spaces_0(game, pos_y, pos_x, direction);
 	else if (direction == 1)
-		direction = two_free_spaces_1(game, pos_y, pos_x, direction, enemy_number);
+		direction = two_free_spaces_1(game, pos_y, pos_x, direction);
 	else if (direction == 2)
-		direction = two_free_spaces_2(game, pos_y, pos_x, direction, enemy_number);
+		direction = two_free_spaces_2(game, pos_y, pos_x, direction);
 	else if (direction == 3)
-		direction = two_free_spaces_3(game, pos_y, pos_x, direction, enemy_number);
+		direction = two_free_spaces_3(game, pos_y, pos_x, direction);
 	else if (direction == 4)
-		direction = two_free_spaces_4(game, pos_y, pos_x, direction, enemy_number);
+		direction = two_free_spaces_4(game, pos_y, pos_x, direction);
 	return (direction);
 }
 
 
-static int	one_free_space(t_game *game, int pos_y, int pos_x, int direction, int enemy_number)
+static int	one_free_space(t_game *game, int pos_y, int pos_x, int direction)
 {
+	int	enemy_number;
+	
+	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	if (game->map->map_aux[pos_y - 1][pos_x] == '0')
 	{
 		direction = direction - direction + 1;
@@ -135,16 +141,13 @@ static int	one_free_space(t_game *game, int pos_y, int pos_x, int direction, int
 
 int	generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, int direction)
 {
-	int	enemy_number;
-	
-	enemy_number = determine_enemy(game->enemies, pos_y, pos_x);
 	if (free_spaces == 4)
-		direction = four_free_spaces(game, pos_y, pos_x, direction, enemy_number);
+		direction = four_free_spaces(game, pos_y, pos_x, direction);
 	if (free_spaces == 3)
-		direction = three_free_spaces(game, pos_y, pos_x, direction, enemy_number);
+		direction = three_free_spaces(game, pos_y, pos_x, direction);
 	if (free_spaces == 2)
-		direction = two_free_spaces(game, pos_y, pos_x, direction, enemy_number);
+		direction = two_free_spaces(game, pos_y, pos_x, direction);
 	if (free_spaces == 1)
-		direction = one_free_space(game, pos_y, pos_x, direction, enemy_number);
+		direction = one_free_space(game, pos_y, pos_x, direction);
 	return (direction);
 }

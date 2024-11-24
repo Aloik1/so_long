@@ -25,22 +25,22 @@ static void	free_flood_grid(t_flood_grid flood_grid)
 	free(flood_grid.flood_map);
 }
 
-void	explore_flood_grid(t_flood_grid *flood_grid, int current_x, int current_y)
+void	explore_flood_grid(t_flood_grid *flood_grid,
+		int current_x, int current_y)
 {
 	if (current_x < 0 || current_y < 0 || current_x >= flood_grid->cols
 		|| current_y >= flood_grid->rows)
 		return ;
-	if (flood_grid->flood_map[current_y][current_x] == '1' 
-		|| flood_grid->flood_map[current_y][current_x] == 'V') {
-		return;
-	}
+	if (flood_grid->flood_map[current_y][current_x] == '1'
+		|| flood_grid->flood_map[current_y][current_x] == 'V')
+		return ;
 	if (flood_grid->flood_map[current_y][current_x] == 'C')
 		flood_grid->collectibles_count--;
 	if (flood_grid->flood_map[current_y][current_x] == 'E')
 		flood_grid->exits_count--;
 	flood_grid->flood_map[current_y][current_x] = 'V';
-	if (flood_grid->collectibles_count == 0 && flood_grid->exits_count == 0) 
-		return ;	
+	if (flood_grid->collectibles_count == 0 && flood_grid->exits_count == 0)
+		return ;
 	explore_flood_grid(flood_grid, current_x + 1, current_y);
 	explore_flood_grid(flood_grid, current_x - 1, current_y);
 	explore_flood_grid(flood_grid, current_x, current_y + 1);
@@ -50,8 +50,8 @@ void	explore_flood_grid(t_flood_grid *flood_grid, int current_x, int current_y)
 static t_flood_grid	create_flood_grid(t_map *map)
 {
 	t_flood_grid	flood_grid;
-	int		i;
-	int		j;
+	int				i;
+	int				j;
 
 	i = 0;
 	flood_grid.rows = map->rows;
@@ -74,8 +74,8 @@ static t_flood_grid	create_flood_grid(t_map *map)
 int	flood_check(t_map *map, t_player_position player_position)
 {
 	t_flood_grid	flood;
-	int		valid_path;
-	
+	int				valid_path;
+
 	flood = create_flood_grid(map);
 	flood.collectibles_count = map->collectibles;
 	flood.exits_count = map->exits;
