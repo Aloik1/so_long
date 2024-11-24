@@ -17,7 +17,7 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 {
 	if (!game->player || !game || !game->window)
 	{
-		ft_printerror("Could not allocate memory for player, game or textures\n");
+		ft_printerror("Could not allocate memory\n");
 		return (0);
 	}
 	if (!basic_check(argc, argv))
@@ -72,7 +72,7 @@ static int	draw_everything(t_game *game)
 {
 	if (!draw_map(game, game->window, game->camera, game->textures))
 	{
-		clean_exit(game); 
+		clean_exit(game);
 		return (0);
 	}
 	if (!draw_player(game, game->window, game->player, game->camera))
@@ -98,7 +98,6 @@ int	main(int argc, char **argv)
 	init_textures(game->textures);
 	game->player = (t_player *)malloc(sizeof(t_player));
 	game->window = (t_window *)malloc(sizeof(t_window));
-
 	if (!initial_checks(argc, argv, game))
 		return (0);
 	if (!initialize_everything(game))

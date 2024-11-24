@@ -371,6 +371,10 @@ int			two_free_spaces_2(t_game *game, int pos_y, int pos_x, int direction, int e
 int			two_free_spaces_3(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
 int			two_free_spaces_4(t_game *game, int pos_y, int pos_x, int direction, int enemy_number);
 int			even_more_enemies_textures(t_textures *textures, void *mlx);
+int			even_even_more_floors(t_textures *textures, void *mlx);
+int			initial_player_textures(t_game *game, void *mlx);
+void		draw_collectible(t_game *game, int i, int j, t_window *window);
+void		check_collectible_line(t_map *map, char *line);
 
 
 #endif

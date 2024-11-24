@@ -24,7 +24,8 @@ static int	map_initialize(t_game *game)
 	game->map->players = 0;
 	game->map->exit_x = 0;
 	game->map->exit_y = 0;
-	game->map->collectible = (t_collectible_position *)malloc(sizeof(t_collectible_position));
+	game->map->collectible = (t_collectible_position *)malloc
+		(sizeof(t_collectible_position));
 	if (!game->map->collectible)
 		return (0);
 	game->map->map_aux = NULL;
@@ -43,28 +44,21 @@ static int	map_initialize(t_game *game)
 static int	count_elements(t_map *map, int fd, char *line)
 {
 	int		i;
-	int		j;
 
 	i = 0;
-	while ((line = get_next_line(fd)) && line)
+	line = get_next_line(fd);
+	while (line)
 	{
 		if (line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
 		map->map_grid[i] = line;
 		if (ft_strchr(line, 'C'))
-		{
-			j = 0;
-			while (line[j])
-			{
-				if (line[j] == 'C')
-					map->collectibles++;
-				j++;
-			}
-		}
+			check_collectible_line(map, line);
 		if (ft_strchr(line, 'E'))
 			map->exits++;
 		if (ft_strchr(line, 'P'))
 			map->players++;
+		line = get_next_line(fd);
 		i++;
 	}
 	return (i);
@@ -78,7 +72,7 @@ static int	map_reader(t_map *map, int fd, char *line)
 	map->map_grid[i] = NULL;
 	map->rows = i;
 	map->cols = ft_strlen(map->map_grid[0]);
-	if (map->rows == 0 || map->cols == 0 || map->collectibles == 0 
+	if (map->rows == 0 || map->cols == 0 || map->collectibles == 0
 		|| map->exits == 0 || map->players == 0)
 	{
 		ft_printerror("Error: Invalid map\n");
@@ -104,9 +98,9 @@ int	read_map(char *file, t_game *game)
 {
 	int		i;
 	int		fd;
-	char		*line;
+	char	*line;
 
-	i = 0;	
+	i = 0;
 	line = NULL;
 	if (!map_initialize(game))
 		return (0);
@@ -115,8 +109,8 @@ int	read_map(char *file, t_game *game)
 		return (0);
 	if (!map_reader(game->map, fd, line))
 		return (0);
-	game->map->collectible->positions = (int **)malloc(sizeof(int *) 
-		* (game->map->collectibles + 1));
+	game->map->collectible->positions = (int **)malloc(sizeof(int *)
+			* (game->map->collectibles + 1));
 	if (!game->map->collectible->positions)
 		return (0);
 	while (i < game->map->collectibles)

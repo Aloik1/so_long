@@ -22,8 +22,8 @@ int	window_and_mlx(t_game *game, t_window **window)
 	}
 	if (game->map->rows < 10 || game->map->cols < 10)
 	{
-		(*window)->win = mlx_new_window((*window)->mlx, game->map->cols * 96, 
-			game->map->rows * 96, "so_long");
+		(*window)->win = mlx_new_window((*window)->mlx, game->map->cols * 96,
+				game->map->rows * 96, "so_long");
 		if (!(*window)->win)
 		{
 			ft_printerror("Failed to create window\n");
@@ -31,7 +31,8 @@ int	window_and_mlx(t_game *game, t_window **window)
 		}
 		return (1);
 	}
-	(*window)->win = mlx_new_window((*window)->mlx, WIN_WIDTH, WIN_HEIGHT, "so_long");
+	(*window)->win = mlx_new_window((*window)->mlx,
+			WIN_WIDTH, WIN_HEIGHT, "so_long");
 	if (!(*window)->win)
 	{
 		ft_printerror("Failed to create window\n");
@@ -39,4 +40,3 @@ int	window_and_mlx(t_game *game, t_window **window)
 	}
 	return (1);
 }
-

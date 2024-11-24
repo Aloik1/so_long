@@ -15,9 +15,9 @@
 static void	*more_ifs(t_game *game, int i, int j)
 {
 	void	*texture_to_return;
-	
+
 	texture_to_return = NULL;
-	if (i == game->textures->collectible_3_x 
+	if (i == game->textures->collectible_3_x
 		&& j == game->textures->collectible_3_y)
 	{
 		if (game->textures->collectible_3_state == 0)
@@ -31,7 +31,7 @@ static void	*more_ifs(t_game *game, int i, int j)
 			return (game->textures->collectible_destroyed);
 		texture_to_return = collectible_chooser(game);
 	}
-	else if (i == game->textures->collectible_5_x 
+	else if (i == game->textures->collectible_5_x
 		&& j == game->textures->collectible_5_y)
 	{
 		if (game->textures->collectible_5_state == 0)
@@ -44,9 +44,9 @@ static void	*more_ifs(t_game *game, int i, int j)
 void	*texture_chooser(t_game *game, int i, int j)
 {
 	void	*texture_to_return;
-	
+
 	texture_to_return = NULL;
-	if (i == game->textures->collectible_1_x 
+	if (i == game->textures->collectible_1_x
 		&& j == game->textures->collectible_1_y)
 	{
 		if (game->textures->collectible_1_state == 0)

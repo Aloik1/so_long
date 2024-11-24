@@ -40,8 +40,8 @@ static int	get_exit_position(t_map *map)
 static t_player_position	get_player_position(t_map *map)
 {
 	t_player_position	player_position;
-	int			i;
-	int			j;
+	int					i;
+	int					j;
 
 	i = 0;
 	j = 0;
@@ -93,7 +93,7 @@ static int	get_collectibles_position(t_map *map)
 int	path_checks(t_game *game)
 {
 	t_player_position	player_position;
-	int			collectibles;
+	int					collectibles;
 
 	player_position = get_player_position(game->map);
 	collectibles = get_collectibles_position(game->map);
@@ -107,4 +107,3 @@ int	path_checks(t_game *game)
 		return (0);
 	return (1);
 }
-

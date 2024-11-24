@@ -12,27 +12,48 @@
 
 #include "../includes/so_long.h"
 
+static int	many_ifs(t_game *game, int i, int j)
+{
+	if (game->map->map_grid[i][j] == '0'
+		|| game->map->map_grid[i][j] == 'E'
+		|| game->map->map_grid[i][j] == 'P'
+		|| game->map->map_grid[i][j] == 'C'
+		|| game->map->map_grid[i][j] == 'X')
+		return (1);
+	return (0);
+}
+
+static int	memory_reservation(t_game *game)
+{
+	int	rows;
+
+	rows = game->map->rows;
+	game->map->map_aux = (char **)malloc(sizeof(char *) * (rows + 1));
+	if (!game->map->map_aux)
+	{
+		ft_printerror("Couldn't allocate memory for map_aux");
+		return (0);
+	}
+	return (1);
+}
+
 void	aux_map_creation(t_game *game)
 {
 	int	i;
 	int	j;
-	
+	int	length;
+
 	i = 0;
-	game->map->map_aux = (char **)malloc(sizeof(char *) * (game->map->rows + 1));
-	if (!game->map->map_aux)
-	{
-		ft_printerror("Couldn't allocate memory for map_aux");
+	length = ft_strlen(game->map->map_grid[i]);
+	if (!memory_reservation(game))
 		return ;
-	}
 	while (i < game->map->rows)
 	{
 		j = 0;
-		game->map->map_aux[i] = (char *)malloc(ft_strlen(game->map->map_grid[i]));
+		game->map->map_aux[i] = (char *)malloc(length);
 		while (j < game->map->cols)
 		{
-			if (game->map->map_grid[i][j] == '0' || game->map->map_grid[i][j] == 'E'
-			|| game->map->map_grid[i][j] == 'P' || game->map->map_grid[i][j] == 'C'
-			|| game->map->map_grid[i][j] == 'X')
+			if (many_ifs(game, i, j))
 				game->map->map_aux[i][j] = '0';
 			else
 				game->map->map_aux[i][j] = game->map->map_grid[i][j];
@@ -41,5 +62,4 @@ void	aux_map_creation(t_game *game)
 		i++;
 	}
 	game->map->map_aux[i] = NULL;
-	
 }

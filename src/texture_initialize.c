@@ -34,50 +34,42 @@ int	init_textures(t_textures *textures)
 
 static int	even_more_floors(t_textures *textures, void *mlx)
 {
-	textures->floor_top_bot = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_side_top_bot_walls.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_top_bot)
-		return (0);
-	textures->floor_top_closed = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_top_closed.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_top_left_corner = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_corner_top_left.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_right_open)
 		return (0);
-	textures->floor_bot_closed = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_bot_closed.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_bot_right_corner = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_corner_bot_right.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_right_open)
 		return (0);
-	textures->floor_left_closed = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_left_closed.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_bot_left_corner = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_corner_bot_left.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_right_open)
 		return (0);
-	textures->floor_right_closed = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_right_closed.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_right_open)
+	if (!even_even_more_floors(textures, mlx))
 		return (0);
 	return (1);
 }
 
 static int	more_floors(t_textures *textures, void *mlx)
 {
-	textures->floor_top_right_corner = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_corner_top_right.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_left_open = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_left_open.xpm",
+			&textures->floor_width, &textures->floor_height);
+	if (!textures->floor_left_open)
+		return (0);
+	textures->floor_right_open = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_right_open.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_right_open)
 		return (0);
-	textures->floor_top_left_corner = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_corner_top_left.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_top_right_corner = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_corner_top_right.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_right_open)
-		return (0);
-	textures->floor_bot_right_corner = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_corner_bot_right.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_right_open)
-		return (0);
-	textures->floor_bot_left_corner = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_corner_bot_left.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_right_open)
-		return (0);
-	textures->floor_all_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_all_open.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_all_open)
 		return (0);
 	if (!even_more_floors(textures, mlx))
 		return (0);
@@ -86,25 +78,20 @@ static int	more_floors(t_textures *textures, void *mlx)
 
 static int	floor_textures(t_textures *textures, void *mlx)
 {
-	textures->floor_left_right = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_side_left_right_walls.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_left_right = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_side_left_right_walls.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_left_right)
 		return (0);
-	textures->floor_top_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_top_open.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_top_open = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_top_open.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_top_open)
 		return (0);
-	textures->floor_bot_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_bot_open.xpm", 
-		&textures->floor_width, &textures->floor_height);
+	textures->floor_bot_open = mlx_xpm_file_to_image(mlx,
+			"assets/textures/floors/floor_bot_open.xpm",
+			&textures->floor_width, &textures->floor_height);
 	if (!textures->floor_bot_open)
-		return (0);
-	textures->floor_left_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_left_open.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_left_open)
-		return (0);
-	textures->floor_right_open = mlx_xpm_file_to_image(mlx, "assets/textures/floors/floor_right_open.xpm", 
-		&textures->floor_width, &textures->floor_height);
-	if (!textures->floor_right_open)
 		return (0);
 	if (!more_floors(textures, mlx))
 		return (0);
@@ -117,8 +104,9 @@ int	texture_initialize(t_game *game, void *mlx)
 		return (0);
 	if (!floor_textures(game->textures, mlx))
 		return (0);
-	game->textures->wall_top_img = mlx_xpm_file_to_image(mlx, "assets/textures/walls/forest_wall_main.xpm", 
-		&game->textures->wall_top_width, &game->textures->wall_top_height);
+	game->textures->wall_top_img = mlx_xpm_file_to_image(mlx,
+			"assets/textures/walls/forest_wall_main.xpm",
+			&game->textures->wall_top_width, &game->textures->wall_top_height);
 	if (!game->textures->wall_top_img)
 	{
 		ft_printf("Could not load wall texture.\n");
@@ -132,4 +120,3 @@ int	texture_initialize(t_game *game, void *mlx)
 		return (0);
 	return (1);
 }
-

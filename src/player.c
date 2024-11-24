@@ -25,7 +25,6 @@ static void	player_position(t_player *player, t_map *map)
 		{
 			if (map->map_grid[i][j] == 'P')
 			{
-
 				player->position.x = j;
 				player->position.y = i;
 				return ;
@@ -38,7 +37,6 @@ static void	player_position(t_player *player, t_map *map)
 
 int	init_player(t_game *game)
 {
-
 	game->player->speed = 1;
 	game->player->direction = 0;
 	game->player->collectibles_collected = 0;
@@ -50,13 +48,16 @@ int	init_player(t_game *game)
 	return (1);
 }
 
-int	draw_player(t_game *game, t_window *window, t_player *player, t_camera *camera)
+int	draw_player(t_game *game, t_window *window,
+		t_player *player, t_camera *camera)
 {
 	if (!player->player_texture)
-		return 0;
-	player->pixel_x = (player->position.x - camera->x) * TILE_SIZE + 48 - (player->width) / 2;
-	player->pixel_y = (player->position.y - camera->y) * TILE_SIZE + 48 - (player->height) / 2;
-	mlx_put_image_to_window(window->mlx, window->win, 
+		return (0);
+	player->pixel_x = (player->position.x - camera->x)
+		* TILE_SIZE + 48 - (player->width) / 2;
+	player->pixel_y = (player->position.y - camera->y)
+		* TILE_SIZE + 48 - (player->height) / 2;
+	mlx_put_image_to_window(window->mlx, window->win,
 		choose_player_texture(game), player->pixel_x, player->pixel_y);
-	return 1;
+	return (1);
 }

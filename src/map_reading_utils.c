@@ -12,6 +12,31 @@
 
 #include "../includes/so_long.h"
 
+void	check_collectible_line(t_map *map, char *line)
+{
+	int	j;
+
+	j = 0;
+	while (line[j])
+	{
+		if (line[j] == 'C')
+			map->collectibles++;
+		j++;
+	}
+}
+
+void	draw_collectible(t_game *game, int i, int j,
+	t_window *window)
+{
+	int	pixel_x;
+	int	pixel_y;
+
+	pixel_x = (j - game->camera->x) * TILE_SIZE + 24;
+	pixel_y = (i - game->camera->y) * TILE_SIZE;
+	mlx_put_image_to_window(window->mlx, window->win,
+		texture_chooser(game, i, j), pixel_x, pixel_y);
+}
+
 int	memory_check_grid(t_map *map)
 {
 	if (!map->map_grid)

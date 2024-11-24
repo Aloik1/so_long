@@ -16,22 +16,22 @@ static void	move_up(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 119;
 	game->movement->previous_key_pressed = 119;
-	if (!player || !map || !map->map_grid) 
-		return;
-	if (player->position.y > 0 && map->map_grid[player->position.y - 1] != NULL &&
-		map->map_grid[player->position.y - 1][player->position.x] != '1')
+	if (!player || !map || !map->map_grid)
+		return ;
+	if (player->position.y > 0 && map->map_grid[player->position.y - 1] != NULL
+		&& map->map_grid[player->position.y - 1][player->position.x] != '1')
 		player->position.y = player->position.y - 1;
-
 }
 
 static void	move_down(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 115;
 	game->movement->previous_key_pressed = 115;
-	if (!player || !map || !map->map_grid) 
+	if (!player || !map || !map->map_grid)
 		return ;
-	if (player->position.y < map->rows - 1 && map->map_grid[player->position.y + 1] != NULL &&
-		map->map_grid[player->position.y + 1][player->position.x] != '1')
+	if (player->position.y < map->rows - 1
+		&& map->map_grid[player->position.y + 1] != NULL
+		&& map->map_grid[player->position.y + 1][player->position.x] != '1')
 	{
 		player->position.y = player->position.y + 1;
 	}
@@ -41,10 +41,11 @@ static void	move_left(t_game *game, t_player *player, t_map *map)
 {
 	game->movement->key_pressed = 97;
 	game->movement->previous_key_pressed = 97;
-	if (!player || !map || !map->map_grid) 
+	if (!player || !map || !map->map_grid)
 		return ;
-	if (player->position.x > 0 && map->map_grid[player->position.y] != NULL &&
-		map->map_grid[player->position.y][player->position.x - 1] != '1')
+	if (player->position.x > 0
+		&& map->map_grid[player->position.y] != NULL
+		&& map->map_grid[player->position.y][player->position.x - 1] != '1')
 		player->position.x -= 1;
 }
 
@@ -53,15 +54,17 @@ static void	move_right(t_game *game, t_player *player, t_map *map)
 	game->movement->key_pressed = 100;
 	game->movement->previous_key_pressed = 100;
 	if (!player || !map || !map->map_grid)
-		return;
-	if (player->position.x < map->cols - 1 && map->map_grid[player->position.y] != NULL &&
-		map->map_grid[player->position.y][player->position.x + 1] != '1')
+		return ;
+	if (player->position.x < map->cols - 1
+		&& map->map_grid[player->position.y] != NULL
+		&& map->map_grid[player->position.y][player->position.x + 1] != '1')
 		player->position.x = player->position.x + 1;
 }
 
 int	movement(int keycode, t_game *game)
 {
 	static int	i;
+
 	game->movement->key_pressed = 0;
 	if (keycode == KEY_W)
 		move_up(game, game->player, game->map);

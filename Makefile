@@ -13,29 +13,30 @@ LIBFT = $(LIBFT_DIR)/libft.a
 MINILIBX = $(MINILIBX_DIR)/libmlx.a
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
-SRC = 	$(SRC_DIR)/so_long.c 			$(SRC_DIR)/basic_check.c \
-	$(SRC_DIR)/map.c 			$(SRC_DIR)/window_and_mlx.c \
-	$(SRC_DIR)/path_checks.c 		$(SRC_DIR)/map_checks.c \
-	$(SRC_DIR)/many_frees.c 		$(SRC_DIR)/flood_check.c \
-	$(SRC_DIR)/map_drawing.c 		$(SRC_DIR)/player.c \
-	$(SRC_DIR)/movement.c 			$(SRC_DIR)/redraw.c \
-	$(SRC_DIR)/camera.c 			$(SRC_DIR)/collection.c \
-	$(SRC_DIR)/exit.c 			$(SRC_DIR)/clean_exit.c \
-	$(SRC_DIR)/texture_initialize.c		$(SRC_DIR)/choose_texture.c \
-	$(SRC_DIR)/utils.c 			$(SRC_DIR)/player_textures_initialize.c \
-	$(SRC_DIR)/choose_player_texture.c 	$(SRC_DIR)/collectible_texture_initialize.c \
+SRC = 	$(SRC_DIR)/so_long.c 				$(SRC_DIR)/basic_check.c \
+	$(SRC_DIR)/map.c 						$(SRC_DIR)/window_and_mlx.c \
+	$(SRC_DIR)/path_checks.c 				$(SRC_DIR)/map_checks.c \
+	$(SRC_DIR)/many_frees.c 				$(SRC_DIR)/flood_check.c \
+	$(SRC_DIR)/map_drawing.c 				$(SRC_DIR)/player.c \
+	$(SRC_DIR)/movement.c 					$(SRC_DIR)/redraw.c \
+	$(SRC_DIR)/camera.c 					$(SRC_DIR)/collection.c \
+	$(SRC_DIR)/exit.c 						$(SRC_DIR)/clean_exit.c \
+	$(SRC_DIR)/texture_initialize.c			$(SRC_DIR)/choose_texture.c \
+	$(SRC_DIR)/utils.c 						$(SRC_DIR)/player_textures_initialize.c \
+	$(SRC_DIR)/choose_player_texture.c 		$(SRC_DIR)/collectible_texture_initialize.c \
 	$(SRC_DIR)/more_collectible_textures.c	$(SRC_DIR)/texture_chooser.c \
-	$(SRC_DIR)/collectible_animation.c	$(SRC_DIR)/free_spaces_utils_2.c \
+	$(SRC_DIR)/collectible_animation.c		$(SRC_DIR)/free_spaces_utils_2.c \
 	$(SRC_DIR)/exit_texture_initialize.c 	$(SRC_DIR)/map_reading_utils.c \
-	$(SRC_DIR)/clean_textures.c 		$(SRC_DIR)/clean_player_textures.c \
-	$(SRC_DIR)/additional_buttons.c 	$(SRC_DIR)/enemies_initialize.c \
-	$(SRC_DIR)/draw_enemies.c 		$(SRC_DIR)/clean_enemies_textures.c \
-	$(SRC_DIR)/enemies_update.c 		$(SRC_DIR)/enemies_movement.c \
-	$(SRC_DIR)/enemies_move_direction.c	$(SRC_DIR)/draw_updated_enemy.c \
-	$(SRC_DIR)/check_collision.c 		$(SRC_DIR)/draw_info.c \
-	$(SRC_DIR)/enemies_utils.c 		$(SRC_DIR)/enemy_animation_up_down.c \
+	$(SRC_DIR)/clean_textures.c 			$(SRC_DIR)/clean_player_textures.c \
+	$(SRC_DIR)/additional_buttons.c 		$(SRC_DIR)/enemies_initialize.c \
+	$(SRC_DIR)/draw_enemies.c 				$(SRC_DIR)/clean_enemies_textures.c \
+	$(SRC_DIR)/enemies_update.c 			$(SRC_DIR)/enemies_movement.c \
+	$(SRC_DIR)/enemies_move_direction.c		$(SRC_DIR)/draw_updated_enemy.c \
+	$(SRC_DIR)/check_collision.c 			$(SRC_DIR)/draw_info.c \
+	$(SRC_DIR)/enemies_utils.c 				$(SRC_DIR)/enemy_animation_up_down.c \
 	$(SRC_DIR)/enemy_animation_left_right.c $(SRC_DIR)/update_enemies_utils.c \
 	$(SRC_DIR)/enemies_movement_utils.c 	$(SRC_DIR)/free_spaces_utils_3.c \
+	$(SRC_DIR)/floor_initialize_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

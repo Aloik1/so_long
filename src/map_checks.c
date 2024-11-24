@@ -15,7 +15,7 @@
 static int	map_checks_rectangle(t_map *map)
 {
 	size_t	i;
-	int	j;
+	int		j;
 
 	i = ft_strlen(map->map_grid[0]);
 	j = 0;
@@ -59,7 +59,6 @@ static int	map_checks_first_last_line(t_map *map)
 	return (1);
 }
 
-
 static int	map_checks_horizontal_edges(t_map *map)
 {
 	int	i;
@@ -67,7 +66,8 @@ static int	map_checks_horizontal_edges(t_map *map)
 	i = 0;
 	while (map->map_grid[i])
 	{
-		if (map->map_grid[i][0] != '1' || map->map_grid[i][map->cols - 1] != '1')
+		if (map->map_grid[i][0] != '1'
+		|| map->map_grid[i][map->cols - 1] != '1')
 		{
 			ft_printerror("Sides are not walls\n");
 			return (0);
@@ -79,7 +79,7 @@ static int	map_checks_horizontal_edges(t_map *map)
 
 static int	map_checks_errors(t_map *map)
 {
-	if (map->rows == 0 || map->cols == 0 || map->collectibles == 0 
+	if (map->rows == 0 || map->cols == 0 || map->collectibles == 0
 		|| map->exits == 0 || map->players == 0)
 	{
 		ft_printerror("Cols, rows, collectibles, exits or players is 0\n");

@@ -14,17 +14,17 @@
 
 void	redraw_everything(t_game *game, t_textures *textures, int moves)
 {
-	int updated_1;
-	int updated_2;
-	int updated_3;
+	int	updated_1;
+	int	updated_2;
+	int	updated_3;
 
 	updated_1 = 0;
 	updated_2 = 0;
 	updated_3 = 0;
 	if (!game || !game->window || !game->map || !game->player || !game->camera
-		|| !game->movement) 
+		|| !game->movement)
 		return ;
-	if (!game->window->mlx || !game->window->win) 
+	if (!game->window->mlx || !game->window->win)
 		return ;
 	if (!textures)
 		return ;
@@ -36,4 +36,3 @@ void	redraw_everything(t_game *game, t_textures *textures, int moves)
 	draw_info(game, moves);
 	check_collision(game);
 }
-
