@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/25 00:13:10 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 00:33:33 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ int	determine_enemy(t_enemies *enemies, int i, int j)
 	return (0);
 }
 
-void	update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int i, int j)
+void	update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int *coordinates)
 {
 	if (enemy_number == 1)
-		update_enemy_1(game, enemies, i, j);
+		update_enemy_1(game, enemies, coordinates[0], coordinates[1]);
 	if (enemy_number == 2)
-		update_enemy_2(game, enemies, i, j);
+		update_enemy_2(game, enemies, coordinates[0], coordinates[1]);
 	if (enemy_number == 3)
-		update_enemy_3(game, enemies, i, j);
+		update_enemy_3(game, enemies, coordinates[0], coordinates[1]);
 	if (enemy_number == 4)
-		update_enemy_4(game, enemies, i, j);
+		update_enemy_4(game, enemies, coordinates[0], coordinates[1]);
 	if (enemy_number == 5)
-		update_enemy_5(game, enemies, i, j);
+		update_enemy_5(game, enemies, coordinates[0], coordinates[1]);
 }
 
 void	enemies_movement(t_game *game, t_enemies *enemies, int *updated)

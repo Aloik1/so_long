@@ -359,7 +359,7 @@ int			choose_enemy_2(t_game *game, t_enemies *enemies, int *params, int updated_
 int			choose_enemy_3(t_game *game, t_enemies *enemies, int *params, int updated_3);
 int			choose_enemy_4(t_game *game, t_enemies *enemies, int *params, int updated_4);
 int			choose_enemy_5(t_game *game, t_enemies *enemies, int *params, int updated_5);
-void			update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int i, int j);
+void			update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int *coordinates);
 int			three_free_spaces_1(t_game *game, int pos_x, int pos_y, int direction);
 int			three_free_spaces_2(t_game *game, int pos_x, int pos_y, int direction);
 int			three_free_spaces_3(t_game *game, int pos_x, int pos_y, int direction);
