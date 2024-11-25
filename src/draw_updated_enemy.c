@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:24:26 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/25 02:20:43 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 02:33:46 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	determine_pixel_position_y(t_game *game, int pos_y)
 {
 	int	pixel_y;
-	
+
 	if (pos_y <= game->camera->y + game->camera->height
 		&& pos_y >= game->camera->y)
-		pixel_y = (pos_y - game->camera->y) * TILE_SIZE 
+		pixel_y = (pos_y - game->camera->y) * TILE_SIZE
 			+ 48 - (game->textures->enemy_up_1_height) / 2;
 	else
 		return (0);
@@ -28,10 +28,10 @@ int	determine_pixel_position_y(t_game *game, int pos_y)
 int	determine_pixel_position_x(t_game *game, int pos_x)
 {
 	int	pixel_x;
-	
+
 	if (pos_x <= game->camera->x + game->camera->width
 		&& pos_x >= game->camera->x)
-		pixel_x = (pos_x - game->camera->x) * TILE_SIZE 
+		pixel_x = (pos_x - game->camera->x) * TILE_SIZE
 			+ 48 - (game->textures->enemy_up_1_width) / 2;
 	else
 		return (0);
@@ -54,14 +54,16 @@ void	check_enemy_number(t_game *game, int pos_y, int pos_x, int animation)
 
 void	draw_enemy(t_game *game, int direction, int animation, int *coordinates)
 {
-	ft_printf("Inside draw enemy, enemy coordinates are: %d %d\n", coordinates[0], coordinates[1]);
-	ft_printf("Direction is %d\n", direction);
 	if (direction == 1)
-		choose_enemy_up_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
+		choose_enemy_up_1_2_3_4(game,
+			animation, coordinates[0], coordinates[1]);
 	if (direction == 2)
-		choose_enemy_down_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
+		choose_enemy_down_1_2_3_4(game,
+			animation, coordinates[0], coordinates[1]);
 	if (direction == 3)
-		choose_enemy_left_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
+		choose_enemy_left_1_2_3_4(game,
+			animation, coordinates[0], coordinates[1]);
 	if (direction == 4)
-		choose_enemy_right_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
+		choose_enemy_right_1_2_3_4(game,
+			animation, coordinates[0], coordinates[1]);
 }

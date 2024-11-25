@@ -16,22 +16,26 @@ static void	free_collectible_animation(t_game *game)
 {
 	if (game->textures->collectible_image)
 	{
-		mlx_destroy_image(game->window->mlx, game->textures->collectible_image);
+		mlx_destroy_image(game->window->mlx,
+			game->textures->collectible_image);
 		game->textures->collectible_image = NULL;
 	}
 	if (game->textures->collectible_animation_1)
 	{
-		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_1);
+		mlx_destroy_image(game->window->mlx,
+			game->textures->collectible_animation_1);
 		game->textures->collectible_animation_1 = NULL;
 	}
 	if (game->textures->collectible_animation_2)
 	{
-		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_2);
+		mlx_destroy_image(game->window->mlx,
+			game->textures->collectible_animation_2);
 		game->textures->collectible_animation_2 = NULL;
 	}
 	if (game->textures->collectible_animation_3)
 	{
-		mlx_destroy_image(game->window->mlx, game->textures->collectible_animation_3);
+		mlx_destroy_image(game->window->mlx,
+			game->textures->collectible_animation_3);
 		game->textures->collectible_animation_3 = NULL;
 	}
 	clean_more_collectible_animation(game);
@@ -74,10 +78,10 @@ static void	free_player(t_game *game)
 
 void	free_textures(t_game *game)
 {
-	clean_some_floors(game);
-	clean_floors(game);
-	clean_more_floors(game);
-	clean_even_more_floors(game);
+	clean_some_floors(game, game->textures);
+	clean_floors(game, game->textures);
+	clean_more_floors(game, game->textures);
+	clean_even_more_floors(game, game->textures);
 	free_collectible_animation(game);
 	free_exit(game);
 	if (game->textures->wall_top_img)
@@ -91,7 +95,7 @@ void	free_textures(t_game *game)
 	game->textures = NULL;
 }
 
-int clean_exit(t_game *game)
+int	clean_exit(t_game *game)
 {
 	if (!game)
 		exit(1);

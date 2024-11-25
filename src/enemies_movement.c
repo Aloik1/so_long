@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/25 02:28:04 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 03:15:51 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	determine_enemy(t_enemies *enemies, int i, int j)
 	return (0);
 }
 
-void	update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int *coordinates)
+void	update_enemies_position(t_game *game, t_enemies *enemies,
+		int enemy_number, int *coordinates)
 {
 	if (enemy_number == 1)
 		update_enemy_1(game, enemies, coordinates[0], coordinates[1]);
@@ -56,7 +57,7 @@ void	enemies_movement(t_game *game, t_enemies *enemies, int *updated)
 	int	i;
 	int	j;
 	int	*params;
-	
+
 	params = malloc(sizeof(int) * 2);
 	i = 0;
 	while (i < game->map->rows)

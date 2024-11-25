@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 23:23:46 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/22 00:11:23 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 03:33:07 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	final_checks(t_game *game)
 	if (game->enemies->number_of_enemies == 5)
 	{
 		if ((game->enemies->enemy_1_y == game->player->position.y
-		&& game->enemies->enemy_1_x == game->player->position.x)
-		|| (game->enemies->enemy_2_y == game->player->position.y
-		&& game->enemies->enemy_2_x == game->player->position.x)
-		|| (game->enemies->enemy_3_y == game->player->position.y
-		&& game->enemies->enemy_3_x == game->player->position.x)
-		|| (game->enemies->enemy_4_y == game->player->position.y
-		&& game->enemies->enemy_4_x == game->player->position.x)
-		|| (game->enemies->enemy_5_y == game->player->position.y
-		&& game->enemies->enemy_5_x == game->player->position.x))
+				&& game->enemies->enemy_1_x == game->player->position.x)
+			|| (game->enemies->enemy_2_y == game->player->position.y
+				&& game->enemies->enemy_2_x == game->player->position.x)
+			|| (game->enemies->enemy_3_y == game->player->position.y
+				&& game->enemies->enemy_3_x == game->player->position.x)
+			|| (game->enemies->enemy_4_y == game->player->position.y
+				&& game->enemies->enemy_4_x == game->player->position.x)
+			|| (game->enemies->enemy_5_y == game->player->position.y
+				&& game->enemies->enemy_5_x == game->player->position.x))
 		{
 			ft_printf("You lose!\n");
 			clean_exit(game);
@@ -38,13 +38,13 @@ static void	even_more_checks(t_game *game)
 	if (game->enemies->number_of_enemies == 4)
 	{
 		if ((game->enemies->enemy_1_y == game->player->position.y
-		&& game->enemies->enemy_1_x == game->player->position.x)
-		|| (game->enemies->enemy_2_y == game->player->position.y
-		&& game->enemies->enemy_2_x == game->player->position.x)
-		|| (game->enemies->enemy_3_y == game->player->position.y
-		&& game->enemies->enemy_3_x == game->player->position.x)
-		|| (game->enemies->enemy_4_y == game->player->position.y
-		&& game->enemies->enemy_4_x == game->player->position.x))
+				&& game->enemies->enemy_1_x == game->player->position.x)
+			|| (game->enemies->enemy_2_y == game->player->position.y
+				&& game->enemies->enemy_2_x == game->player->position.x)
+			|| (game->enemies->enemy_3_y == game->player->position.y
+				&& game->enemies->enemy_3_x == game->player->position.x)
+			|| (game->enemies->enemy_4_y == game->player->position.y
+				&& game->enemies->enemy_4_x == game->player->position.x))
 		{
 			ft_printf("You lose!\n");
 			clean_exit(game);
@@ -58,11 +58,11 @@ static void	more_checks(t_game *game)
 	if (game->enemies->number_of_enemies == 3)
 	{
 		if ((game->enemies->enemy_1_y == game->player->position.y
-		&& game->enemies->enemy_1_x == game->player->position.x)
-		|| (game->enemies->enemy_2_y == game->player->position.y
-		&& game->enemies->enemy_2_x == game->player->position.x)
-		|| (game->enemies->enemy_3_y == game->player->position.y
-		&& game->enemies->enemy_3_x == game->player->position.x))
+				&& game->enemies->enemy_1_x == game->player->position.x)
+			|| (game->enemies->enemy_2_y == game->player->position.y
+				&& game->enemies->enemy_2_x == game->player->position.x)
+			|| (game->enemies->enemy_3_y == game->player->position.y
+				&& game->enemies->enemy_3_x == game->player->position.x))
 		{
 			ft_printf("You lose!\n");
 			clean_exit(game);
@@ -76,7 +76,7 @@ void	check_collision(t_game *game)
 	if (game->enemies->number_of_enemies == 1)
 	{
 		if (game->enemies->enemy_1_y == game->player->position.y
-		&& game->enemies->enemy_1_x == game->player->position.x)
+			&& game->enemies->enemy_1_x == game->player->position.x)
 		{
 			ft_printf("You lose!\n");
 			clean_exit(game);
@@ -85,9 +85,9 @@ void	check_collision(t_game *game)
 	if (game->enemies->number_of_enemies == 2)
 	{
 		if ((game->enemies->enemy_1_y == game->player->position.y
-		&& game->enemies->enemy_1_x == game->player->position.x)
-		|| (game->enemies->enemy_2_y == game->player->position.y
-		&& game->enemies->enemy_2_x == game->player->position.x))
+				&& game->enemies->enemy_1_x == game->player->position.x)
+			|| (game->enemies->enemy_2_y == game->player->position.y
+				&& game->enemies->enemy_2_x == game->player->position.x))
 		{
 			ft_printf("You lose!\n");
 			clean_exit(game);

@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:11:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/25 02:28:53 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 02:32:32 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,20 @@ static int	one_free_space(t_game *game, int pos_y, int pos_x, int direction)
 	return (direction);
 }
 
-int	generate_direction(t_game *game, int free_spaces, int *coordinates, int direction)
+int	generate_direction(t_game *game, int free_spaces,
+		int *coordinates, int direction)
 {
 	if (free_spaces == 4)
-		direction = four_free_spaces(game, coordinates[0], coordinates[1], direction);
+		direction = four_free_spaces(game,
+				coordinates[0], coordinates[1], direction);
 	if (free_spaces == 3)
-		direction = three_free_spaces(game, coordinates[0], coordinates[1], direction);
+		direction = three_free_spaces(game,
+				coordinates[0], coordinates[1], direction);
 	if (free_spaces == 2)
-		direction = two_free_spaces(game, coordinates[0], coordinates[1], direction);
+		direction = two_free_spaces(game,
+				coordinates[0], coordinates[1], direction);
 	if (free_spaces == 1)
-		direction = one_free_space(game, coordinates[0], coordinates[1], direction);
+		direction = one_free_space(game,
+				coordinates[0], coordinates[1], direction);
 	return (direction);
 }

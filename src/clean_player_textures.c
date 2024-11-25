@@ -6,11 +6,11 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 19:13:45 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/20 19:15:21 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 02:49:59 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"\
+#include "../includes/so_long.h"
 
 void	clean_player_textures(t_game *game)
 {

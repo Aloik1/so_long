@@ -15,7 +15,7 @@
 void	redraw_everything(t_game *game, t_textures *textures, int moves)
 {
 	int	*updated;
-	
+
 	updated = malloc(sizeof(int) * 5);
 	updated[0] = 0;
 	updated[1] = 0;

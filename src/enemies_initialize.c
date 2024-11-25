@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:08:16 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/25 02:30:36 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 03:02:51 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 static int	more_enemies_textures(t_textures *textures, void *mlx)
 {
-	textures->enemy_down_2 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_down_2.xpm", 
-		&textures->enemy_down_2_width, &textures->enemy_down_2_height);
+	textures->enemy_down_2 = mlx_xpm_file_to_image(mlx,
+			"assets/textures/enemies/enemy_down_2.xpm",
+			&textures->enemy_down_2_width,
+			&textures->enemy_down_2_height);
 	if (!textures->enemy_down_2)
 		return (0);
-	textures->enemy_down_3 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_down_3.xpm", 
-		&textures->enemy_down_3_width, &textures->enemy_down_3_height);
+	textures->enemy_down_3 = mlx_xpm_file_to_image(mlx,
+			"assets/textures/enemies/enemy_down_3.xpm",
+			&textures->enemy_down_3_width,
+			&textures->enemy_down_3_height);
 	if (!textures->enemy_down_3)
 		return (0);
-	textures->enemy_left_1 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_left_1.xpm", 
-		&textures->enemy_left_1_width, &textures->enemy_left_1_height);
+	textures->enemy_left_1 = mlx_xpm_file_to_image(mlx,
+			"assets/textures/enemies/enemy_left_1.xpm",
+			&textures->enemy_left_1_width,
+			&textures->enemy_left_1_height);
 	if (!textures->enemy_left_1)
-		return (0);
-	textures->enemy_left_2 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_left_2.xpm", 
-		&textures->enemy_left_2_width, &textures->enemy_left_2_height);
-	if (!textures->enemy_left_2)
 		return (0);
 	if (!even_more_enemies_textures(textures, mlx))
 		return (0);
@@ -37,32 +39,32 @@ static int	more_enemies_textures(t_textures *textures, void *mlx)
 
 static int	enemies_textures_init(t_textures *textures, void *mlx)
 {
-	textures->enemy_base = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_down.xpm", 
-		&textures->enemy_base_width, &textures->enemy_base_height);
+	textures->enemy_base = mlx_xpm_file_to_image(mlx,
+			"assets/textures/enemies/enemy_down.xpm",
+			&textures->enemy_base_width,
+			&textures->enemy_base_height);
 	if (!textures->enemy_base)
 		return (0);
-	textures->enemy_up_1 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_up_1.xpm", 
-		&textures->enemy_up_1_width, &textures->enemy_up_1_height);
+	textures->enemy_up_1 = mlx_xpm_file_to_image(mlx,
+			"assets/textures/enemies/enemy_up_1.xpm",
+			&textures->enemy_up_1_width, &textures->enemy_up_1_height);
 	if (!textures->enemy_up_1)
 		return (0);
-	textures->enemy_up_2 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_up_2.xpm", 
-		&textures->enemy_up_2_width, &textures->enemy_up_2_height);
+	textures->enemy_up_2 = mlx_xpm_file_to_image(mlx,
+			"assets/textures/enemies/enemy_up_2.xpm",
+			&textures->enemy_up_2_width,
+			&textures->enemy_up_2_height);
 	if (!textures->enemy_up_2)
 		return (0);
-	textures->enemy_up_3 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_up_3.xpm", 
-		&textures->enemy_up_3_width, &textures->enemy_up_3_height);
-	if (!textures->enemy_up_3)
-		return (0);
-	textures->enemy_down_1 = mlx_xpm_file_to_image(mlx, "assets/textures/enemies/enemy_down_1.xpm", 
-		&textures->enemy_down_1_width, &textures->enemy_down_1_height);
-	if (!textures->enemy_down_1)
+	if (!extra_enemies_textures(textures, mlx))
 		return (0);
 	if (!more_enemies_textures(textures, mlx))
 		return (0);
 	return (1);
 }
 
-static void	enemies_init_positions(t_game *game, t_map *map, int number_of_enemies)
+static void	enemies_init_positions(t_game *game,
+	t_map *map, int number_of_enemies)
 {
 	int	i;
 	int	j;

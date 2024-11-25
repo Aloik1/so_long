@@ -309,7 +309,7 @@ int			texture_initialize(t_game *game, void *mlx);
 void			*choose_floor(t_game *game, int j, int i);
 void			aux_map_creation(t_game *game);
 int			player_texture_initialize(t_game *game, void *mlx);
-void			*choose_player_texture(t_game *game);
+void			*choose_player_texture(t_game *game, t_movement *movement);
 void			more_collectible_textures(t_textures *textures, t_map *map);
 int			collectible_textures_initialize(t_game *game, void *mlx);
 void			*texture_chooser(t_game *game, int i, int j);
@@ -320,10 +320,10 @@ int			memory_check_grid(t_map *map);
 int			memory_check_fd(int fd);
 int			memory_check_map(t_map *map);
 void			clean_more_collectible_animation(t_game *game);
-void			clean_more_floors(t_game *game);
-void			clean_even_more_floors(t_game *game);
-void			clean_some_floors(t_game *game);
-void			clean_floors(t_game *game);
+void			clean_more_floors(t_game *game, t_textures *textures);
+void			clean_even_more_floors(t_game *game, t_textures *textures);
+void			clean_some_floors(t_game *game, t_textures *textures);
+void			clean_floors(t_game *game, t_textures *textures);
 void			clean_player_textures(t_game *game);
 void			clean_more_player_textures(t_game *game);
 void			cilit_bang(t_game *game);
@@ -376,6 +376,7 @@ int			initial_player_textures(t_game *game, void *mlx);
 void			draw_collectible(t_game *game, int i, int j, t_window *window);
 void			check_collectible_line(t_map *map, char *line);
 int			four_free_spaces_3_4(t_game *game, int pos_y, int pos_x, int i);
+int			extra_enemies_textures(t_textures *textures, void *mlx);
 
 
 #endif
