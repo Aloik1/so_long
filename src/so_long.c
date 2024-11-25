@@ -17,17 +17,18 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 {
 	if (!game->player || !game || !game->window)
 	{
-		ft_printerror("Could not allocate memory\n");
+		ft_printerror("Could not allocate memory");
 		return (0);
 	}
 	if (!basic_check(argc, argv))
 	{
-		clean_exit(game);
+		ft_printerror("Failed basic checks");
 		return (0);
 	}
 	if (!read_map(argv[1], game))
 	{
-		clean_exit(game);
+		ft_printerror("Couldn't read map");
+		exit(0);
 		return (0);
 	}
 	if (!path_checks(game))

@@ -56,25 +56,25 @@ static int	initialize_more_images(t_game *game, void *mlx)
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_animation_3)
-		return (0);
+		exit(0);
 	game->textures->collectible_animation_4 = mlx_xpm_file_to_image(mlx,
 			"assets/textures/collectibles/collectible_4.xpm",
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_animation_4)
-		return (0);
+		exit(0);
 	game->textures->collectible_animation_5 = mlx_xpm_file_to_image(mlx,
 			"assets/textures/collectibles/collectible_5.xpm",
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_animation_5)
-		return (0);
+		exit(0);
 	game->textures->collectible_destroyed = mlx_xpm_file_to_image(mlx,
 			"assets/textures/collectibles/collectible_destroyed.xpm",
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_destroyed)
-		return (0);
+		exit(0);
 	return (1);
 }
 
@@ -85,19 +85,19 @@ static int	initialize_images(t_game *game, void *mlx)
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_image)
-		return (0);
+		exit(0);
 	game->textures->collectible_animation_1 = mlx_xpm_file_to_image(mlx,
 			"assets/textures/collectibles/collectible_1.xpm",
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_animation_1)
-		return (0);
+		exit(0);
 	game->textures->collectible_animation_2 = mlx_xpm_file_to_image(mlx,
 			"assets/textures/collectibles/collectible_2.xpm",
 			&game->textures->collectible_1_width,
 			&game->textures->collectible_1_height);
 	if (!game->textures->collectible_animation_2)
-		return (0);
+		exit(0);
 	if (!initialize_more_images(game, mlx))
 		return (0);
 	return (1);

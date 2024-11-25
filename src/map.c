@@ -47,6 +47,8 @@ static int	count_elements(t_map *map, int fd, char *line)
 
 	i = 0;
 	line = get_next_line(fd);
+	if (!line)
+		return (0);
 	while (line)
 	{
 		if (line[ft_strlen(line) - 1] == '\n')
@@ -69,6 +71,8 @@ static int	map_reader(t_map *map, int fd, char *line)
 	int		i;
 
 	i = count_elements(map, fd, line);
+	if (i == 0)
+		return (0);
 	map->map_grid[i] = NULL;
 	map->rows = i;
 	map->cols = ft_strlen(map->map_grid[0]);

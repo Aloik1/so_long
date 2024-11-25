@@ -111,9 +111,10 @@ int	clean_exit(t_game *game)
 		free(game->camera);
 	if (game->enemies)
 		free(game->enemies);
-	cilit_bang(game);
+	if (game->window)
+		cilit_bang(game);
 	free(game);
 	game = NULL;
-	exit(0);
+	exit(1);
 	return (0);
 }
