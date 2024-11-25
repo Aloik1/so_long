@@ -89,7 +89,7 @@ t_player_position	return_null_player(void)
 	return (player_position);
 }
 
-t_collectible_position	return_null_and_free_collectibles(
+t_collectible_position	return_null_collectibles(
 		t_collectible_position collectibles)
 {
 	int	i;
