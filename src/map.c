@@ -60,6 +60,10 @@ static int	count_elements(t_map *map, int fd, char *line)
 			map->exits++;
 		if (ft_strchr(line, 'P'))
 			map->players++;
+		if (line[i] != '0' && line[i] != '1'
+			&& line[i] != 'C' && line[i] != 'E'
+			&& line[i] != 'P' && line[i] != '\0')
+			return (0);
 		line = get_next_line(fd);
 		i++;
 	}

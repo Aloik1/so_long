@@ -27,13 +27,13 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 	}
 	if (!read_map(argv[1], game))
 	{
-		ft_printerror("Couldn't read map");
+		ft_printerror("Couldn't read map or found invalid characters");
 		exit(0);
 		return (0);
 	}
 	if (!path_checks(game))
 	{
-		ft_printerror("Invalid path, can't reach all collectibles or exit\n");
+		ft_printerror("Invalid path, can't reach all collectibles or exit");
 		clean_exit(game);
 		return (0);
 	}
