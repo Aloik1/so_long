@@ -335,8 +335,8 @@ int			draw_enemies(t_game *game, t_camera *camera, t_window *window);
 void			free_enemies(t_game *game);
 void			enemies_movement(t_game *game, t_enemies *enemies, int *updated);
 int			update_enemy(t_game *game, int pos_y, int pos_x);
-int			generate_direction(t_game *game, int free_spaces, int pos_y, int pos_x, int direction);
-void			draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x);
+int			generate_direction(t_game *game, int free_spaces, int *coordinates, int direction);
+void			draw_enemy(t_game *game, int direction, int animation, int *coordinates);
 int			determine_enemy(t_enemies *enemies, int i, int j);
 void			check_collision(t_game *game);
 void			draw_info(t_game *game, int moves);
@@ -360,10 +360,10 @@ int			choose_enemy_3(t_game *game, t_enemies *enemies, int *params, int updated_
 int			choose_enemy_4(t_game *game, t_enemies *enemies, int *params, int updated_4);
 int			choose_enemy_5(t_game *game, t_enemies *enemies, int *params, int updated_5);
 void			update_enemies_position(t_game *game, t_enemies *enemies, int enemy_number, int *coordinates);
-int			three_free_spaces_1(t_game *game, int pos_x, int pos_y, int direction);
-int			three_free_spaces_2(t_game *game, int pos_x, int pos_y, int direction);
-int			three_free_spaces_3(t_game *game, int pos_x, int pos_y, int direction);
-int			three_free_spaces_4(t_game *game, int pos_x, int pos_y, int direction);
+int			three_free_spaces_1(t_game *game, int pos_x, int pos_y);
+int			three_free_spaces_2(t_game *game, int pos_x, int pos_y);
+int			three_free_spaces_3(t_game *game, int pos_x, int pos_y);
+int			three_free_spaces_4(t_game *game, int pos_x, int pos_y);
 void			assign_positions(t_game *game, int enemy_number, int pos_y, int pos_x);
 int			two_free_spaces_0(t_game *game, int pos_y, int pos_x, int direction);
 int			two_free_spaces_1(t_game *game, int pos_y, int pos_x, int direction);
@@ -373,9 +373,9 @@ int			two_free_spaces_4(t_game *game, int pos_y, int pos_x, int direction);
 int			even_more_enemies_textures(t_textures *textures, void *mlx);
 int			even_even_more_floors(t_textures *textures, void *mlx);
 int			initial_player_textures(t_game *game, void *mlx);
-void		draw_collectible(t_game *game, int i, int j, t_window *window);
-void		check_collectible_line(t_map *map, char *line);
-//int			one_free_space_3(int i, int pos_x, int pos_y, int direction)
+void			draw_collectible(t_game *game, int i, int j, t_window *window);
+void			check_collectible_line(t_map *map, char *line);
+int			four_free_spaces_3_4(t_game *game, int pos_y, int pos_x, int i);
 
 
 #endif

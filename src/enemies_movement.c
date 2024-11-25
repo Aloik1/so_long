@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:29:18 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/25 00:33:33 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 02:28:04 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void	enemies_movement(t_game *game, t_enemies *enemies, int *updated)
 		}
 		i++;
 	}
-	free (params);
+	free(params);
 	free(updated);
 }

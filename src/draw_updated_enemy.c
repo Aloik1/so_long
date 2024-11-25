@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:24:26 by aloiki            #+#    #+#             */
-/*   Updated: 2024/11/23 16:53:01 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/11/25 02:20:43 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,16 @@ void	check_enemy_number(t_game *game, int pos_y, int pos_x, int animation)
 		game->textures->animation_5 = animation;
 }
 
-void	draw_enemy(t_game *game, int direction, int animation, int pos_y, int pos_x)
+void	draw_enemy(t_game *game, int direction, int animation, int *coordinates)
 {
+	ft_printf("Inside draw enemy, enemy coordinates are: %d %d\n", coordinates[0], coordinates[1]);
+	ft_printf("Direction is %d\n", direction);
 	if (direction == 1)
-		choose_enemy_up_1_2_3_4(game, animation, pos_y, pos_x);
+		choose_enemy_up_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
 	if (direction == 2)
-		choose_enemy_down_1_2_3_4(game, animation, pos_y, pos_x);
+		choose_enemy_down_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
 	if (direction == 3)
-		choose_enemy_left_1_2_3_4(game, animation, pos_y, pos_x);
+		choose_enemy_left_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
 	if (direction == 4)
-		choose_enemy_right_1_2_3_4(game, animation, pos_y, pos_x);
+		choose_enemy_right_1_2_3_4(game, animation, coordinates[0], coordinates[1]);
 }
