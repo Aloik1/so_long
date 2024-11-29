@@ -81,9 +81,10 @@ static int	map_reader(t_map *map, int fd, char *line)
 	map->rows = i;
 	map->cols = ft_strlen(map->map_grid[0]);
 	if (map->rows == 0 || map->cols == 0 || map->collectibles == 0
-		|| map->exits == 0 || map->players == 0)
+		|| map->exits == 0 || map->players == 0
+		|| map->exits > 1 || map->players > 1)
 	{
-		ft_printerror("Error: Invalid map\n");
+		ft_printerror("Invalid map\n");
 		free_map(map);
 		return (1);
 	}

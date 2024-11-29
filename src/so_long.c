@@ -27,7 +27,7 @@ static int	initial_checks(int argc, char **argv, t_game *game)
 	}
 	if (!read_map(argv[1], game))
 	{
-		ft_printerror("Couldn't read map or found invalid characters");
+		ft_printerror("Invalid characters or format");
 		exit(0);
 		return (0);
 	}
