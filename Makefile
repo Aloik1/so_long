@@ -1,6 +1,6 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror ##-g3 -fsanitize=address
 MINILIBX_FLAGS = -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm
 INCLUDES = -I./includes
 
